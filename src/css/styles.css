@@ -4,7 +4,7 @@
 
 :root {
     --barons-black: #000;
-    --barons-gold: #f0d020;
+    --barons-gold: rgb(245, 205, 99);
     --barons-gold-alt: #dfa520;
 }
 
@@ -13,10 +13,41 @@
     padding: 0;
     list-style-type: none;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
 }
 
 /*-- start header styles -----------------------------------------------------------------------------*/
 
+#top-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--barons-gold);
+    color: #fff;
+    min-height: 24px;
+    height: 4.5vh;
+    width: 100vw;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5rem;
+    word-spacing: 0.75rem;
+}
+
+.top-header-line {
+    width: 39%;
+    border: 1.5px solid #fff;
+}
+
+#top-header h2 {
+    padding-left: 6px;
+}
 
 /*-- end header styles -------------------------------------------------------------------------------*/
 
