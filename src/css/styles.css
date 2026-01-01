@@ -4,8 +4,9 @@
 
 :root {
     --barons-black: #000;
-    --barons-gold: rgb(245, 205, 99);
-    --barons-gold-alt: #dfa520;
+    --barons-black-alt: #1b1818;
+    --barons-gold: rgb(217, 177, 77);
+    --barons-gold-alt: rgb(248, 188, 88);
 }
 
 * {
@@ -19,19 +20,23 @@
 body {
     height: 100vh;
     width: 100vw;
+    background-color: var(--barons-black-alt);
+    color: #fff;
 }
 
-/*-- start header styles -----------------------------------------------------------------------------*/
+/*-- start top header styles -------------------------------------------------------------------------*/
 
 #top-header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--barons-gold);
-    color: #fff;
+
+    background: linear-gradient(var(--barons-gold) 30%, var(--barons-gold-alt));
+    color: #000;
     min-height: 24px;
     height: 4.5vh;
+    max-height: 70px;
     width: 100vw;
     overflow: hidden;
     font-size: 12px;
@@ -42,14 +47,37 @@ body {
 
 .top-header-line {
     width: 39%;
-    border: 1.5px solid #fff;
+    border: 1.5px solid #000;
 }
 
 #top-header h2 {
     padding-left: 6px;
 }
 
-/*-- end header styles -------------------------------------------------------------------------------*/
+/*-- end top header styles ---------------------------------------------------------------------------*/
+
+/*-- start partners header styles --------------------------------------------------------------------*/
+
+#partners-header {
+    height: 10vh;
+    width: 100vw;
+    background-color: var(--barons-black-alt);
+}
+
+/*-- end partners header styles ----------------------------------------------------------------------*/
+
+/*-- start main header styles ------------------------------------------------------------------------*/
+
+header {
+    background: var(--barons-black);
+}
+
+#header-logo {
+    height: 140px;
+    padding: 20px 60px;
+}
+
+/*-- end main header styles --------------------------------------------------------------------------*/
 
 /*====================================================================================================*/
 /* END ROOT STYLES */
