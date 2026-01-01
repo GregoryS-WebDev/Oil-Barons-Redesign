@@ -1,0 +1,12 @@
+:root {
+    --barons-black: #000;
+    --barons-gold: #f0d020;
+    --barons-gold-alt: #dfa520;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+}
