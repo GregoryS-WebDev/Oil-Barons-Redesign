@@ -31,7 +31,6 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-
     background: linear-gradient(var(--barons-gold) 30%, var(--barons-gold-alt));
     color: #000;
     min-height: 24px;
@@ -46,7 +45,7 @@ body {
 }
 
 .top-header-line {
-    width: 39%;
+    width: 36vw;
     border: 1.5px solid #000;
 }
 
@@ -59,9 +58,24 @@ body {
 /*-- start partners header styles --------------------------------------------------------------------*/
 
 #partners-header {
-    height: 10vh;
+    height: 8vh;
     width: 100vw;
     background-color: var(--barons-black-alt);
+    color: var(--barons-gold);
+    font-size: 1.2rem;
+    padding: 0 60px;
+}
+
+.header-partners-div {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-partner-logo {
+    
 }
 
 /*-- end partners header styles ----------------------------------------------------------------------*/
@@ -78,6 +92,10 @@ header {
 }
 
 /*-- end main header styles --------------------------------------------------------------------------*/
+
+.hidden {
+    display: none;
+}
 
 /*====================================================================================================*/
 /* END ROOT STYLES */
