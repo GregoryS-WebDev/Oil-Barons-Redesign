@@ -2,11 +2,23 @@
 /* START ROOT STYLES */
 /*====================================================================================================*/
 
+/*-- start imports -----------------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+/*-- end imports -------------------------------------------------------------------------------------*/
+
 :root {
     --barons-black: #000;
-    --barons-black-alt: #1b1818;
-    --barons-gold: rgb(217, 177, 77);
-    --barons-gold-alt: rgb(248, 188, 88);
+    --barons-gray-dark: #1b1818;
+    --barons-gray: #403c3c;
+    --barons-gray-light: #837978;
+    --barons-gold: #cdb14d;
+    --barons-gold-alt: #f8cf50;
+
+    --stylized-font-western-1: "Sancreek";
+    --stylized-font-western-2: "Rye";
+    --stylized-font-shadow: "Vast Shadow";
 }
 
 * {
@@ -20,82 +32,16 @@
 body {
     height: 100vh;
     width: 100vw;
-    background-color: var(--barons-black-alt);
+    background-color: var(--barons-gray-dark);
     color: #fff;
 }
 
-/*-- start top header styles -------------------------------------------------------------------------*/
-
-#top-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(var(--barons-gold) 30%, var(--barons-gold-alt));
-    color: #000;
-    min-height: 24px;
-    height: 4.5vh;
-    max-height: 70px;
-    width: 100vw;
-    overflow: hidden;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5rem;
-    word-spacing: 0.75rem;
-}
-
-.top-header-line {
-    width: 36vw;
-    border: 1.5px solid #000;
-}
-
-#top-header h2 {
-    padding-left: 6px;
-}
-
-/*-- end top header styles ---------------------------------------------------------------------------*/
-
-/*-- start partners header styles --------------------------------------------------------------------*/
-
-#partners-header {
-    height: 8vh;
-    width: 100vw;
-    background-color: var(--barons-black-alt);
-    color: var(--barons-gold);
-    font-size: 1.2rem;
-    padding: 0 60px;
-}
-
-.header-partners-div {
-    height: 100%;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header-partner-logo {
-    height: 50px;
-}
-
-/*-- end partners header styles ----------------------------------------------------------------------*/
-
-/*-- start main header styles ------------------------------------------------------------------------*/
-
-header {
-    background: var(--barons-black);
-}
-
-#header-logo {
-    height: 140px;
-    padding: 20px 60px;
-}
-
-/*-- end main header styles --------------------------------------------------------------------------*/
-
 .hidden {
-    display: none;
+    display: none !important;
 }
+
+/*-- start header styles -----------------------------------------------------------------------------*/
+/*-- end header styles -------------------------------------------------------------------------------*/
 
 /*====================================================================================================*/
 /* END ROOT STYLES */
