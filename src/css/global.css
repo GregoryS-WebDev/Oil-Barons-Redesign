@@ -88,19 +88,19 @@ header {
     z-index: 999;
 }
 
-#header-partners {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 70px;
-}
-
 #presented-by {
     color: var(--white);
     display: inline-block;
     font-family: var(--header-font-primary);
     font-size: 9px;
     letter-spacing: 0.1px;
+}
+
+#header-partners {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 70px;
 }
 
 .header-partner {
@@ -140,6 +140,12 @@ header.scrolled #header-partners {
     width: auto;
 }
 
+header.scrolled .partner-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 header.scrolled .header-partner {
     max-height: 32px;
     max-width: 45px;
@@ -147,14 +153,6 @@ header.scrolled .header-partner {
 
 header.scrolled #ticket-icon, header.scrolled #hamburger-menu-icon {
     display: inline-block;
-}
-
-header.scrolled #ticket-icon {
-    height: 20px;
-}
-
-header.scrolled #hamburger-menu-icon {
-    height: 18px;
 }
 
 /*-- end scrolled header styles ----------------------------------------------------------------------*/
