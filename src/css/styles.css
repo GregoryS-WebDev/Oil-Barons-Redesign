@@ -14,15 +14,15 @@
     --gold: #ffd700;
     --white: #fff;
     --barons-black: #1b1818;
+    --barons-brown: #c99f67;
+    --barons-brown-dark: #745634;
+    --barons-gold: #cdb14d;
+    --barons-gold-alt: #f8cf50;
     --barons-gray-dark: #221f1f;
     --barons-gray: #403c3c;
     --barons-gray-light: #837978;
-    --barons-gold: #cdb14d;
-    --barons-gold-alt: #f8cf50;
-    --barons-white: rgb(243, 232, 194);
-    --barons-brown: rgb(201, 159, 103);
-    --barons-brown-dark: rgb(116, 86, 52);
-    --barons-red: rgb(147, 47, 51);
+    --barons-red: #932f33;
+    --barons-white: #f3e8c2;
 
     --header-font-primary: "Oswald";
     --stylized-font-western-1: "Sancreek";
@@ -57,7 +57,7 @@ body {
 
 header {
     align-items: center;
-    background-color: var(--black);
+    background-color: var(--barons-black);
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -70,6 +70,10 @@ header {
     height: 108px;
     justify-content: space-between;
     width: 100vw;
+}
+
+#hamburger-menu-icon {
+    display: none;
 }
 
 #header-logo {
@@ -99,19 +103,25 @@ header {
 
 /*-- end header styles -------------------------------------------------------------------------------*/
 
+/*-- start scrolled header styles --------------------------------------------------------------------*/
+
+
+
+/*-- end scrolled header styles ----------------------------------------------------------------------*/
+
 /*-- start nav styles --------------------------------------------------------------------------------*/
 
 nav {
     width: 100vw;
 }
 
-#mobile-header-nav-list {
+#header-nav-list {
     align-items: baseline;
     display: flex;
     justify-content: space-evenly;
 }
 
-.mobile-nav-link {
+.nav-link {
     color: var(--barons-white);
     display: inline-block;
     font-family: var(--header-font-primary);
@@ -121,7 +131,7 @@ nav {
     text-align: center;
 }
 
-.mobile-nav-link:active {
+.nav-link:active {
     background-color: var(--barons-white);
     color: var(--black);
 }
