@@ -6,11 +6,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Sancreek&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 /*-- end imports -------------------------------------------------------------------------------------*/
 
 :root {
-    --barons-black: #000;
-    --barons-gray-dark: #1b1818;
+    --black: #000;
+    --gold: #ffd700;
+    --white: #fff;
+    --barons-black: #1b1818;
+    --barons-gray-dark: #221f1f;
     --barons-gray: #403c3c;
     --barons-gray-light: #837978;
     --barons-gold: #cdb14d;
@@ -20,24 +24,25 @@
     --barons-brown-dark: rgb(116, 86, 52);
     --barons-red: rgb(147, 47, 51);
 
+    --header-font-primary: "Oswald";
     --stylized-font-western-1: "Sancreek";
     --stylized-font-western-2: "Rye";
     --stylized-font-shadow: "Vast Shadow";
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    background-color: var(--barons-gray);
+    color: var(--barons-white);
     height: 100vh;
     width: 100vw;
-    background-color: var(--barons-gray);
-    color: #fff;
 }
 
 .hidden {
@@ -51,45 +56,45 @@ body {
 /*-- start header styles -----------------------------------------------------------------------------*/
 
 header {
-    position: fixed;
+    align-items: center;
+    background-color: var(--black);
     display: flex;
     flex-direction: column;
-    align-items: center;
+    position: fixed;
     width: 100vw;
-    background-color: var(--barons-gray-dark);
 }
 
 #top-header {
-    display: flex;
     align-items: center;
+    display: flex;
+    height: 108px;
     justify-content: space-between;
     width: 100vw;
-    height: 100px;
 }
 
 #header-logo {
     height: 80px;
-    padding-left: 10px;
+    padding-left: 14px;
     z-index: 999;
 }
 
 #header-partners {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-between;
     width: 146px;
 }
 
-#header-partners p {
+#presented-by {
+    display: inline-block;
     font-family: var(--stylized-font-western-2);
     font-size: 8px;
-    color: var(--barons-gold);
 }
 
 .header-partner {
-    max-width: 70px;
+    margin: 0 auto;
     max-height: 50px;
-    margin: 0 10px;
+    max-width: 70px;
 }
 
 /*-- end header styles -------------------------------------------------------------------------------*/
@@ -97,15 +102,28 @@ header {
 /*-- start nav styles --------------------------------------------------------------------------------*/
 
 nav {
-    height: 24px;
     width: 100vw;
-    background: linear-gradient(45deg, var(--barons-gold), var(--barons-gold-alt));
 }
 
 #mobile-header-nav-list {
-    display: flex;
     align-items: baseline;
+    display: flex;
     justify-content: space-evenly;
+}
+
+.mobile-nav-link {
+    color: var(--barons-white);
+    display: inline-block;
+    font-family: var(--header-font-primary);
+    font-weight: 400;
+    height: 100%;
+    padding: 10px 13px 11px;
+    text-align: center;
+}
+
+.mobile-nav-link:active {
+    background-color: var(--barons-white);
+    color: var(--black);
 }
 
 /*-- end nav styles ----------------------------------------------------------------------------------*/
