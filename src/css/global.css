@@ -39,8 +39,7 @@
 }
 
 body {
-    background-color: var(--barons-gray);
-    color: var(--white);
+    color: var(--barons-gold);
     height: 100vh;
     width: 100vw;
 }
@@ -55,133 +54,13 @@ body {
 
 /*-- start header styles -----------------------------------------------------------------------------*/
 
-header {
-    align-items: center;
-    background-color: var(--black);
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    width: 100vw;
-}
 
-#top-header {
-    align-items: center;
-    display: flex;
-    height: 108px;
-    justify-content: space-between;
-    width: 100vw;
-}
-
-#header-left, #header-right {
-    margin: 0 18px;
-}
-
-#header-right {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-}
-
-#header-logo {
-    height: 80px;
-    z-index: 999;
-}
-
-#presented-by {
-    color: var(--white);
-    display: inline-block;
-    font-family: var(--header-font-primary);
-    font-size: 9px;
-    letter-spacing: 0.1px;
-}
-
-#header-partners {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 70px;
-}
-
-.header-partner {
-    max-height: 50px;
-    max-width: 70px;
-}
-
-#hamburger-menu-icon, #ticket-icon {
-    display: none;
-}
 
 /*-- end header styles -------------------------------------------------------------------------------*/
 
-/*-- start scrolled header styles --------------------------------------------------------------------*/
-
-header.scrolled #header-nav-bar, header.scrolled #presented-by {
-    display: none;
-}
-
-header.scrolled #top-header {
-    height: 60px;
-}
-
-header.scrolled #header-left, header.scrolled #header-right {
-    align-items: center;
-    display: flex;
-    gap: 28px;
-    justify-content: space-between;
-}
-
-header.scrolled #header-logo {
-    height: 70px;
-    translate: -8px 12px;
-}
-
-header.scrolled #header-partners {
-    width: auto;
-}
-
-header.scrolled .partner-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-header.scrolled .header-partner {
-    max-height: 32px;
-    max-width: 45px;
-}
-
-header.scrolled #ticket-icon, header.scrolled #hamburger-menu-icon {
-    display: inline-block;
-}
-
-/*-- end scrolled header styles ----------------------------------------------------------------------*/
-
 /*-- start nav styles --------------------------------------------------------------------------------*/
 
-nav {
-    width: 100vw;
-}
 
-#header-nav-list {
-    align-items: baseline;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.nav-link {
-    display: inline-block;
-    font-family: var(--header-font-primary);
-    font-weight: 400;
-    height: 100%;
-    padding: 10px 13px 11px;
-    text-align: center;
-}
-
-.nav-link:active {
-    background-color: var(--barons-white);
-    color: var(--black);
-}
 
 /*-- end nav styles ----------------------------------------------------------------------------------*/
 
