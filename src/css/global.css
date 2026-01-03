@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@400..700&display=swap');
 /*-- end imports -------------------------------------------------------------------------------------*/
 
 :root {
@@ -24,7 +25,8 @@
     --barons-red: #932f33;
     --barons-white: #f3e8c2;
 
-    --header-font-primary: "Oswald";
+    --sans-font-1: "Oswald";
+    --sans-font-2: "Monda";
     --stylized-font-western-1: "Sancreek";
     --stylized-font-western-2: "Rye";
     --stylized-font-shadow: "Vast Shadow";
@@ -38,11 +40,62 @@
     padding: 0;
 }
 
+html {
+    background-color: var(--barons-black);
+}
+
 body {
     color: var(--barons-gold);
     height: 100vh;
     width: 100vw;
 }
+
+/*-- start header styles -----------------------------------------------------------------------------*/
+
+header {
+    align-items: center;
+    background-color: var(--barons-black);
+    border-bottom: 3px solid var(--barons-gold);
+    display: flex;
+    height: 70px;
+    justify-content: space-between;
+    padding: 18px;
+    position: fixed;
+    width: 100vw;
+    z-index: 999;
+}
+
+#oil-barons-header-logo {
+    height: 80px;
+    margin: 28px 0 0 -10px;
+}
+
+#mobile-header-icons {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    width: 80px;
+}
+
+#tickets-btn {
+    height: 20px;
+    margin-top: 0.5px;
+}
+
+#menu-btn {
+    height: 18px;
+}
+
+/*-- end header styles -------------------------------------------------------------------------------*/
+
+/*-- start nav styles --------------------------------------------------------------------------------*/
+
+
+
+/*-- end nav styles ----------------------------------------------------------------------------------*/
+
+/*-- TEMPORARY STYLES --*/
 
 .hidden {
     display: none !important;
@@ -52,17 +105,25 @@ body {
     display: inline-block !important;
 }
 
-/*-- start header styles -----------------------------------------------------------------------------*/
+main {
+    height: 500vh;
+    width: 100vw;
+}
 
+#temp-hero-bg {
+    filter: brightness(60%) sepia(0.4);
+    margin-top: 60px;
+    position: absolute;
+    width: 100vw;
+    z-index: -1;
+}
 
+#hero-txt-img {
+    width: 80%;
+    margin: 105px 10% 0;
+}
 
-/*-- end header styles -------------------------------------------------------------------------------*/
-
-/*-- start nav styles --------------------------------------------------------------------------------*/
-
-
-
-/*-- end nav styles ----------------------------------------------------------------------------------*/
+/*-- TEMPORARY STYLES --*/
 
 /*====================================================================================================*/
 /* END ROOT STYLES */
