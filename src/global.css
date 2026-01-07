@@ -61,12 +61,21 @@ h2 {
     letter-spacing: 0.5px;
 }
 
+.hidden {
+    display: none;
+}
+
+*:active {
+    -webkit-tap-highlight-color: transparent;
+}
+
 /*-- start header styles -----------------------------------------------------------------------------*/
 
 header {
     align-items: center;
     background-color: var(--barons-black);
     border-bottom: 3px solid var(--barons-gold);
+    box-shadow: 0 0 5px 1.5px var(--black);
     display: flex;
     height: 70px;
     justify-content: space-between;
@@ -97,18 +106,169 @@ header {
 
 #tickets-btn {
     height: 20px;
-    margin-top: 0.5px;
-}
-
-#menu-btn {
-    height: 18px;
+    margin-top: 2px;
 }
 
 /*-- end header styles -------------------------------------------------------------------------------*/
 
 /*-- start nav styles --------------------------------------------------------------------------------*/
 
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+    position: relative;
+    width: 26px;
+}
 
+.hamburger, .hamburger::before, .hamburger::after {
+    background: var(--white);
+    content: '';
+    display: block;
+    height: 2px;
+    position: absolute;
+    transition: all 0.3s ease;
+    width: 26px;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+.menu-toggle.is-active .hamburger {
+    background: transparent;
+}
+
+.menu-toggle.is-active .hamburger::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+#mobile-nav {
+    padding-top: 70px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#mobile-nav.is-open ~ footer .footer-nav-link {
+    visibility: hidden;
+    opacity: 0%;
+    transition: all 0.3s ease;
+}
+
+#nav-primary-container {
+    visibility: hidden;
+    transform: translateX(-100%);
+    width: 35%;
+    min-width: 100px;
+    height: 100%;
+    background-color: var(--barons-black);
+    z-index: 998;
+    transition: all 0.3s ease;
+}
+
+#mobile-nav.is-open #nav-primary-container {
+    transform: translateX(0);
+    visibility: visible;
+    transition: all 0.5s ease;
+}
+
+#nav-secondary-container {
+    visibility: hidden;
+    transform: translateX(-250%);
+    width: 65%;
+    height: 100%;
+    max-width: calc(100%-100px);
+    background-color: white;
+    z-index: 997;
+    transition: all 0.25s ease-in;
+}
+
+#mobile-nav.is-open #nav-secondary-container {
+    transform: translateX(0);
+    visibility: visible;
+    transition: all 0.5s ease;
+}
+
+#nav-primary, .sub-list {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+}
+
+.primary-li, .sub-list a {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: var(--sans-font-1);
+}
+
+.primary-li {
+    font-size: 15px;
+    color: var(--white);
+    padding: 12px 16px;
+    position: relative;
+    width: 100%;
+}
+
+.active.primary-li::after {
+    content: "";
+    display: block;
+    height: 10px;
+    width: 0;
+    background-color: var(--white);
+    position: absolute;
+    top: 15px;
+    right: -5px;
+    transform: rotate(45deg);
+    opacity: 0%;
+    transition: opacity 0.3s ease-out, width 0.3s ease-out;
+}
+
+#mobile-nav.is-open .active.primary-li::after {
+    opacity: 100%;
+    width: 10px;
+    transition: opacity 0.3s ease-in, width 0.3s ease-in;
+}
+
+.sub-list {
+    display: none;
+    list-style: none;
+}
+
+.sub-list.active {
+    display: block;
+}
+
+.sub-list li {
+    border-bottom: 0.25px solid #1b181888;
+    padding: 12.5px 18px;
+    height: 45px;
+    vertical-align: middle;
+}
+
+.sub-list li:last-of-type {
+    border-bottom: none;
+}
+
+.sub-list a {
+    color: var(--barons-black);
+    font-size: 13px;
+    display: block;
+}
 
 /*-- end nav styles ----------------------------------------------------------------------------------*/
 
@@ -148,6 +308,8 @@ footer {
     font-weight: 300;
     letter-spacing: 0.3px;
     line-height: 28px;
+    visibility: visible;
+    transition: all 0.3s ease;
 }
 
 .footer-divider {
@@ -165,10 +327,13 @@ footer {
 }
 
 #copyright {
-    color: var(--grey-subtext);
     font-size: 12px;
     line-height: 18px;
     text-align: center;
+}
+
+#copyright, .privacy-terms-link, .privacy-terms-link:hover, .privacy-terms-link:active, .privacy-terms-link:visited {
+    color: var(--grey-subtext);
 }
 
 /*-- end footer styles -------------------------------------------------------------------------------*/
@@ -178,10 +343,6 @@ footer {
 
 
 /*-- TEMPORARY STYLES --*/
-
-.hidden {
-    display: none !important;
-}
 
 .inline-block {
     display: inline-block !important;

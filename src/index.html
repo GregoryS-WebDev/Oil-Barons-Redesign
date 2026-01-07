@@ -34,55 +34,67 @@
             <div id="mobile-header-icons">
 
                 <img id="tickets-btn" src="assets/images/tickets-icon-white.png" alt="" />
-                <img id="menu-btn" src="assets/images/ham-menu-white.png" alt="" />
+                
+                <button class="menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger"></span>
+                </button>
 
             </div>
 
-            <nav class="hidden">
+        </header>
 
-                <ul id="nav-list">
+        <nav id="mobile-nav">
 
-                    <a href=""><li>HOME</li></a>
-                    <a href=""><li>SCHEDULE</li></a>
-                    <a href=""><li>TICKETS</li></a>
-                    <a href=""><li>NEWS</li></a>
-                    <a href=""><li>ROSTER</li></a>
-                    <a href=""><li>SHOP</li></a>
-                    <a href=""><li>ABOUT</li></a>
-                    <a href=""><li>STADIUM</li></a>
-                    <a href=""><li>PARTNER WITH US</li></a>
-                    <a href=""><li>LEAGUE</li></a>
+            <section id="nav-primary-container">
 
-                    <ul id="nav-league-sublist">
+                <ul id="nav-primary">
 
-                        <a href=""><li>MALB</li></a>
-                        <a href=""><li>SCHEDULE</li></a>
-                        <a href=""><li>SCORES</li></a>
-                        <a href=""><li>TEAMS</li></a>
-
-                        <ul id="nav-teams-sublist">
-
-                            <!--for local semi pro teams, linking other teams helps by:
-                                - connecting with their local team
-                                - increased credibility
-                                - does not hurt national branding due to localization 
-                            -->
-                            <a href=""><li>ABILENE FLYING BISON</li></a>
-                            <a href=""><li>FT. SMITH MARSHALS</li></a>
-                            <a href=""><li>JOPLIN OUTLAWS</li></a>
-                            <a href=""><li>SHERMAN SHADOWCATS</li></a>
-                            <a href=""><li>TEXARKANA RHINOS</li></a>
-                            <a href=""><li>PINEY WOODS TIMBERHOGS</li></a>
-
-                        </ul>
-
-                    </ul>
-
+                    <li><a href="#" class="primary-li nav-tab active" data-target="oil-barons">Oil Barons</a></li>
+                    <li><a href="#" class="primary-li nav-tab" data-target="league">League</a></li>
+                    <li><a href="#" class="primary-li nav-tab" data-target="teams">Teams</a></li>
+                    <li><a href="#" class="primary-li nav-tab" data-target="more">More</a></li>
                 </ul>
 
-            </nav>
+            </section>
 
-        </header>
+            <section id="nav-secondary-container">
+
+                <ul id="oil-barons" class="sub-list active">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="custom.html">Schedule</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Roster</a></li>
+                    <li><a href="#">Tickets</a></li>
+                    <li><a href="#">Shop</a></li>
+                </ul>
+
+                <ul id="league" class="sub-list">
+                    <li><a href="https://MALBaseball.com">MALBaseball.com</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#">Standings</a></li>
+                    <li><a href="#">Stats</a></li>
+                    <li><a href="#">Play in MALB</a></li>
+                </ul>
+
+                <ul id="teams" class="sub-list">
+                    <li><a href="#">Abilene Flying Bison</a></li>
+                    <li><a href="#">Fort Smith Marshals</a></li>
+                    <li><a href="#">Joplin Outlaws</a></li>
+                    <li><a href="#">Sherman Shadowcats</a></li>
+                    <li><a href="#">Texarkana Rhinos</a></li>
+                    <li><a href="#">Piney Woods Timberhogs</a></li>
+                </ul>
+
+                <ul id="more" class="sub-list">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Stadium</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Partner With Us</a></li>
+                </ul>
+
+            </section>
+            
+        </nav>
 
         <main>
 
@@ -139,11 +151,15 @@
             <section class="footer-row" id="social-links">
                 
                 <a class="social-link" href="">
-                    <img class="social-icon" src="assets/images/instagram-icon.png" alt="" />
+                    <img class="social-icon" src="assets/images/youtube-icon.png" alt="" />
                 </a>
-                
+
                 <a class="social-link" href="">
                     <img class="social-icon" src="assets/images/x-icon.png" alt="" />
+                </a>
+
+                <a class="social-link" href="">
+                    <img class="social-icon" src="assets/images/instagram-icon.png" alt="" />
                 </a>
                 
                 <a class="social-link" href="">
@@ -158,8 +174,8 @@
 
             <p id="copyright">
                 © 2026 Beaumont Oil Barons. All Rights Reserved.<br />
-                <a href="">Privacy</a> | 
-                <a href="">Terms</a>
+                <a class="privacy-terms-link" href="">Privacy</a> | 
+                <a class="privacy-terms-link" href="">Terms</a>
             </p>
 
         </footer>
@@ -169,3 +185,59 @@
     </body>
 
 </html>
+
+<!--
+<nav class="barons-nav">
+
+            <div class="nav-container">
+
+                <ul class="nav-primary">
+                    <li><a href="/" class="direct-link">Home</a></li>
+                    <li><a href="/tickets" class="direct-link">Tickets</a></li>
+                    <li><a href="#" class="tab-link active" data-target="oil-barons">Oil Barons</a></li>
+                    <li><a href="#" class="tab-link" data-target="league">League</a></li>
+                    <li><a href="#" class="tab-link" data-target="teams">Teams</a></li>
+                    <li><a href="/shop" class="direct-link">Shop</a></li>
+                    <li><a href="#" class="tab-link" data-target="more">More</a></li>
+                </ul>
+          
+                <div class="nav-secondary">
+
+                    <ul id="oil-barons" class="sub-list active">
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Roster</a></li>
+                        <li><a href="#">Tickets</a></li>
+                        <li><a href="#">Shop</a></li>
+                    </ul>
+
+                    <ul id="league" class="sub-list">
+                        <li><a href="https://MALBaseball.com">MALBaseball.com</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Standings</a></li>
+                        <li><a href="#">Stats</a></li>
+                        <li><a href="#">Play in MALB</a></li>
+                    </ul>
+
+                    <ul id="teams" class="sub-list">
+                        <li><a href="#">Abilene Flying Bison</a></li>
+                        <li><a href="#">Fort Smith Marshals</a></li>
+                        <li><a href="#">Joplin Outlaws</a></li>
+                        <li><a href="#">Sherman Shadowcats</a></li>
+                        <li><a href="#">Texarkana Rhinos</a></li>
+                        <li><a href="#">Piney Woods Timberhogs</a></li>
+                    </ul>
+
+                    <ul id="more" class="sub-list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Stadium</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+            
+        </nav>
+-->
