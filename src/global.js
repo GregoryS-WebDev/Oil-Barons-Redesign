@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navTabs.forEach(tab => {
-        tab.addEventListener('click', (e) => {
+        tab.addEventListener('mouseenter', (e) => {
             e.preventDefault();
 
             navTabs.forEach(t => t.classList.remove('active'));

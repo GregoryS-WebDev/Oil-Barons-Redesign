@@ -18,20 +18,37 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Official website of the Beaumont Oil Barons baseball team — Pride of Southeast Texas. Get tickets, view the schedule, read news, and experience Mid-America League baseball in Beaumont.">
 
-        <link rel="stylesheet" href="global.css" />
         <link rel="icon" type="img/png" sizes="32x32" href="assets/league/logo-low-res.png" />
+        <link rel="stylesheet" href="global.css" />
+        <link rel="stylesheet" href="index.css" />
+
+        <!-- google fonts preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <!-- oswald (--sans-font-1) -->
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+        <!-- monda (--sans-font-2) -->
+        <link href="https://fonts.googleapis.com/css2?family=Monda:wght@400..700&display=swap" rel="stylesheet">
+        <!-- source code pro (--sans-font-3) -->
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+        <!-- rye (--stylized-font-western-1)-->
+        <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
+        <!-- vast shadow (--stylized-font-shadow) -->
+        <link href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap" rel="stylesheet">
 
     </head>
 
     <body>
 
-        <header>
+        <header class="flex">
 
             <a id="header-logo-link" href="index.html">
                 <img id="oil-barons-header-logo" src="assets/league/logo-low-res.png" alt="Oil Barons Logo" />
             </a>
 
-            <div id="mobile-header-icons">
+            <div class="flex" id="mobile-header-icons">
 
                 <a id="tickets-btn" href=""><img id="tickets-icon" src="assets/images/tickets-icon-white.png" alt="" /></a>
                 
@@ -43,11 +60,11 @@
 
         </header>
 
-        <nav id="mobile-nav">
+        <nav class="flex" id="mobile-nav">
 
             <section id="nav-primary-container">
 
-                <ul id="nav-primary">
+                <ul class="flex" id="nav-primary">
                     <li><a href="#" class="primary-li nav-tab active" data-target="oil-barons">Oil Barons</a></li>
                     <li><a href="#" class="primary-li nav-tab" data-target="league">League</a></li>
                     <li><a href="#" class="primary-li nav-tab" data-target="teams">Teams</a></li>
@@ -58,7 +75,7 @@
 
             <section id="nav-secondary-container">
 
-                <ul id="oil-barons" class="sub-list active">
+                <ul id="oil-barons" class="sub-list flex active">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">Tickets</a></li>
                     <li><a href="#">Schedule</a></li>
@@ -68,7 +85,7 @@
                     <li><a href="#">Shop</a></li>
                 </ul>
 
-                <ul id="league" class="sub-list">
+                <ul id="league" class="sub-list flex">
                     <li><a href="https://malbaseball.com">MALBaseball.com</a></li>
                     <li><a href="https://malbaseball.com/composite">Schedule</a></li>
                     <li><a href="https://malbaseball.com/sports/bsb/2024-25/standings">Standings</a></li>
@@ -76,7 +93,7 @@
                     <li><a href="https://malbaseball.com/general/PIMALB">Play in MALB</a></li>
                 </ul>
 
-                <ul id="teams" class="sub-list">
+                <ul id="teams" class="sub-list flex">
                     <li><a href="https://abileneflyingbison.com/">Abilene Flying Bison</a></li>
                     <li><a href="https://fortsmithmarshals.com/">Fort Smith Marshals</a></li>
                     <li><a href="https://joplinoutlaws.com/">Joplin Outlaws</a></li>
@@ -85,7 +102,7 @@
                     <li><a href="https://timberhogsbaseball.com/">Piney Woods Timberhogs</a></li>
                 </ul>
 
-                <ul id="more" class="sub-list">
+                <ul id="more" class="sub-list flex">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">Partners</a></li>
@@ -112,10 +129,9 @@
 
         </main>
 
-        <footer>
-
+        <footer class="flex">
             
-            <section class="footer-row" id="footer-branding">
+            <section class="footer-row flex" id="footer-branding">
                 
                 <a href="index.html">
                     <img src="assets/league/logo-low-res.png" height="66" alt="" />
@@ -128,7 +144,7 @@
                 </a>
             </section>
 
-            <section class="footer-row">
+            <section class="footer-row flex">
 
                 <ul class="footer-links-column">
                     <a href=""><li class="footer-nav-link">HOME</li></a>
@@ -150,7 +166,7 @@
 
             <div class="footer-divider"></div>
 
-            <section class="footer-row" id="social-links">
+            <section class="footer-row flex" id="social-links">
                 
                 <a class="social-link" href="">
                     <img class="social-icon" src="assets/images/youtube-icon.png" alt="" />
