@@ -65,8 +65,8 @@ h2 {
     display: none;
 }
 
-*:active {
-    -webkit-tap-highlight-color: transparent;
+*, *:active {
+    -webkit-tap-highlight-color: transparent !important;
 }
 
 /*-- start header styles -----------------------------------------------------------------------------*/
@@ -116,7 +116,6 @@ header {
 .menu-toggle {
     background: none;
     border: none;
-    cursor: pointer;
     height: 20px;
     position: relative;
     width: 26px;
@@ -155,53 +154,53 @@ header {
 }
 
 #mobile-nav {
-    padding-top: 70px;
-    width: 100vw;
-    height: 100vh;
     display: flex;
+    height: 100vh;
+    left: 0;
+    padding-top: 70px;
     position: fixed;
     top: 0;
-    left: 0;
+    width: 100vw;
 }
 
 #mobile-nav.is-open ~ footer .footer-nav-link {
-    visibility: hidden;
     opacity: 0%;
     transition: all 0.3s ease;
+    visibility: hidden;
 }
 
 #nav-primary-container {
-    visibility: hidden;
-    transform: translateX(-100%);
-    width: 35%;
-    min-width: 100px;
-    height: 100%;
     background-color: var(--barons-black);
-    z-index: 998;
+    height: 100%;
+    min-width: 100px;
+    transform: translateX(-100%);
     transition: all 0.3s ease;
+    visibility: hidden;
+    width: 35%;
+    z-index: 998;
 }
 
 #mobile-nav.is-open #nav-primary-container {
     transform: translateX(0);
-    visibility: visible;
     transition: all 0.5s ease;
+    visibility: visible;
 }
 
 #nav-secondary-container {
-    visibility: hidden;
-    transform: translateX(-250%);
-    width: 65%;
+    background-color: white;
     height: 100%;
     max-width: calc(100%-100px);
-    background-color: white;
-    z-index: 997;
+    transform: translateX(-250%);
     transition: all 0.25s ease-in;
+    visibility: hidden;
+    width: 65%;
+    z-index: 997;
 }
 
 #mobile-nav.is-open #nav-secondary-container {
     transform: translateX(0);
-    visibility: visible;
     transition: all 0.5s ease;
+    visibility: visible;
 }
 
 #nav-primary, .sub-list {
@@ -212,13 +211,13 @@ header {
 
 .primary-li, .sub-list a {
     display: inline-block;
-    text-transform: uppercase;
     font-family: var(--sans-font-1);
+    text-transform: uppercase;
 }
 
 .primary-li {
-    font-size: 15px;
     color: var(--white);
+    font-size: 15px;
     padding: 12px 16px;
     position: relative;
     width: 100%;
@@ -229,23 +228,23 @@ header {
 }
 
 .active.primary-li::after {
+    background-color: var(--white);
     content: "";
     display: block;
     height: 10px;
-    width: 0;
-    background-color: var(--white);
-    position: absolute;
-    top: 18px;
-    right: -5px;
-    transform: rotate(45deg);
     opacity: 0%;
+    position: absolute;
+    right: -5px;
+    top: 18px;
+    transform: rotate(45deg);
     transition: opacity 0.3s ease-out, width 0.3s ease-out;
+    width: 0;
 }
 
 #mobile-nav.is-open .active.primary-li::after {
     opacity: 100%;
-    width: 10px;
     transition: opacity 0.3s ease-in, width 0.3s ease-in;
+    width: 10px;
 }
 
 .sub-list {
@@ -259,8 +258,8 @@ header {
 
 .sub-list li {
     border-bottom: 0.25px solid #1b181888;
-    padding: 13.25px 18px;
     height: 46.5px;
+    padding: 13.25px 18px;
     vertical-align: middle;
 }
 
@@ -270,8 +269,8 @@ header {
 
 .sub-list a {
     color: var(--barons-black);
-    font-size: 13px;
     display: block;
+    font-size: 13px;
 }
 
 /*-- end nav styles ----------------------------------------------------------------------------------*/
