@@ -2,6 +2,9 @@
 /* START ROOT SCRIPTS */
 /*==============================================================================================================*/
 
+
+/*-- mobile navigation menu behavior ---------------------------------------------------------------------------*/
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('#mobile-nav');
@@ -13,13 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isOpen = menuToggle.classList.toggle('is-active');
         menu.classList.toggle('is-open');
 
-        //document.body.style.overflow = isOpen ? 'hidden' : '';
-
-        //if (isOpen) {
-        //    primaryItems.forEach((item, i) => {
-        //        item.style.transitionDelay = `${0.3 + (i * 0.05)}s`;
-        //    });
-        //}
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
     navTabs.forEach(tab => {

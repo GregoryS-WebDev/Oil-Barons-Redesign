@@ -106,7 +106,11 @@ header {
 
 #tickets-btn {
     height: 20px;
-    margin-top: 2px;
+    margin-top: 3px;
+}
+
+#tickets-icon {
+    height: 100%;
 }
 
 /*-- end header styles -------------------------------------------------------------------------------*/
@@ -160,7 +164,14 @@ header {
     padding-top: 70px;
     position: fixed;
     top: 0;
+    width: 0;
+    transition: width 0s ease;
+    transition-delay: 0.5s;
+}
+
+#mobile-nav.is-open {
     width: 100vw;
+    transition: width 0s ease;
 }
 
 #mobile-nav.is-open ~ footer .footer-nav-link {
@@ -347,13 +358,8 @@ footer {
 
 /*-- TEMPORARY STYLES --*/
 
-.inline-block {
-    display: inline-block !important;
-}
-
 main {
-    height: 500vh;
-    width: 100vw;
+    min-height: calc(43vh + 1px);
 }
 
 /*-- TEMPORARY STYLES --*/
