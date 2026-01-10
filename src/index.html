@@ -33,7 +33,7 @@
         <!-- source code pro (--sans-font-3) -->
         <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
-        <!-- rye (--stylized-font-western-1)-->
+        <!-- rye (--stylized-font-western)-->
         <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
         <!-- vast shadow (--stylized-font-shadow) -->
         <link href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap" rel="stylesheet">
@@ -44,19 +44,35 @@
 
         <header class="flex">
 
-            <a id="header-logo-link" href="index.html">
-                <img id="oil-barons-header-logo" src="assets/league/logo-low-res.png" alt="Oil Barons Logo" />
-            </a>
+            <section class="flex header-container">
 
-            <div class="flex" id="mobile-header-icons">
+                <a id="header-logo-link" href="index.html">
+                    <img id="oil-barons-header-logo" src="assets/league/logo-low-res.png" alt="Oil Barons Logo" />
+                </a>
+    
+                <div class="flex" id="mobile-header-icons">
+    
+                    <a id="tickets-btn" href="#"><img id="tickets-icon" src="assets/images/tickets-icon-white.png" alt="" /></a>
+                    
+                    <button class="menu-toggle" aria-label="Toggle Menu">
+                        <span class="hamburger"></span>
+                    </button>
+    
+                </div>
 
-                <a id="tickets-btn" href=""><img id="tickets-icon" src="assets/images/tickets-icon-white.png" alt="" /></a>
-                
-                <button class="menu-toggle" aria-label="Toggle Menu">
-                    <span class="hamburger"></span>
-                </button>
+            </section>
 
-            </div>
+            <section class="flex header-links-container">
+
+                <ul class="flex header-links">
+                    <li><a class="header-link" href="#">HOME</a></li>
+                    <li><a class="header-link" href="#">TICKETS</a></li>
+                    <li><a class="header-link" href="#">SCHEDULE</a></li>
+                    <li><a class="header-link" href="#">NEWS</a></li>
+                </ul>
+
+            </section>
+
 
         </header>
 
@@ -147,18 +163,18 @@
             <section class="footer-row flex">
 
                 <ul class="footer-links-column">
-                    <a href=""><li class="footer-nav-link">HOME</li></a>
-                    <a href=""><li class="footer-nav-link">SCHEDULE</li></a>
-                    <a href=""><li class="footer-nav-link">NEWS</li></a>
-                    <a href=""><li class="footer-nav-link">ROSTER</li></a>
-                    <a href=""><li class="footer-nav-link">STADIUM</li></a>
+                    <a href="#"><li class="footer-nav-link">HOME</li></a>
+                    <a href="#"><li class="footer-nav-link">SCHEDULE</li></a>
+                    <a href="#"><li class="footer-nav-link">NEWS</li></a>
+                    <a href="#"><li class="footer-nav-link">ROSTER</li></a>
+                    <a href="#"><li class="footer-nav-link">STADIUM</li></a>
                 </ul>
                 
                 <ul class="footer-links-column">
-                    <a href=""><li class="footer-nav-link">BUY TICKETS</li></a>
-                    <a href=""><li class="footer-nav-link">TEAM SHOP</li></a>
-                    <a href=""><li class="footer-nav-link">CONTACT US</li></a>
-                    <a href=""><li class="footer-nav-link">PARTNER WITH US</li></a>
+                    <a href="#"><li class="footer-nav-link">BUY TICKETS</li></a>
+                    <a href="#"><li class="footer-nav-link">TEAM SHOP</li></a>
+                    <a href="#"><li class="footer-nav-link">CONTACT US</li></a>
+                    <a href="#"><li class="footer-nav-link">PARTNER WITH US</li></a>
                     <a href="https://malbaseball.com/landing/index" target="_blank"><li class="footer-nav-link">MALBaseball.com</li></a>
                 </ul>
 
@@ -168,19 +184,19 @@
 
             <section class="footer-row flex" id="social-links">
                 
-                <a class="social-link" href="">
+                <a class="social-link" href="#">
                     <img class="social-icon" src="assets/images/youtube-icon.png" alt="" />
                 </a>
 
-                <a class="social-link" href="">
+                <a class="social-link" href="#">
                     <img class="social-icon" src="assets/images/x-icon.png" alt="" />
                 </a>
 
-                <a class="social-link" href="">
+                <a class="social-link" href="#">
                     <img class="social-icon" src="assets/images/instagram-icon.png" alt="" />
                 </a>
                 
-                <a class="social-link" href="">
+                <a class="social-link" href="#">
                     <img class="social-icon" src="assets/images/facebook-icon.png" alt="" />
                 </a>
                 
@@ -192,8 +208,8 @@
 
             <p id="copyright">
                 © 2026 Beaumont Oil Barons. All Rights Reserved.<br />
-                <a class="privacy-terms-link" href="">Privacy</a> | 
-                <a class="privacy-terms-link" href="">Terms</a>
+                <a class="privacy-terms-link" href="#">Privacy</a> | 
+                <a class="privacy-terms-link" href="#">Terms</a>
             </p>
 
         </footer>

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
         const isOpen = menuToggle.classList.toggle('is-active');
         menu.classList.toggle('is-open');
+        document.body.classList.toggle("nav-open");
 
         document.body.style.overflow = isOpen ? 'hidden' : '';
     });
