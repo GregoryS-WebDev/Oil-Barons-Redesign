@@ -46,6 +46,7 @@ html {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
     font-family: var(--sans-font-1);
+    color: var(--white);
 }
 
 a, button, input, select, textarea {
@@ -55,6 +56,11 @@ a, button, input, select, textarea {
 
 .flex {
     display: flex;
+}
+
+.center-middle {
+    align-items: center;
+    justify-content: center;
 }
 
 .hidden, .desktop {
