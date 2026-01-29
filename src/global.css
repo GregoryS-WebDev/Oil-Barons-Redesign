@@ -1,33 +1,62 @@
+/*====================================================================================================*/
+/* META INFORMATION */
+/*====================================================================================================*/
 
 /*
-styles for non-section elements (for example, h1, h2, h3, p) appear in UNIVERSAL STYLES
-at top of file
+
+    ** FILE STRUCTURE **
+
+    This css file is separated into logical sections, with subsection headers integrated within. The start
+    of these sections are denoted by comments such as:
+
+    /*=============================================================*/
+    /* SECTION NAME */
+    /*=============================================================*\
+
+    The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
+    Subsections have a single header comment such as:
+
+    /*-- subsection name ------------------------------------------*\
+
+
+
+    ** ORGANIZATION NOTES **
+
+    - root variables are separated into logical groups, which are then sorted alphabetically
+    - style selectors are organized by order of appearance in the related html document (universal classes notwithstanding).
+    - universal classes selectors are organized by order of specificity, from most general to most specific
+    - style properties are organized alphabetically
+
 */
 
+/* END META INFORMATION */
+
+
 /*====================================================================================================*/
-/* START UNIVERSAL STYLES */
+/* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
-    --black: #000;
-    --gold: #ffd700;
-    --white: #fff;
+
+    /*----- colors -----*/
     --barons-black: #1b1818;
-    --barons-brown: #c99f67;
+    --barons-brown-light: #c99f67;
     --barons-brown-dark: #745634;
     --barons-gold: #cdb14d;
-    --barons-gold-alt: #f8cf50;
     --barons-grey-dark: #221f1f;
     --barons-grey: #403c3c;
     --barons-grey-light: #837978;
     --barons-red: #932f33;
     --barons-white: #f3e8c2;
-    --grey-subtext: #ffffff55;
 
+    --black: #000;
+    --gold: #ffd700;
+    --white: #fff;
+
+    /*----- fonts -----*/
     --sans-font-1: "Oswald";
+    --sans-font-2: "Oxanium";
 
-    --stylized-font-western: "Rye";
-    --stylized-font-shadow: "Vast Shadow";
 }
 
 *, *::before, *::after {
@@ -43,8 +72,7 @@ at top of file
 }
 
 html {
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
+    font-size: 15px;
     font-family: var(--sans-font-1);
     color: var(--white);
 }
@@ -54,46 +82,53 @@ a, button, input, select, textarea {
     color: inherit;
 }
 
-.flex {
-    display: flex;
-}
+/* END ROOT STYLES */
 
-.center-middle {
-    align-items: center;
-    justify-content: center;
-}
 
-.hidden, .desktop {
+/*====================================================================================================*/
+/* UNIVERSAL CLASSES */
+/*====================================================================================================*/
+
+.min768px, .min1024px, .min1440px, .min2560px {
     display: none;
 }
 
-*, *:active {
-    -webkit-tap-highlight-color: transparent !important;
+.mobile-only, .max768px, .max1024px, .max1440px {
+    display: block;
 }
 
-/*-- start header styles -----------------------------------------------------------------------------*/
+/* END UNIVERSAL CLASSES */
 
+
+/*====================================================================================================*/
+/* HEADER STYLES */
+/*====================================================================================================*/
+
+/*-- top header section ------------------------------------------------------------------------------*/
 header {
     background-color: var(--barons-black);
     box-shadow: 0 0 5px 1.5px var(--black);
+    display: flex;
+    flex-direction: column;
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 100;
 }
 
 .header-wrapper {
     align-items: center;
-    border-bottom: 3px solid var(--barons-gold);
+    box-shadow: 0 0 5px 0.5px var(--black);
+    display: flex;
     height: 70px;
     justify-content: space-between;
-    padding: 18px;
+    padding: 18px 18px 18px 14px;
     width: 100%;
 }
 
 #header-logo-link {
-    height: 80px;
-    width: 81.59px;
-    margin: 28px 0 0 -10px;
+    height: 58px;
 }
 
 #oil-barons-header-logo {
@@ -103,8 +138,9 @@ header {
 
 #mobile-header-icons {
     align-items: center;
-    justify-content: flex-end;
+    display: flex;
     gap: 20px;
+    justify-content: flex-end;
     width: 80px;
 }
 
@@ -117,14 +153,49 @@ header {
     height: 100%;
 }
 
-.header-links-container {
-    display: none;
+/*-- mobile header links ----------------------------------------------------------------------------*/
+.header-links {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 13%;
 }
 
-/*-- end header styles -------------------------------------------------------------------------------*/
+.header-links li {
+    border-bottom: 0px solid var(--barons-gold);
+    padding-bottom: 7px;
+    padding-top: 7px;
+    transition: all 0.3s ease;
+}
 
-/*-- start nav styles --------------------------------------------------------------------------------*/
+.header-links li:hover, .header-links li:active {
+    border-bottom: 3px solid var(--barons-gold);
+    padding-bottom: 4px;
+    transition: all 0.3s ease;
+}
 
+.header-link {
+    color: var(--white);
+    font-family: var(--sans-font-1);
+    opacity: 100%;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    width: 100%;
+}
+
+body.nav-open .header-links li{
+    font-size: 0px;
+    padding: 0px;
+    transition: all 0.3s ease;
+}
+
+body.nav-open .header-link {
+    opacity: 0%;
+    transition: all 0.3s ease;
+    visibility: hidden;
+}
+
+/*-- hamburger icon styles ---------------------------------------------------------------------*/
 .menu-toggle {
     background: none;
     border: none;
@@ -166,20 +237,33 @@ header {
     transform: rotate(-45deg);
 }
 
+/* END HEADER STYLES */
+
+
+/*====================================================================================================*/
+/* NAVIGATION STYLES */
+/*====================================================================================================*/
+
+/*-- mobile nav container styles ---------------------------------------------------------------------*/
 #mobile-nav {
+    padding-top: 80px;
+}
+
+#mobile-nav {
+    display: flex;
     height: 100vh;
     left: 0;
     padding-top: 70px;
     position: fixed;
     top: 0;
-    width: 0;
     transition: width 0s ease;
     transition-delay: 0.5s;
+    width: 0;
 }
 
 #mobile-nav.is-open {
-    width: 100%;
     transition: width 0s ease;
+    width: 100%;
 }
 
 #mobile-nav.is-open ~ footer .footer-nav-link {
@@ -222,9 +306,19 @@ header {
     visibility: visible;
 }
 
+/*-- mobile nav list styles --------------------------------------------------------------------------*/
+.primary-li {
+    font-size: 16px;
+}
+
+.sub-list a {
+    font-size: 15px;
+}
+
 #nav-primary, .sub-list {
+    display: flex;
     flex-direction: column;
-    padding-top: 24px;
+    padding-top: 18px;
 }
 
 .primary-li, .sub-list a {
@@ -291,28 +385,36 @@ header {
     font-size: 13px;
 }
 
-/*-- end nav styles ----------------------------------------------------------------------------------*/
+/* END NAVIGATION STYLES */
 
-/*-- start footer styles -----------------------------------------------------------------------------*/
+
+/*====================================================================================================*/
+/* FOOTER STYLES */
+/*====================================================================================================*/
 
 footer {
     align-items: center;
     background-color: var(--barons-black);
+    display: flex;
     flex-direction: column;
     gap: 18px;
     padding: 15px 0;
+    width: 100%;
+
+    /*TEMP*/
+    margin-top: 400px;
+}
+
+.footer-row {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 500px;
     width: 100%;
 }
 
 #footer-header {
     font-weight: 400;
-}
-
-.footer-row {
-    align-items: center;
-    justify-content: space-evenly;
-    max-width: 500px;
-    width: 100%;
 }
 
 .footer-links-column {
@@ -321,12 +423,12 @@ footer {
 
 .footer-nav-link {
     color: var(--white);
-    opacity: 75%;
     font-family: var(--sans-font-1);
     font-size: 14px;
     font-weight: 300;
     letter-spacing: 0.3px;
     line-height: 28px;
+    opacity: 75%;
     visibility: visible;
     transition: all 0.3s ease;
 }
@@ -355,138 +457,39 @@ footer {
 #copyright {
     font-size: 12px;
     line-height: 18px;
+    opacity: 40%;
     text-align: center;
 }
 
-#copyright, .privacy-terms-link, .privacy-terms-link:hover, .privacy-terms-link:active, .privacy-terms-link:visited {
-    color: var(--grey-subtext);
-}
-
-/*-- end footer styles -------------------------------------------------------------------------------*/
-
-
-
-
-
-/*-- TEMPORARY STYLES --*/
-
-main {
-    min-height: calc(100vh - 443.5px);
-}
-
-/*-- TEMPORARY STYLES --*/
-
-
-
+/* END FOOTER STYLES */
 
 
 /*====================================================================================================*/
-/* END UNIVERSAL STYLES */
+/* RESPONSIVE STYLES - min 768px */
 /*====================================================================================================*/
 
+@media screen and (min-width: 768px) {
 
-
-/*====================================================================================================*/
-/* START RESPONSIVE STYLES */
-/*====================================================================================================*/
-
-
-/*-- start tablet styles --------------------------------------------------------------------------------------------*/
-
-@media screen and (min-width: 600px) {
-
-    header {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .header-wrapper {
-        border-bottom: none;
-        box-shadow: 0 0 5px 1.5px var(--black);
-        height: 80px;
-        padding: 18px 32px;
-    }
-
-    #header-logo-link {
-        height: 138%;
-        margin: 0;
-        width: auto;
-    }
-
-    .header-links-container {
-        display: block;
-    }
-
-    .header-links {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        margin: 0 12%;
-    }
-
-    .header-links li {
-        border-bottom: 0px solid var(--barons-gold);
-        padding: 10px 0;
-        transition: all 0.3s ease;
-    }
-    
-    .header-links li:hover {
-        border-bottom: 3px solid var(--barons-gold);
-        padding-bottom: 7px;
-        transition: all 0.3s ease;
-    }
-
-    .header-link {
-        color: var(--white);
-        font-family: var(--sans-font-1);
-        opacity: 100%;
-        text-align: center;
-        transition: opacity 0.3s ease;
-        width: 100%;
-    }
-
-    body.nav-open .header-links li{
-        font-size: 0px;
-        padding: 0px;
-        transition: all 0.3s ease;
-    }
-
-    body.nav-open .header-link {
-        opacity: 0%;
-        transition: all 0.3s ease;
-        visibility: hidden;
-    }
-
-    #mobile-nav {
-        padding-top: 80px;
-    }
-
-    .primary-li {
-        font-size: 16px;
-    }
-
-    .sub-list a {
-        font-size: 15px;
-    }
+    /*-- universal toggles ---------------------------------------------------------------------------*/
+    .mobile-only { display: none !important; }
+    .min768px { display: block; }
 
 }
 
+/* END RESPONSIVE STYLES - min 768px */
 
-/*-- start desktop styles --------------------------------------------------------------------------------------------*/
+
+/*====================================================================================================*/
+/* RESPONSIVE STYLES - min 1024px */
+/*====================================================================================================*/
 
 @media screen and (min-width: 1024px) {
-    
-    .tablet {
-        display: none;
-    }
-    
-    .desktop {
-        display: block;
-    }
 
+    /*-- universal toggles ---------------------------------------------------------------------------*/
+    .mobile-only, .max768px { display: none !important; }
+    .min1024px { display: block; }
 
-    /*-- header sponsors --*/
-
+    /*-- header sponsors bar -------------------------------------------------------------------------*/
     .header-sponsors-wrapper {
         align-items: center;
         background-color: var(--barons-black);
@@ -528,20 +531,18 @@ main {
         pointer-events: auto;
     }
 
-    .tier-header {
+    .tier-heading {
         color: var(--barons-gold);
         font-family: var(--sans-font-1);
         opacity: 0;
         transition: opacity 0.8s ease;
     }
     
-    .tier-header.active {
+    .tier-heading.active {
         opacity: 1;
     }
-    
 
-    /*-- header navigation --*/
-
+    /*-- header navigation ---------------------------------------------------------------------------*/
     .header-wrapper {
         height: 70px;
         padding: 14px 28px;
@@ -628,16 +629,36 @@ main {
         visibility: visible;
     }
 
-    /*-- desktop footer --*/
+}
+
+/* END RESPONSIVE STYLES - min 1024px */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE STYLES - min 1440px */
+/*====================================================================================================*/
+
+@media screen and (min-width: 1440px) {
+
+    /*-- universal toggles ---------------------------------------------------------------------------*/
+    .mobile-only, .max768px, .max1024px { display: none !important; }
+    .min1440px { display: block; }
 
 }
+
+/* END RESPONSIVE STYLES - min 1440px */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE STYLES - min 2560px */
+/*====================================================================================================*/
 
 @media screen and (min-width: 2560px) {
-    /* 4k header */
-    /* 4k content */
-    /* 4k footer */
+
+    /*-- universal toggles ---------------------------------------------------------------------------*/
+    .mobile-only, .max768px, .max1024px, .max1440px { display: none !important; }
+    .min2560px { display: block; }
+
 }
 
-/*====================================================================================================*/
-/* END RESPONSIVE STYLES */
-/*====================================================================================================*/
+/* END RESPONSIVE STYLES - min 2560px */

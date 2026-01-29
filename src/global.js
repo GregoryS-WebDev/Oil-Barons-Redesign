@@ -1,9 +1,31 @@
-/*==============================================================================================================*/
-/* START ROOT SCRIPTS */
-/*==============================================================================================================*/
+/*====================================================================================================*/
+/* META INFORMATION */
+/*====================================================================================================*/
+
+/*
+
+    ** FILE STRUCTURE **
+
+    This javascript file is separated into logical sections, with subsection headers integrated within. The start
+    of these sections are denoted by comments such as:
+
+    /*=============================================================*/
+    /* SECTION NAME */
+    /*=============================================================*\
+
+    The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
+    Subsections have a single header comment such as:
+
+    /*-- subsection name ------------------------------------------*\
+
+*/
+
+/* END META INFORMATION */
 
 
-/*-- mobile navigation menu behavior ---------------------------------------------------------------------------*/
+/*====================================================================================================*/
+/* MOBILE NAVIGATION MENU SCRIPT */
+/*====================================================================================================*/
 
 document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -38,8 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/* END MOBILE NAVIGATION MENU SCRIPT */
 
-/*-- desktop partner header behavior ---------------------------------------------------------------------------*/
+
+/*====================================================================================================*/
+/* DESKTOP HEADER SPONSORS SCRIPT */
+/*====================================================================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -79,8 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+/* END DESKTOP HEADER SPONSORS SCRIPT */
 
-/*-- desktop dropdown nav menus behavior -----------------------------------------------------------------------*/
+
+/*====================================================================================================*/
+/* DESKTOP NAVIGATION DROPDOWN SCRIPT */
+/*====================================================================================================*/
 
 const EDGE_PADDING = 4;
 
@@ -108,7 +138,5 @@ document.querySelectorAll('.has-dropdown').forEach(item => {
         item.classList.remove('open');
     });
 });
-  
-/*==============================================================================================================*/
-/* END ROOT SCRIPTS */
-/*==============================================================================================================*/
+
+/* END DESKTOP NAVIGATION DROPDOWN SCRIPT */
