@@ -1,0 +1,62 @@
+/*====================================================================================================*/
+/* META INFORMATION */
+/*====================================================================================================*/
+
+/*
+
+    ** FILE STRUCTURE **
+
+    This css file is separated into logical sections, with subsection headers integrated within. The start
+    of these sections are denoted by comments such as:
+
+    /*=============================================================*/
+    /* SECTION NAME */
+    /*=============================================================*\
+
+    The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
+    Subsections have a single header comment such as:
+
+    /*-- subsection name ------------------------------------------*\
+
+
+
+    ** ORGANIZATION NOTES **
+
+    - root variables are separated into logical groups, which are then sorted alphabetically
+    - style selectors are organized by order of appearance in the related html document (universal classes notwithstanding).
+    - universal classes selectors are organized by order of specificity, from most general to most specific
+    - style properties are organized alphabetically
+
+*/
+
+/* END META INFORMATION */
+
+
+/*====================================================================================================*/
+/* ROOT STYLES */
+/*====================================================================================================*/
+
+:root {
+
+    /*----- colors -----*/
+    --barons-black: #1b1818;
+    --barons-brown-light: #c99f67;
+    --barons-brown-dark: #745634;
+    --barons-gold: #cdb14d;
+    --barons-grey-dark: #221f1f;
+    --barons-grey: #403c3c;
+    --barons-grey-light: #837978;
+    --barons-red: #932f33;
+    --barons-white: #f3e8c2;
+
+    --black: #000;
+    --gold: #ffd700;
+    --white: #fff;
+
+    /*----- fonts -----*/
+    --sans-font-1: "Oswald";
+    --sans-font-2: "Oxanium";
+    
+}
+
+/* END ROOT STYLES */
