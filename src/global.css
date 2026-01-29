@@ -183,7 +183,7 @@ header {
     width: 100%;
 }
 
-body.nav-open .header-links li{
+body.nav-open .header-links li {
     font-size: 0px;
     padding: 0px;
     transition: all 0.3s ease;
@@ -266,7 +266,7 @@ body.nav-open .header-link {
     width: 100%;
 }
 
-#mobile-nav.is-open ~ footer .footer-nav-link {
+#mobile-nav.is-open ~ footer .footer-nav-link, #mobile-nav.is-open ~ footer #copyright {
     opacity: 0%;
     transition: all 0.3s ease;
     visibility: hidden;
@@ -402,7 +402,7 @@ footer {
     width: 100%;
 
     /*TEMP*/
-    margin-top: 400px;
+    margin-top: calc(100vh - 470px);
 }
 
 .footer-row {
@@ -459,6 +459,8 @@ footer {
     line-height: 18px;
     opacity: 40%;
     text-align: center;
+    transition: all 0.3s ease;
+    visibility: visible;
 }
 
 /* END FOOTER STYLES */
