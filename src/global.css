@@ -389,6 +389,51 @@ body.nav-open .header-link {
 
 
 /*====================================================================================================*/
+/* MOBILE SPONSORS */
+/*====================================================================================================*/
+
+section#mobile-sponsors {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 900;
+    opacity: 100%;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+body.nav-open section#mobile-sponsors {
+    opacity: 0%;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#temp {
+    height: 200vh;
+}
+
+.mobile-sponsor, .mobile-sponsor img {
+    max-height: 45px;
+    max-width: 80px;
+    object-fit: contain;
+}
+
+.mobile-sponsor img {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.mobile-sponsor.active img {
+    opacity: 1;
+    transition: opacity 0.8s ease;
+    pointer-events: auto;
+}
+
+/* END MOBILE SPONSORS */
+
+
+/*====================================================================================================*/
 /* FOOTER STYLES */
 /*====================================================================================================*/
 
@@ -400,9 +445,6 @@ footer {
     gap: 18px;
     padding: 15px 0;
     width: 100%;
-
-    /*TEMP*/
-    margin-top: calc(100vh - 470px);
 }
 
 .footer-row {
