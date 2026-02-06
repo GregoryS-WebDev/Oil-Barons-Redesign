@@ -62,6 +62,185 @@
 /* END ROOT STYLES */
 
 
+/*====================================================================================================*/
+/* HERO STYLES - NEXT GAME */
+/*====================================================================================================*/
+
 #hero {
-    height: 200vh;
+    padding: 32px 12px 40px;
 }
+
+#hero .section-heading {
+    color: var(--barons-black);
+}
+
+/*-- next game countdown ------------------------------------------------------------------------------*/
+#countdown-box {
+    align-items: center;
+    border-bottom: 1px solid #00000030;
+    border-top: 1px solid #00000030;
+    color: var(--barons-black);
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 16px;
+    padding: 6px 0 4px;
+}
+
+.time {
+    text-align: center;
+}
+
+.time span {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.time label {
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease-in;
+}
+
+body.nav-open .time label {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/*-- next game logos area ------------------------------------------------------------------------------*/
+#next-game-box {
+    align-items: center;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.next-game-logo {
+    height: 100px;
+}
+
+#vs {
+    color: var(--barons-black);
+}
+
+/*-- next game info area ------------------------------------------------------------------------------*/
+#next-game-info {
+    border-bottom: 1px solid #00000030;
+    border-top: 1px solid #00000030;
+    margin-top: 20px;
+    padding: 6px 0;
+}
+
+#next-game-info p {
+    color: var(--barons-black);
+    text-align: center;
+}
+
+#next-game-time {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/*-- next game buttons ------------------------------------------------------------------------------*/
+#next-game-links {
+    align-items: center;
+    display: flex;
+    gap: 36px;
+    height: 40px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.next-game-btn {
+    background-color: var(--barons-gold);
+    border: none;
+    border-radius: 4px;
+    color: var(--barons-black);
+    font-weight: 500;
+    height: 36px;
+    text-transform: uppercase;
+    width: 108px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* END HERO STYLES - NEXT GAME */
+
+
+/*====================================================================================================*/
+/* UPCOMING DATES SECTION */
+/*====================================================================================================*/
+
+#upcoming-dates {
+    background-color: var(--barons-black);
+    padding: 32px 12px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#upcoming-schedule {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.upcoming-game {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    color: var(--barons-black);
+    border-radius: 6px;
+    width: 96%;
+    max-width: 500px;
+    padding: 6px 4%;
+}
+
+.upcoming-opponent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.25vw;
+}
+
+.at-vs, .upcoming-info {
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.upcoming-logo {
+    height: 55px;
+}
+
+.upcoming-date {
+    font-weight: 500;
+}
+
+.upcoming-tickets-icon {
+    height: 21px;
+    margin-top: 4px;
+}
+
+#schedule-btn {
+    background-color: var(--barons-gold);
+    color: var(--barons-black);
+    padding: 8px 16px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-top: 18px;
+    font-weight: 500;
+}
+
+/* END UPCOMING DATES SECTION */
+
