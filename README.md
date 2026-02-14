@@ -1,9 +1,19 @@
 # ABOUT THIS PROJECT
-This repository is the Beaumont Oil Barons' website. It's intended to be an update and replacement of the current site.
+This repository is the Beaumont Oil Barons' website. It's intended to be an update and replacement of the current site. The goal is to provide users with an intuitive, informative, and satisfying experience. This site will provide:
 
-# Methodology
-This website is written in raw HTML5, CSS3, and JavaScript. The only developer software employed for it's composition is VSCode.
-mobile-first design
+- Immediately-accessible information on the next game to be played
+- Complete season schedule information
+- Access to the Oil Barons' tickets vendor
+- Team roster, including profiles for each member of the Oil Barons
+- News articles to keep users informed of the latest storylines regarding the team
+- Access to the team's shop for exclusive merchendise
+- Information about the team's home stadium
+- Additional insights and information via about us and contact us pages
+- information about the franchise's sponsors, as well as about sponsorship oportunities.
+- terms of service and privacy policy pages
+
+# HETHODOLOGY
+This website is written in raw HTML5, CSS3, and JavaScript. The only developer software employed for it's composition is VSCode. The site is a mobile-first design, with responsive styles for progressively larger viewports.
 
 # HTML PERPETUAL UPDATES
 - next game logos and information
