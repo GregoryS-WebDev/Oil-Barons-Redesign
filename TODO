@@ -1,8 +1,13 @@
-Update footer design for desktop viewport
 
-Edit mobile and html sponsors to use a javascript array
-instead of hardcoded HTML for each sponsor.
+
+# ADDITIONS
+Update footer design for desktop viewport
 
 Add a background image/video for the hero/landing of index.html
 and increase brightness or add filter for extra legibility of
 hero text and content.
+
+
+# REVISIONS
+Edit mobile and html sponsors to use a javascript array
+instead of hardcoded HTML for each sponsor.
