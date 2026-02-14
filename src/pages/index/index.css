@@ -66,7 +66,7 @@
 /* HERO STYLES - NEXT GAME */
 /*====================================================================================================*/
 
-#hero {
+section#hero {
     padding: 32px 12px 40px;
 }
 
@@ -174,44 +174,45 @@ body.nav-open .time label {
 
 
 /*====================================================================================================*/
-/* UPCOMING DATES SECTION */
+/* UPCOMING SCHEDULE SECTION */
 /*====================================================================================================*/
 
-#upcoming-dates {
+section#upcoming-dates {
+    align-items: center;
     background-color: var(--barons-black);
-    padding: 32px 12px 40px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 32px 12px 40px;
 }
 
+/*-- upcoming schedule list --------------------------------------------------------------------------*/
 #upcoming-schedule {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 12px;
+    justify-content: center;
     margin-top: 20px;
     width: 100%;
 }
 
 .upcoming-game {
-    display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: var(--white);
-    color: var(--barons-black);
     border-radius: 6px;
-    width: 96%;
+    color: var(--barons-black);
+    display: flex;
+    justify-content: space-between;
     max-width: 500px;
     padding: 6px 4%;
+    width: 96%;
 }
 
 .upcoming-opponent {
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     gap: 2.25vw;
+    justify-content: center;
 }
 
 .at-vs, .upcoming-info {
@@ -232,15 +233,24 @@ body.nav-open .time label {
     margin-top: 4px;
 }
 
+/*-- full schedule link ------------------------------------------------------------------------------*/
 #schedule-btn {
     background-color: var(--barons-gold);
+    border-radius: 4px;
     color: var(--barons-black);
+    font-weight: 500;
+    margin-top: 20px;
     padding: 8px 16px;
     text-transform: uppercase;
-    border-radius: 4px;
-    margin-top: 18px;
-    font-weight: 500;
 }
 
-/* END UPCOMING DATES SECTION */
+/* END UPCOMING SCHEDULE SECTION */
 
+
+/*====================================================================================================*/
+/* NEWS SECTION */
+/*====================================================================================================*/
+
+
+
+/* END NEWS SECTION */
