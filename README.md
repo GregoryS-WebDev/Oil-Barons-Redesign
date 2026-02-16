@@ -15,6 +15,16 @@ This repository is the Beaumont Oil Barons' website. It's intended to be an upda
 # METHODOLOGY
 This website is written in raw HTML5, CSS3, and JavaScript. The only developer software employed for it's composition is VSCode. The site is a mobile-first design, with responsive styles for progressively larger viewports.
 
+# SITE STRUCTURE
+Within the src folder, site content is organized into two primary folders:
+
+- assets contains images and media used in the site
+- pages contains folders dedicated to each webpage
+
+The src folder also contains the global.css and global.js files, which contain styles and scripts that are universally used in every webpage.
+
+Within each child folder of /pages is the related html file for the specific page, as well as a js and css file for styles uniquely applied to the sibling html file.
+
 # HTML PERPETUAL UPDATES
 - next game logos and information
 - upcoming dates logos and information
