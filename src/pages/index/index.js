@@ -31,7 +31,7 @@
 const targetYear   = "2026";
 const targetMonth  = "05"; // 01–12  MONTH
 const targetDay    = "28"; // 01-31  DAY
-const targetHour   = "19"; // 00-23  HOUR
+const targetHour   = "20"; // 00-23  HOUR
 const targetMinute = "00"; // 00-59  MINUTE
 
 const targetDate = new Date(

@@ -251,6 +251,58 @@ section#upcoming-dates {
 /* NEWS SECTION */
 /*====================================================================================================*/
 
+section#news {
+    padding: 32px 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
+#news-articles {
+    max-width: 450px;
+}
+
+.news-article {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+#top-article {
+    display: block;
+}
+
+#top-article .news-img {
+    width: calc(100vw - 24px);
+    max-width: 450px;
+    height: calc(66vw - 12px);
+    max-height: 300px;
+    border-radius: 5px;
+}
+
+#news .section-heading {
+    color: var(--barons-black);
+}
+
+.news-heading {
+    color: var(--barons-black);
+    display: block;
+}
+
+.news-img {
+    height: 22vw;
+    max-height: 102px;
+    width: 34%;
+    border-radius: 3px;
+    object-fit: cover;
+    object-position: 50% 33%;
+}
+
+#other-articles .news-heading {
+    width: 66%;
+    font-size: 1.1rem;
+    margin-top: -3px;
+}
 
 /* END NEWS SECTION */

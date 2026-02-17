@@ -457,19 +457,57 @@
 
                 <h2 class="section-heading">Latest News</h2>
 
-                <article id="latest-article" class="news-article">
+                <!--
+                    TO ADD, UPDATE, OR REMOVE NEWS ARTICLES:
 
-                    <img class="news-article-img" src="../../assets/images/news-image-placeholder.png" alt="" />
-
-                    <h3 class="news-article-headline">Beaumont Oil Barons Announce Coaching Staff for Inaugural 2026 Season</h3>
-
-                </article>
-
-                <div id="articles">
-
+                    1. In div#news-articles, update img.news-img and h3.news-heading
+                    2. Update the data-article attribute of the related article element within both div#news-articles
+                       and in div#news-article-content to correctly link the two article elements
+                    3. Navigate to div#news-article-content below main element (after main, before footer)
+                    4. Update article content in the related article child within div#news-article-content
                     
+                -->
+                <div id="news-articles">
 
-                </div>
+                    <!-- LATEST ARTICLE -->
+                    <article id="top-article" class="news-article" data-article="coaching-staff">
+    
+                        <img class="news-img" src="../../assets/images/news-image-placeholder.png" alt="Oil Baron's helmet sitting on a brick wall" />
+    
+                        <h3 class="news-heading">Beaumont Oil Barons Announce Coaching Staff for Inaugural 2026 Season</h3>
+    
+                    </article>
+
+                    <!-- OLDER ARTICLES -->
+                    <div id="other-articles">
+
+                        <article class="news-article" data-article="host-families">
+
+                            <img class="news-img" src="../../assets/images/news-image-placeholder-2.png" alt="" />
+
+                            <h3 class="news-heading">Oil Barons Seek Families to Host Players During 2026 Season</h3>
+
+                        </article>
+
+                        <article class="news-article" data-article="team-name">
+
+                            <img class="news-img" src="../../assets/images/news-image-placeholder.png" alt="" />
+
+                            <h3 class="news-heading">Beaumont Baseball Franchise Unveils Team Name, Logo</h3>
+
+                        </article>
+
+                        <article class="news-article" data-article="empty-article">
+
+                            <img class="news-img" src="../../assets/images/news-image-placeholder-2.png" alt="" />
+
+                            <h3 class="news-heading">Beaumont Oil Barons Placeholder Article Title</h3>
+
+                        </article>
+
+                    </div>
+
+                </div>                
 
             </section>
 
@@ -495,6 +533,12 @@
             </section>
 
         </main>
+
+        <div id="news-article-content" hidden>
+
+
+
+        </div>
 
         <footer>
             
