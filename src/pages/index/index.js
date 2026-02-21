@@ -18,6 +18,9 @@
 
     /*-- subsection name ------------------------------------------*\
 
+    Sections that require updates appear in semantic order at the top of the file.
+    Sections that do not require updates appear in semantic order after the perpetually updated scripts.
+
 */
 
 /* END META INFORMATION */
