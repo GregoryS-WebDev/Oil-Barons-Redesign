@@ -182,7 +182,7 @@ section#upcoming-dates {
     background-color: var(--barons-black);
     display: flex;
     flex-direction: column;
-    padding: 32px 12px 40px;
+    padding: 32px 12px 44px;
 }
 
 /*-- upcoming schedule list --------------------------------------------------------------------------*/
@@ -233,15 +233,18 @@ section#upcoming-dates {
     margin-top: 4px;
 }
 
-/*-- full schedule link ------------------------------------------------------------------------------*/
+/*-- full schedule button -----------------------------------------------------------------------------*/
 #schedule-btn {
     background-color: var(--barons-gold);
     border-radius: 4px;
     color: var(--barons-black);
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 24px;
+    max-width: 450px;
     padding: 8px 16px;
+    text-align: center;
     text-transform: uppercase;
+    width: 96%;
 }
 
 /* END UPCOMING SCHEDULE SECTION */
@@ -252,11 +255,15 @@ section#upcoming-dates {
 /*====================================================================================================*/
 
 section#news {
-    padding: 32px 12px 40px;
-    display: flex;
     align-items: center;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 32px 12px 40px;
+}
+
+#news .section-heading {
+    color: var(--barons-black);
 }
 
 #news-articles {
@@ -264,25 +271,18 @@ section#news {
 }
 
 .news-article {
+    border-bottom: 1px solid #00000030;
     display: flex;
     gap: 10px;
-    margin-top: 22px;
+    margin-top: 16px;
+    padding-bottom: 16px;
 }
 
-#top-article {
-    display: block;
-}
-
-#top-article .news-img {
-    width: calc(100vw - 24px);
-    max-width: 450px;
-    height: calc(66vw - 12px);
-    max-height: 300px;
-    border-radius: 5px;
-}
-
-#news .section-heading {
-    color: var(--barons-black);
+.news-img {
+    border-radius: 3px;
+    height: 100px;
+    object-fit: cover;
+    width: 100px;
 }
 
 .news-heading {
@@ -290,19 +290,62 @@ section#news {
     display: block;
 }
 
-.news-img {
-    height: 22vw;
-    max-height: 102px;
-    width: 34%;
-    border-radius: 3px;
-    object-fit: cover;
-    object-position: 50% 33%;
+/*-- top article -------------------------------------------------------------------------------------*/
+#top-article {
+    display: block;
 }
 
+#top-article .news-img {
+    border-radius: 5px;
+    height: calc(66vw - 12px);
+    max-height: 300px;
+    max-width: 450px;
+    object-position: 50% 33%;
+    width: calc(100vw - 24px);
+}
+
+#top-article .news-heading {
+    font-size: 1.15rem;
+}
+
+#latest-article-summary {
+    font-size: 0.925rem;
+    font-weight: 400;
+    margin-top: 4px;
+    opacity: 80%;
+}
+
+/*-- other articles ----------------------------------------------------------------------------------*/
 #other-articles .news-heading {
-    width: 66%;
-    font-size: 1.1rem;
-    margin-top: -3px;
+    display: inline-block;
+    font-size: 1rem;
+    width: 185px;
+}
+
+#other-articles .news-heading .article-date {
+    background-color: var(--barons-black);
+    border-radius: 3px;
+    display: block;
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 1px 6px 2px;
+    margin-bottom: 3px;
+    width: fit-content;
+}
+
+/*-- more news button --------------------------------------------------------------------------------*/
+#more-news-btn {
+    background-color: var(--barons-gold);
+    border-radius: 4px;
+    color: var(--barons-black);
+    display: block;
+    font-weight: 500;
+    margin: 16px auto 0;
+    padding: 8px 16px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
 }
 
 /* END NEWS SECTION */

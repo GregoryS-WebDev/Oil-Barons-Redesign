@@ -344,7 +344,7 @@
                         </div>
 
                         <!-- BUY TICKETS BUTTON -->
-                        <a class="upcoming-tickets-btn" href="../schedule/schedule.html">
+                        <a class="upcoming-tickets-btn" href="#">
                             <img class="upcoming-tickets-icon" src="../../assets/images/icons/tickets-icon-black.png" alt="Buy Tickets" />
                         </a>
 
@@ -375,7 +375,7 @@
                         </div>
 
                         <!-- BUY TICKETS BUTTON -->
-                        <a class="upcoming-tickets-btn" href="../schedule/schedule.html">
+                        <a class="upcoming-tickets-btn" href="#">
                             <img class="upcoming-tickets-icon" src="../../assets/images/icons/tickets-icon-black.png" alt="Buy Tickets" />
                         </a>
 
@@ -406,7 +406,7 @@
                         </div>
 
                         <!-- BUY TICKETS BUTTON -->
-                        <a class="upcoming-tickets-btn" href="../schedule/schedule.html">
+                        <a class="upcoming-tickets-btn" href="#">
                             <img class="upcoming-tickets-icon" src="../../assets/images/icons/tickets-icon-black.png" alt="Buy Tickets" />
                         </a>
 
@@ -437,7 +437,7 @@
                         </div>
 
                         <!-- BUY TICKETS BUTTON -->
-                        <a class="upcoming-tickets-btn" href="../schedule/schedule.html">
+                        <a class="upcoming-tickets-btn" href="#">
                             <img class="upcoming-tickets-icon" src="../../assets/images/icons/tickets-icon-black.png" alt="Buy Tickets" />
                         </a>
 
@@ -446,9 +446,7 @@
                 </div>
 
                 <!-- VIEW FULL SCHEDULE BUTTON -->
-                <div id="schedule-btn">
-                    <a id="schedule-link" href="../schedule/schedule.html">Full Schedule</a>
-                </div>
+                <a id="schedule-btn" href="../schedule/schedule.html">View Full Schedule</a>
 
             </section>
 
@@ -457,55 +455,107 @@
 
                 <h2 class="section-heading">Latest News</h2>
 
-                <!--
-                    TO ADD, UPDATE, OR REMOVE NEWS ARTICLES:
+                <!-- TO ADD, UPDATE, OR REMOVE NEWS ARTICLES:
 
-                    1. In div#news-articles, update img.news-img and h3.news-heading
-                    2. Update the data-article attribute of the related article element within both div#news-articles
+                    # FOR TOP ARTICLE
+                    - In div#news-articles, update img.news-img, h3.news-heading, and h3.news-heading > p.latest-article-summary
+
+                    # FOR OTHER ARTICLES
+                    - In div#news-articles, update img.news-img, h3.news-heading, and h3.news-heading > p.article-date
+
+                    # FOR ALL ARTICLES
+                    1. Update the data-article attribute of the related article element within both div#news-articles
                        and in div#news-article-content to correctly link the two article elements
-                    3. Navigate to div#news-article-content below main element (after main, before footer)
-                    4. Update article content in the related article child within div#news-article-content
-                    
+                    2. Navigate to div#news-article-content below main element (after main, before footer)
+                    3. Update article content in the related article child within div#news-article-content
+
                 -->
+
                 <div id="news-articles">
 
-                    <!-- LATEST ARTICLE -->
+                    <!-- TOP ARTICLE -->
                     <article id="top-article" class="news-article" data-article="coaching-staff">
     
+                        <!-- TOP ARTICLE IMAGE -->
                         <img class="news-img" src="../../assets/images/news-image-placeholder.png" alt="Oil Baron's helmet sitting on a brick wall" />
     
-                        <h3 class="news-heading">Beaumont Oil Barons Announce Coaching Staff for Inaugural 2026 Season</h3>
+                        <!-- TOP ARTICLE HEADING -->
+                        <h3 class="news-heading">
+                            
+                            <!-- TOP ARTICLE TITLE  -->
+                            Beaumont Oil Barons Announce Coaching Staff for Inaugural 2026 Season
+
+                            <!-- TOP ARTICLE SUMMARY  -->
+                            <p id="latest-article-summary">Dec 18, 2025 - New leadership sets the tone for the franchise's inaugural season.</p>
+                        
+                        </h3>
     
                     </article>
 
-                    <!-- OLDER ARTICLES -->
+                    <!-- OTHER ARTICLES -->
                     <div id="other-articles">
 
+                        <!-- ARTICLE 1 OF 3 -->
                         <article class="news-article" data-article="host-families">
 
+                            <!-- SMALL ARTICLE IMAGE -->
                             <img class="news-img" src="../../assets/images/news-image-placeholder-2.png" alt="" />
 
-                            <h3 class="news-heading">Oil Barons Seek Families to Host Players During 2026 Season</h3>
+                            <!-- ARTICLE HEADING -->
+                            <h3 class="news-heading">
+
+                                <!-- ARTICLE DATE -->
+                                <p class="article-date">Nov 22, 2025</p>
+                                
+                                <!-- ARTICLE TITLE -->
+                                Oil Barons Seek Families to Host Players For '26 Season
+                            
+                            </h3>
 
                         </article>
 
+                        <!-- ARTICLE 2 OF 3 -->
                         <article class="news-article" data-article="team-name">
 
+                            <!-- SMALL ARTICLE IMAGE -->
                             <img class="news-img" src="../../assets/images/news-image-placeholder.png" alt="" />
 
-                            <h3 class="news-heading">Beaumont Baseball Franchise Unveils Team Name, Logo</h3>
+                            <!-- ARTICLE HEADING -->
+                            <h3 class="news-heading">
+                                
+                                <!-- ARTICLE DATE -->
+                                <p class="article-date">Nov 22, 2025</p>
+                                
+                                <!-- ARTICLE TITLE -->
+                                Beaumont Baseball Franchise Unveils Team Name, Logo
+                            
+                            </h3>
 
                         </article>
 
+                        <!-- ARTICLE 3 OF 3 -->
                         <article class="news-article" data-article="empty-article">
 
+                            <!-- SMALL ARTICLE IMAGE -->
                             <img class="news-img" src="../../assets/images/news-image-placeholder-2.png" alt="" />
 
-                            <h3 class="news-heading">Beaumont Oil Barons Placeholder Article Title</h3>
+                            <!-- ARTICLE HEADING -->
+                            <h3 class="news-heading">
+                                
+                                <!-- ARTICLE DATE -->
+                                <p class="article-date">Jan 26, 2026</p>
+                                
+                                <!-- ARTICLE TITLE -->
+                                Beaumont Oil Barons Placeholder Article Title
+                            
+                            </h3>
 
                         </article>
 
                     </div>
+
+                    <!-- MORE NEWS BUTTON -->
+                    <a id="more-news-btn" href="../news/news.html">More News</a>
 
                 </div>                
 
