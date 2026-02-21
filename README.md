@@ -30,10 +30,10 @@ Within each child folder of /pages is the related html file for the specific pag
 ## index.html
 Following are all of the perpetual updates required in order to maintain the index.html file
 
-### html updates
+### HTML Updates
 - section#hero logos and information for next game*
 - section#upcoming-dates logos and information
 - section#news articles
 
-### javascript updates
+### JavaScript Updates
 - target date for next game countdown clock*
