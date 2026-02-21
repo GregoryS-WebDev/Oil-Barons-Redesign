@@ -26,8 +26,12 @@ The src folder also contains the global.css and global.js files, which contain s
 Within each child folder of /pages is the related html file for the specific page, as well as a js and css file for styles uniquely applied to the sibling html file.
 
 # HTML PERPETUAL UPDATES
-- next game logos and information
-- upcoming dates logos and information
+
+## index.html
+- section#hero logos and information for next game*
+- section#upcoming-dates logos and information
+- section#news articles
 
 # JS PERPETUAL UPDATES
-- next game countdown clock
+* next game countdown clock
+** test
