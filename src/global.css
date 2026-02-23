@@ -283,10 +283,10 @@ body.nav-open .header-link {
     width: 100%;
 }
 
-#mobile-nav.is-open ~ footer .footer-nav-link, #mobile-nav.is-open ~ footer #copyright {
-    opacity: 0%;
-    transition: all 0.3s ease;
-    visibility: hidden;
+#mobile-nav.is-open ~ footer *, #mobile-nav.is-open ~ main * {
+    opacity: 0% !important;
+    transition: all 0.3s ease !important;
+    visibility: hidden !important;
 }
 
 #nav-primary-container {
