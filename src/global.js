@@ -21,9 +21,125 @@
     Script sections are sorted according to viewport size, with mobile scripts appearing first followed
     by scripts for successively larger viewports.
 
+
+    ** GLOBAL VARIABLES **
+
+    Global variables in this file are variables that will be referenced in multiple page .js files.
+    They are stored here for contsistency and convenience.
+    The global.js file is the first script linked in every file in /root.
+
 */
 
 /* END META INFORMATION */
+
+
+/*====================================================================================================*/
+/* GLOBAL VARIABLES AND ARRAYS */
+/*====================================================================================================*/
+
+const globalRoster = [
+    {
+        name: "",
+        birthday: null,
+        jersey: "",
+        height: "",
+        weight: "",
+        position: "",
+        category: "",
+        bats: "",
+        throws: "",
+        hometown: "",
+        twitter: "",
+        instagram: "",
+        bio: "",
+        image: ""
+    }
+];
+
+const globalCoaches = [
+    {
+        name: "",
+        birthday: null,
+        position: "",
+        bio: "",
+        image: ""
+    }
+];
+
+const globalSponsors = [
+    {
+        name: "Entergy",
+        id: "entergy",
+        address: "https://www.entergytexas.com/about",
+        image: "../../assets/sponsors/platinum/EntergyTexas_Logo.png",
+        tier: "platinum"
+    },
+    {
+        name: "Avenue Axe Sports Bar",
+        id: "avenue-axe",
+        address: "https://www.avenueaxe.com/",
+        image: "../../assets/sponsors/gold/avenue-axe-sports-bar-logo.png",
+        tier: "gold"
+    },
+    {
+        name: "Del Papa Distributing Company",
+        id: "del-papa",
+        address: "https://delpapadistributing.com/",
+        image: "../../assets/sponsors/gold/DelPapa_logo_circle.png",
+        tier: "gold"
+    },
+    {
+        name: "Giglio Distributing Company",
+        id: "giglio",
+        address: "https://www.gigliodistributing.com/",
+        image: "../../assets/sponsors/gold/giglio-distributing-logo-compact.png",
+        tier: "gold"
+    },
+    {
+        name: "Curt Woodard Enterprises LLC",
+        id: "curt-woodard",
+        address: "https://curtwoodardllc.com/",
+        image: "../../assets/sponsors/gold/curt-woodard-logo.png",
+        tier: "gold"
+    },
+    {
+        name: "KidMed",
+        id: "kidmed",
+        address: "https://kidmedpediatrics.com/",
+        image: "../../assets/sponsors/gold/kidmed-logo.png",
+        tier: "gold"
+    },
+    {
+        name: "G&T Insurance Agency",
+        id: "gt-insurance",
+        address: "https://www.gandtinsuranceagency.com/",
+        image: "../../assets/sponsors/gold/g-t-insurance-agency-logo.png",
+        tier: "gold"
+    },
+    {
+        name: "Refinery Terminal Fire Company",
+        id: "rtfc",
+        address: "https://rtfc.org/",
+        image: "../../assets/sponsors/silver/rtfc-logo.png",
+        tier: "silver"
+    },
+    {
+        name: "Jason's Deli",
+        id: "jasons-deli",
+        address: "https://www.jasonsdeli.com/",
+        image: "../../assets/sponsors/silver/jasons-deli-logo.png",
+        tier: "silver"
+    },
+    {
+        name: "Tekton Research",
+        id: "tekton",
+        address: "https://tektonresearch.com/",
+        image: "../../assets/sponsors/silver/Tekton-logo.png",
+        tier: "silver"
+    }
+];
+
+/* GLOBAL ARRAYS */
 
 
 /*====================================================================================================*/
@@ -70,76 +186,100 @@ document.addEventListener('DOMContentLoaded', () => {
 /* MOBILE SPONSORS SCRIPT */
 /*====================================================================================================*/
 
-const sponsors = document.querySelectorAll('#mobile-sponsors .mobile-sponsor');
 const sponsorsEl = document.getElementById('mobile-sponsors');
 const footerEl = document.querySelector('footer');
 
 const fadeDuration = 800;
 const displayDuration = 4000;
 
-let currentIndex = Math.floor(Math.random() * sponsors.length);
+if (!sponsorsEl || !globalSponsors?.length) {
+    console.warn('Sponsors not initialized: missing container or sponsor data.');
+} else {
 
-function updateSponsorsPosition() {
-    const footerRect = footerEl.getBoundingClientRect();
-    const sponsorsRect = sponsorsEl.getBoundingClientRect();
-    const scrollY = window.scrollY || window.pageYOffset;
-    const distanceToFooter = window.innerHeight - footerRect.top;
+    const sponsorEls = globalSponsors.map(sponsor => {
+        const anchor = document.createElement('a');
+        anchor.className = 'mobile-sponsor';
+        anchor.href = sponsor.address;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.dataset.id = sponsor.id;
 
-    if (distanceToFooter > 0) {
-        const footerTopInDoc = footerRect.top + scrollY;
-        sponsorsEl.style.position = 'absolute';
-        sponsorsEl.style.top = `${footerTopInDoc - sponsorsRect.height - 12}px`;
-        sponsorsEl.style.bottom = 'auto';
-    } else {
-        sponsorsEl.style.position = 'fixed';
-        sponsorsEl.style.bottom = '12px';
-        sponsorsEl.style.top = 'auto';
+        const img = document.createElement('img');
+        img.src = sponsor.image;
+        img.alt = `${sponsor.name} logo`;
+
+        anchor.appendChild(img);
+        sponsorsEl.appendChild(anchor);
+
+        return anchor;
+    });
+
+    let currentIndex = Math.floor(Math.random() * sponsorEls.length);
+
+    function updateSponsorsPosition() {
+        if (!footerEl) return;
+
+        const footerRect = footerEl.getBoundingClientRect();
+        const sponsorsRect = sponsorsEl.getBoundingClientRect();
+        const scrollY = window.scrollY || window.pageYOffset;
+        const distanceToFooter = window.innerHeight - footerRect.top;
+
+        if (distanceToFooter > 0) {
+            const footerTopInDoc = footerRect.top + scrollY;
+            sponsorsEl.style.position = 'absolute';
+            sponsorsEl.style.top = `${footerTopInDoc - sponsorsRect.height - 12}px`;
+            sponsorsEl.style.bottom = 'auto';
+        } else {
+            sponsorsEl.style.position = 'fixed';
+            sponsorsEl.style.bottom = '12px';
+            sponsorsEl.style.top = 'auto';
+        }
     }
-}
 
-function showNextSponsor() {
-    const current = sponsors[currentIndex];
-    const nextIndex = (currentIndex + 1) % sponsors.length;
-    const next = sponsors[nextIndex];
+    function showNextSponsor() {
+        const current = sponsorEls[currentIndex];
+        const nextIndex = (currentIndex + 1) % sponsorEls.length;
+        const next = sponsorEls[nextIndex];
 
-    const currentImg = current.querySelector('img');
-    currentImg.style.opacity = '0';
+        const currentImg = current.querySelector('img');
+        currentImg.style.opacity = '0';
 
-    setTimeout(() => {
-        current.classList.remove('active');
-        currentImg.style.display = 'none';
+        setTimeout(() => {
+            current.classList.remove('active');
+            currentImg.style.display = 'none';
 
-        const nextImg = next.querySelector('img');
-        nextImg.style.display = 'block';
-        nextImg.offsetHeight;
-        nextImg.style.opacity = '1';
-        next.classList.add('active');
+            const nextImg = next.querySelector('img');
+            nextImg.style.display = 'block';
+            nextImg.offsetHeight; // force reflow
+            nextImg.style.opacity = '1';
+            next.classList.add('active');
 
-        currentIndex = nextIndex;
+            currentIndex = nextIndex;
 
-        updateSponsorsPosition();
+            updateSponsorsPosition();
+            setTimeout(showNextSponsor, displayDuration);
 
-        setTimeout(showNextSponsor, displayDuration);
-    }, fadeDuration);
-}
-
-sponsors.forEach((sponsor, i) => {
-    const img = sponsor.querySelector('img');
-    if (i === currentIndex) {
-        img.style.display = 'block';
-        img.style.opacity = '1';
-        sponsor.classList.add('active');
-    } else {
-        img.style.display = 'none';
-        img.style.opacity = '0';
+        }, fadeDuration);
     }
-});
 
-setTimeout(showNextSponsor, displayDuration);
+    sponsorEls.forEach((sponsor, i) => {
+        const img = sponsor.querySelector('img');
+        if (i === currentIndex) {
+            img.style.display = 'block';
+            img.style.opacity = '1';
+            sponsor.classList.add('active');
+        } else {
+            img.style.display = 'none';
+            img.style.opacity = '0';
+        }
+    });
 
-window.addEventListener('scroll', updateSponsorsPosition);
-window.addEventListener('resize', updateSponsorsPosition);
-updateSponsorsPosition();
+    setTimeout(showNextSponsor, displayDuration);
+
+    window.addEventListener('scroll', updateSponsorsPosition);
+    window.addEventListener('resize', updateSponsorsPosition);
+    updateSponsorsPosition();
+};
 
 /* END MOBILE SPONSORS SCRIPT */
 

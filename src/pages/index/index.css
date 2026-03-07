@@ -68,6 +68,17 @@
 
 section#hero {
     padding: 32px 12px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-bg-logo {
+    position: absolute;
+    top: calc(-50vw + 100px);
+    left: -210px;
+    width: calc(100vw + 300px);
+    opacity: 8%;
+    z-index: -1000;
 }
 
 #hero .section-heading {
@@ -439,9 +450,15 @@ body.modal-open {
 /* PLAYER SPOTLIGHT SECTION */
 /*====================================================================================================*/
 
-section#player-spotlight {
-    background-color: var(--barons-black);
-    padding: 32px 0 40px;
-}
+
 
 /* END PLAYER SPOTLIGHT SECTION */
+
+
+/*====================================================================================================*/
+/* TEAM SHOP SECTION */
+/*====================================================================================================*/
+
+
+
+/* END TEAM SHOP SECTION */

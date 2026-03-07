@@ -3,12 +3,15 @@
 # ADDITIONS
 Update footer design for desktop viewport
 
-Add a background image/video for the hero/landing of index.html
+index.html - Add a background image/video for the hero/landing of index.html
 and increase brightness or add filter for extra legibility of
 hero text and content.
 
 Integrate platinum tier sponsors into header sponsors section.
 
+index.html - build player spotlight section AFTER the roster page so the design is coherent
+
+create global scope array for team roster using objects
+
 # REVISIONS
-Edit mobile and html sponsors to use a javascript array
-instead of hardcoded HTML for each sponsor.
+Edit section.header-sponsors-wrapper and section#mobile-sponsors to use a javascript array instead of hardcoded HTML.
