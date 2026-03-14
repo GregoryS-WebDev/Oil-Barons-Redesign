@@ -72,10 +72,20 @@
 }
 
 html {
+    background-color: var(--barons-black);
+    color: var(--white);
     font-size: 15px;
     font-family: sans-serif;
     font-family: var(--sans-font-1), sans-serif;
-    color: var(--white);
+}
+
+body {
+    background-color: var(--white);
+}
+
+/* hide body overflow when article is open */
+body.modal-open {
+    overflow: hidden;
 }
 
 main {
@@ -131,7 +141,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .header-wrapper {

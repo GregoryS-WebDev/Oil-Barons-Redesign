@@ -39,30 +39,97 @@
 
 const globalRoster = [
     {
-        name: "",
-        birthday: null,
-        jersey: "",
-        height: "",
-        weight: "",
-        position: "",
-        category: "",
-        bats: "",
-        throws: "",
-        hometown: "",
+        name: "First Guy",
+        birthday: "01",
+        birthmonth: "01",
+        birthyear: "2001",
+        jersey: "9",
+        height: "6'0\"",
+        weight: "180lbs",
+        position: "3B",
+        category: "Infielders",
+        bats: "R",
+        throws: "R",
+        hometown: "Beaumont, TX",
+        twitter: "https://x.com/home",
+        facebook: "https://facebook.com/",
+        instagram: "https://instagram.com/",
+        bio: "These are words that describe the player to which this popup is linked these are a lot of words with nothing to say this is a run on sentence maybe I should stop typing or maybe I should use punctuation but is it really worth it is anything really worth anything why am I even doing this why am I here",
+        image: "../../assets/images/player-profile-img-placeholder.png"
+    },
+    {
+        name: "Second Dude",
+        birthday: "09",
+        birthmonth: "09",
+        birthyear: "1999",
+        jersey: "10",
+        height: "6'6\"",
+        weight: "233lbs",
+        position: "CF",
+        category: "Outfielders",
+        bats: "L",
+        throws: "L",
+        hometown: "College Station, TX",
         twitter: "",
+        facebook: "",
         instagram: "",
-        bio: "",
-        image: ""
+        bio: "These are words that describe the player to which this popup is linked these are a lot of words with nothing to say this is a run on sentence maybe I should stop typing or maybe I should use punctuation but is it really worth it is anything really worth anything why am I even doing this why am I here",
+        image: "../../assets/images/player-profile-img-placeholder.png"
+    },
+    {
+        name: "Third Goober",
+        birthday: "10",
+        birthmonth: "11",
+        birthyear: "1923",
+        jersey: "-5",
+        height: "4'6\"",
+        weight: "764lbs",
+        position: "C",
+        category: "Catchers",
+        bats: "L",
+        throws: "R",
+        hometown: "Goobertown, AR",
+        twitter: "",
+        facebook: "",
+        instagram: "",
+        bio: "These are words that describe the player to which this popup is linked these are a lot of words with nothing to say this is a run on sentence maybe I should stop typing or maybe I should use punctuation but is it really worth it is anything really worth anything why am I even doing this why am I here",
+        image: "../../assets/images/player-profile-img-placeholder.png"
+    },
+    {
+        name: "Fourth Loser",
+        birthday: "05",
+        birthmonth: "04",
+        birthyear: "1994",
+        jersey: "44",
+        height: "6'2\"",
+        weight: "200lbs",
+        position: "LHP",
+        category: "Pitchers",
+        bats: "L",
+        throws: "L",
+        hometown: "Vidor, TX",
+        twitter: "",
+        facebook: "",
+        instagram: "",
+        bio: "These are words that describe the player to which this popup is linked these are a lot of words with nothing to say this is a run on sentence maybe I should stop typing or maybe I should use punctuation but is it really worth it is anything really worth anything why am I even doing this why am I here",
+        image: "../../assets/images/player-profile-img-placeholder.png"
     }
 ];
 
 const globalCoaches = [
     {
-        name: "",
-        birthday: null,
-        position: "",
-        bio: "",
-        image: ""
+        name: "Last Human",
+        birthday: "03",
+        birthmonth: "10",
+        birthyear: "1976",
+        jersey: "74",
+        position: "MANAGER", // position should be all caps
+        hometown: "Beaumont, TX",
+        twitter: "",
+        facebook: "",
+        instagram: "",
+        bio: "These are words that describe the player to which this popup is linked these are a lot of words with nothing to say this is a run on sentence maybe I should stop typing or maybe I should use punctuation but is it really worth it is anything really worth anything why am I even doing this why am I here",
+        image: "../../assets/images/player-profile-img-placeholder.png"
     }
 ];
 
@@ -203,6 +270,7 @@ if (!sponsorsEl || !globalSponsors?.length) {
         anchor.target = '_blank';
         anchor.rel = 'noopener noreferrer';
         anchor.dataset.id = sponsor.id;
+        anchor.inert = 'true';
 
         const img = document.createElement('img');
         img.src = sponsor.image;
@@ -221,7 +289,7 @@ if (!sponsorsEl || !globalSponsors?.length) {
 
         const footerRect = footerEl.getBoundingClientRect();
         const sponsorsRect = sponsorsEl.getBoundingClientRect();
-        const scrollY = window.scrollY || window.pageYOffset;
+        const scrollY = window.scrollY;
         const distanceToFooter = window.innerHeight - footerRect.top;
 
         if (distanceToFooter > 0) {

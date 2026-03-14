@@ -48,6 +48,7 @@
     --barons-grey-light: #837978;
     --barons-red: #932f33;
     --barons-white: #f3e8c2;
+    --light-shadow: #00000070;
 
     --black: #000;
     --gold: #ffd700;
@@ -60,3 +61,327 @@
 }
 
 /* END ROOT STYLES */
+
+
+/*====================================================================================================*/
+/* ROSTER HEADING */
+/*====================================================================================================*/
+
+section#roster-box {
+    color: var(--barons-black) !important;
+    margin: 40px auto 20px;
+    width: fit-content;
+}
+
+#roster-box h1 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+}
+
+#roster-box h1 .first-letter {
+    font-size: 1.55rem;
+}
+
+select#category-filter {
+    border: 1.5px solid var(--barons-black);
+    border-radius: 4px;
+    font-family: var(--sans-font-1);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: 16px;
+    padding: 5px 3px;
+    text-transform: capitalize;
+    width: 50%;
+}
+
+/* END ROSTER HEADING */
+
+
+/*====================================================================================================*/
+/* ROSTER LIST STYLES */
+/*====================================================================================================*/
+
+section#roster {
+    margin-bottom: 70px;
+    max-width: 450px;
+    min-width: 256px;
+    width: 80vw;
+}
+
+/* necessary to correctly position mobile sponsors on page load */
+#roster.unloaded {
+    height: 100vh;
+}
+
+.category-header {
+    background-color: var(--barons-black);
+    border-radius: 3px;
+    box-shadow: 0 2px 2px 0px var(--light-shadow);
+    color: var(--white);
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-top: 30px;
+    padding: 2px 6px;
+    text-transform: uppercase;
+}
+
+.card {
+    box-shadow: 0 1.5px 3.5px 0px var(--light-shadow);
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card img {
+    object-fit: cover;
+    width: 28%;
+}
+
+.position {
+    background-color: var(--barons-black);
+    border-radius: 0 2px 0 4px;
+    bottom: 0;
+    color: var(--white);
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 300;
+    left: 0;
+    padding: 1.5px 3.5px;
+    position: absolute;
+    width: fit-content;
+}
+
+.info-box {
+    padding: 3px 0 5px;
+}
+
+.name, .jersey {
+    display: inline-block;
+}
+
+.name {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.jersey {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.info {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* END ROSTER LIST STYLES */
+
+
+/*====================================================================================================*/
+/* PLAYER PROFILE MODAL STYLES */
+/*====================================================================================================*/
+
+#player-modal {
+    border: none;
+    color: #000;
+    height: 100vh;
+    max-height: none;
+    max-width: none;
+    position: fixed;
+    width: 100vw;
+}
+
+#player-modal::backdrop {
+    backdrop-filter: blur(3px);
+    background: rgba(0,0,0,.6);
+}
+
+#close-modal {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    position: fixed;
+    right: 16px;
+    top: 16px;
+    z-index: 1000;
+}
+
+#modal-top {
+    align-items: center;
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+    margin-top: 16px;
+    position: relative;
+}
+
+#modal-logo {
+    height: 100%;
+    left: -25px;
+    opacity: 0.25;
+    position: absolute;
+    top: -5px;
+    z-index: -1;
+}
+
+#modal-img {
+    display: block;
+    height: 100%;
+    margin-top: 16px;
+    object-fit: cover;
+    width: 47%;
+}
+
+#modal-meta-box {
+    width: 48%;
+}
+
+#jersey-pos {
+    background-color: var(--barons-black);
+    border-radius: 3px;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 400;
+    padding: 1px 6px 2px;
+    width: fit-content;
+}
+
+#separator {
+    display: inline-block;
+    transform: translateY(-0.75px);
+}
+
+#modal-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.45rem;
+    margin-top: 8px;
+    text-transform: uppercase;
+}
+
+#modal-meta {
+    font-size: .95rem;
+    line-height: 1.6;
+    margin-top: 3px;
+}
+
+#modal-socials {
+    background-color: var(--barons-black);
+    height: 40px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+#modal-socials img{
+    height: 20px;
+}
+
+#modal-socials a {
+    display: inline-block;
+    height: 24px;
+    margin-left: 15%;
+    width: fit-content;
+}
+
+#modal-socials a:first-of-type {
+    margin-left: 0;
+}
+
+#modal-bio {
+    font-size: 1.1rem;
+    letter-spacing: 0.1px;
+    line-height: 1.6;
+    margin: 24px 24px 16px;
+}
+
+/* END PLAYER PROFILE MODAL STYLES */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE ROSTER STYLES - LARGE MOBILE */
+/*====================================================================================================*/
+
+@media screen and (min-width: 480px) {
+
+    #roster-box h1 {
+        font-size: 1.55rem;
+    }
+
+    #roster-box h1 .first-letter {
+        font-size: 1.7rem;
+    }
+
+    .position {
+        font-size: 0.9rem;
+    }
+
+    .name {
+        font-size: 1.25rem;
+    }
+
+    .jersey {
+        font-size: 1.1rem;
+    }
+
+    .info {
+        font-size: 1.05rem;
+    }
+
+}
+
+/* END RESPONSIVE ROSTER STYLES - LARGE MOBILE */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE ROSTER STYLES - TABLET */
+/*====================================================================================================*/
+
+@media screen and (min-width: 768px) {
+
+}
+
+/* RESPONSIVE ROSTER STYLES - TABLET */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE ROSTER STYLES - LAPTOP */
+/*====================================================================================================*/
+
+@media screen and (min-width: 1024px) {
+
+}
+
+/* RESPONSIVE ROSTER STYLES - LAPTOP */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE ROSTER STYLES - DESKTOP */
+/*====================================================================================================*/
+
+@media screen and (min-width: 1440px) {
+
+}
+
+/* RESPONSIVE ROSTER STYLES - DESKTOP */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE ROSTER STYLES - 4K */
+/*====================================================================================================*/
+
+@media screen and (min-width: 2560px) {
+
+}
+
+/* RESPONSIVE ROSTER STYLES - 4K */

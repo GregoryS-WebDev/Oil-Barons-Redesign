@@ -78,7 +78,7 @@ section#hero {
     left: -210px;
     width: calc(100vw + 300px);
     opacity: 8%;
-    z-index: -1000;
+    z-index: 0;
 }
 
 #hero .section-heading {
@@ -165,6 +165,7 @@ body.nav-open .time label {
     height: 40px;
     justify-content: center;
     margin-top: 20px;
+    z-index: 100;
 }
 
 .next-game-btn {
@@ -179,6 +180,7 @@ body.nav-open .time label {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 100;
 }
 
 /* END HERO STYLES - NEXT GAME */
@@ -387,11 +389,6 @@ section#news {
     transform: none;
     width: 100vw;
 }
-
-/* hide body overflow when article is open */
-body.modal-open {
-    overflow: hidden;
-}
       
 #article-modal::backdrop {
     backdrop-filter: blur(3px);
@@ -462,3 +459,65 @@ body.modal-open {
 
 
 /* END TEAM SHOP SECTION */
+
+
+/*====================================================================================================*/
+/* ABOUT THE TEAM SECTION */
+/*====================================================================================================*/
+
+
+
+/* END ABOUT THE TEAM SECTION */
+
+
+/*====================================================================================================*/
+/* SPONSORSHIPS SECTION */
+/*====================================================================================================*/
+
+
+
+/* END SPONSORSHIPS SECTION */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE INDEX STYLES - TABLET */
+/*====================================================================================================*/
+
+@media screen and (min-width: 768px) {
+
+}
+
+/* RESPONSIVE INDEX STYLES - TABLET */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE INDEX STYLES - LAPTOP */
+/*====================================================================================================*/
+
+@media screen and (min-width: 1024px) {
+
+}
+
+/* RESPONSIVE INDEX STYLES - LAPTOP */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE INDEX STYLES - DESKTOP */
+/*====================================================================================================*/
+
+@media screen and (min-width: 1440px) {
+
+}
+
+/* RESPONSIVE INDEX STYLES - DESKTOP */
+
+
+/*====================================================================================================*/
+/* RESPONSIVE INDEX STYLES - 4K */
+/*====================================================================================================*/
+
+@media screen and (min-width: 2560px) {
+
+}
+
+/* RESPONSIVE INDEX STYLES - 4K */
