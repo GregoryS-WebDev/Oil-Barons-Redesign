@@ -21,3 +21,5 @@ hero text and content.
 - style select element in roster.html
 
 - use javascript to build header/nav from array
+
+- use json + js to store team schedule and build next game, upcoming schedule sections in index.html to auto-update.

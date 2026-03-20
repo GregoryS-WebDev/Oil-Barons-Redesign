@@ -92,139 +92,164 @@ const timer = setInterval(updateCountdown, 1000);
 /* NEWS ARTICLE SHOW/HIDE TOGGLE */
 /*====================================================================================================*/
 
-(function(){
+(function () {
+    const container = document.getElementById('news-articles');
     const modal = document.getElementById('article-modal');
     const modalContent = document.getElementById('modal-content');
     const closeBtn = document.getElementById('close-modal');
-    const templates = document.getElementById('news-article-content');
 
-    let lastFocused = null;
+    if (!container) return;
+
+    let articlesData = [];
+
+    // =========================
+    // FETCH + INIT
+    // =========================
+    async function init() {
+        try {
+            const res = await fetch('../news/articles.json');
+            const data = await res.json();
+
+            articlesData = data.articles || [];
+
+            // sort newest → oldest
+            articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            renderArticles(articlesData.slice(0, 4));
+
+        } catch (err) {
+            console.error('Failed to load articles:', err);
+            container.innerHTML = '<p>Unable to load latest news.</p>';
+        }
+    }
+
+    // =========================
+    // RENDER
+    // =========================
+    function renderArticles(articles) {
+        if (!articles.length) {
+            container.innerHTML = '<p>No news available.</p>';
+            return;
+        }
+
+        container.innerHTML = '';
+
+        // --- TOP ARTICLE ---
+        const top = articles[0];
+
+        const featuredArticle = document.createElement('article');
+        featuredArticle.id = 'featured';
+        featuredArticle.className = 'news-article';
+        featuredArticle.dataset.article = top.id;
+
+        featuredArticle.innerHTML = `
+            <img class="news-img" src="${top.image}" alt="" />
+            <h3 class="news-heading">
+                ${top.title}
+                <p id="latest-article-summary">${top.summary || ''}</p>
+            </h3>
+        `;
+
+        container.appendChild(featuredArticle);
+
+        // --- OTHER ARTICLES ---
+        if (articles.length > 1) {
+            const otherWrapper = document.createElement('div');
+            otherWrapper.id = 'other-articles';
+
+            articles.slice(1).forEach(article => {
+                const el = document.createElement('article');
+                el.className = 'news-article';
+                el.dataset.article = article.id;
+
+                el.innerHTML = `
+                    <img class="news-img" src="${article.image}" alt="" />
+                    <h3 class="news-heading">
+                        <p class="article-date">${formatDate(article.date)}</p>
+                        ${article.title}
+                    </h3>
+                `;
+
+                otherWrapper.appendChild(el);
+            });
+
+            container.appendChild(otherWrapper);
+        }
+
+        attachClickHandlers();
+    }
+
+    // =========================
+    // MODAL LOGIC
+    // =========================
+    function attachClickHandlers() {
+        document.querySelectorAll('#news-articles .news-article').forEach(card => {
+            card.addEventListener('click', async () => {
+                const id = card.dataset.article;
+                const article = articlesData.find(a => a.id === id);
+
+                if (!article) return;
+
+                try {
+                    const res = await fetch(`../news/${article.file}`);
+                    const html = await res.text();
+
+                    modalContent.innerHTML = `
+                        <h2 class="news-article-title">${article.title}</h2>
+                        <p class="news-article-summary">${article.summary || ''}</p>
+                        ${html}
+                    `;
+
+                    openModal();
+
+                } catch (err) {
+                    console.error('Failed to load article:', err);
+                }
+            });
+        });
+    }
 
     function openModal() {
-
-        // store last focused element to restore focus on close
-        lastFocused = document.activeElement;
-
         if (typeof modal.showModal === 'function') {
             modal.showModal();
         } else {
-
-            // fallback for browsers without <dialog>
-            const overlay = document.createElement('div');
-            overlay.className = 'no-dialog-overlay';
-            overlay.tabIndex = -1;
-            overlay.innerHTML = '<div class="no-dialog-card" role="dialog" aria-modal="true"></div>';
-            const card = overlay.querySelector('.no-dialog-card');
-            card.appendChild(modalContent);
-            document.body.appendChild(overlay);
-            modal._fallbackOverlay = overlay;
-
+            modal.setAttribute('open', '');
         }
-
-        document.body.classList.add('modal-open');
-
-        closeBtn.focus();
-
+    
+        // reset scroll AFTER it's rendered
+        requestAnimationFrame(() => {
+            modal.scrollTop = 0;
+            modalContent.scrollTop = 0;
+        });
     }
 
     function closeModal() {
-
-        if (typeof modal.close === 'function' && modal.open) {
+        if (typeof modal.close === 'function') {
             modal.close();
-        } else if (modal._fallbackOverlay) {
-
-            // restore modalContent into a temporary container so DOM stays consistent
-            const overlay = modal._fallbackOverlay;
-            const card = overlay.querySelector('.no-dialog-card');
-
-            // move modalContent back inside the dialog element so subsequent opens work
-            document.body.appendChild(modalContent);
-            document.body.removeChild(overlay);
-            modal._fallbackOverlay = null;
-
         } else {
             modal.removeAttribute('open');
         }
-
-        document.body.classList.remove('modal-open');
-
-        // restore previous focus
-        if (lastFocused && typeof lastFocused.focus === 'function') {
-            lastFocused.focus();
-        }
-
     }
 
-    // open article when clicked
-    document.querySelectorAll('.news-article').forEach(card => {
+    closeBtn?.addEventListener('click', closeModal);
 
-        card.addEventListener('click', () => {
+    // =========================
+    // HELPERS
+    // =========================
+    function formatDate(dateStr) {
+        const date = new Date(dateStr);
 
-            const key = card.dataset.article;
-            const articleTemplate = templates.querySelector(`[data-article="${key}"]`);
-
-            if (!articleTemplate) {
-                console.warn('No template for article:', key);
-                return;
-            }
-
-            // clear and append clone (so original templates remain in DOM)
-            modalContent.innerHTML = '';
-            const clone = articleTemplate.cloneNode(true);
-
-            // ensure the main heading inside modal has an id for aria-labelledby
-            const heading = clone.querySelector('h2, h1, h3');
-
-            if (heading) {
-                heading.id = 'modal-heading';
-            }
-
-            modalContent.appendChild(clone);
-
-            openModal();
-
-            requestAnimationFrame(() => {
-                modal.scrollTop = 0;
-            });
-
+        return date.toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
         });
+    }
 
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-
-    // close when clicking backdrop
-    modal.addEventListener('click', (e) => {
-        const rect = modal.getBoundingClientRect();
-        const inside =
-            rect.top <= e.clientY &&
-            e.clientY <= rect.top + rect.height &&
-            rect.left <= e.clientX &&
-            e.clientX <= rect.left + rect.width;
-
-        if (!inside) closeModal();
-    });
-
-    // close on 'cancel' (Esc)
-    modal.addEventListener('cancel', (e) => {
-        e.preventDefault();
-        closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && (modal.open || modal._fallbackOverlay)) {
-            closeModal();
-        }
-    });
-
-    // cleanup when dialog closes
-    modal.addEventListener('close', () => {
-        document.body.classList.remove('modal-open');
-
-        if (lastFocused && typeof lastFocused.focus === 'function') {
-            lastFocused.focus();
-        }
-    });
+    // =========================
+    // INIT
+    // =========================
+    init();
 
 })();
 

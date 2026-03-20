@@ -1,0 +1,46 @@
+{
+
+
+
+    "_README": {
+        "meta": "This file stores meta information about news articles",
+        "additions": "all new articles should be added at the TOP",
+        "date-format": "Dates must be YYYY-MM-DD or optionally YYYY-MM-DDTHH:MM:SS",
+        "image-path": "all image paths must be relative, which will mean every path will be ../../assets/images/name-of-image.extension",
+        "types": "the type property will be used to filter articles on the news.html page (press-release, game-summary)"
+    },
+
+
+
+
+    "articles": [
+        {
+            "id": "coaching-staff",
+            "title": "Beaumont Oil Barons Announce Coaching Staff for Inaugural '26 Season",
+            "date": "2025-12-18",
+            "image": "../../assets/images/news-image-placeholder.png",
+            "summary": "Dec 18, 2025 - Beaumont's inaugural coaching staff brings experience, leadership, and local ties to the 2026 Season.",
+            "file": "articles/coaching-staff.html",
+            "type": "press-release"
+        },
+        {
+            "id": "host-families",
+            "title": "Oil Barons Seek Families to Host Players For '26 Season",
+            "date": "2025-11-22T11:00:00",
+            "image": "../../assets/images/news-image-placeholder-2.png",
+            "summary": "Nov 22, 2025 - We're seeking families to host our baseball players for the summer!",
+            "file": "articles/host-families.html",
+            "type": "press-release"
+        },
+        {
+            "id": "team-name",
+            "title": "Beaumont Baseball Franchise Unveils Team Name, Logo",
+            "date": "2025-11-22T10:00:00",
+            "image": "../../assets/images/news-image-placeholder.png",
+            "summary": "Nov 22, 2025 - The Beaumont-based Mid-America League expansion franchise will be known as the Oil Barons.",
+            "file": "articles/team-name.html",
+            "type": "press-release"
+        }
+    ]
+
+}

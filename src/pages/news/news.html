@@ -216,10 +216,40 @@
 
         <main>
 
-            <!-- MOBILE SPONSORS - bottom right -->
-            <section id="mobile-sponsors" class="max768px"></section>
+            <section id="news" class="news">
 
+                <h1 class="section-heading"><span class="first-letter">O</span>il <span class="first-letter">B</span>arons <span class="first-letter">N</span>ews</h1>
+            
+                <!-- FILTER -->
+                <select id="news-filter-select">
+                    <option value="all">All</option>
+                    <option value="press-release">Press Releases</option>
+                    <option value="game-summary">Game Summaries</option>
+                </select>
+            
+                <!-- ARTICLES -->
+                <div id="news-articles">
+                    <!-- JS injects articles here -->
+                </div>
+            
+            </section>
+            
+<!---->     <!-- MOBILE SPONSORS - bottom right -->
+            <!-- This section is built with JS -->
+            <section id="mobile-sponsors" class="max768px"></section>
+        
         </main>
+        
+          
+        
+          <!-- Dialog for the news page -->
+          <dialog id="article-modal" aria-labelledby="modal-heading">
+
+            <button id="close-modal" aria-label="Close article">x</button>
+
+            <div id="modal-content"></div>
+
+          </dialog>
 
         <footer>
             
