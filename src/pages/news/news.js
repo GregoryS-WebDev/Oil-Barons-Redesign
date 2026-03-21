@@ -70,6 +70,7 @@
             const el = document.createElement('article');
             el.className = 'news-article';
             el.dataset.article = article.id;
+            el.tabIndex = "0";
 
             el.innerHTML = `
                 <img class="news-img" src="${article.image}" alt="" />
@@ -80,6 +81,12 @@
             `;
 
             el.addEventListener('click', () => openArticle(article));
+            el.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  openArticle(article);
+                }
+            });
 
             container.appendChild(el);
         });

@@ -63,7 +63,7 @@
 
 
 /*====================================================================================================*/
-/* NEWS SECTION - FRONT END STYLES */
+/* NEWS HEADING AND SELECT */
 /*====================================================================================================*/
 
 section#news {
@@ -95,6 +95,13 @@ section#news {
     width: 50%;
 }
 
+/* END NEWS HEADING AND SELECT */
+
+
+/*====================================================================================================*/
+/* NEWS LIST */
+/*====================================================================================================*/
+
 #news-articles {
     max-width: 450px;
     min-height: 100vh;
@@ -103,10 +110,16 @@ section#news {
 
 .news-article {
     border-top: 1px solid #00000030;
+    cursor: pointer;
     display: flex;
     gap: 10px;
-    margin-bottom: 16px;
+    padding-bottom: 16px;
     padding-top: 16px;
+}
+
+.news-article:focus-visible {
+    outline: 3px solid var(--barons-black);
+    border-radius: 3px;
 }
 
 .news-img {
@@ -118,17 +131,12 @@ section#news {
 
 .news-heading {
     color: var(--barons-black);
-    display: block;
-}
-
-/*-- other articles ----------------------------------------------------------------------------------*/
-.news-heading {
     display: inline-block;
     font-size: 1rem;
     min-width: 185px;
 }
 
-.news-heading .article-date {
+.article-date {
     background-color: var(--barons-black);
     border-radius: 3px;
     display: block;
@@ -140,29 +148,12 @@ section#news {
     width: fit-content;
 }
 
-/* END NEWS SECTION - FRONT END STYLES */
+/* END NEWS LIST */
 
 
 /*====================================================================================================*/
-/* NEWS SECTION - BACK END & ARTICLE STYLES */
+/* NEWS ARTICLES */
 /*====================================================================================================*/
-
-/*-- news section back end styles --------------------------------------------------------------------*/
-.news-article {
-    cursor: pointer;
-    transition: transform .15s ease;
-}
-
-/* Focusable news cards: visible focus outline for keyboard users */
-.news-article[role="button"]:focus {
-    outline: 3px solid rgba(0,0,0,0.12);
-
-}
-
-/* Ensure images inside focusable cards don't steal outline */
-.news-article[role="button"] img {
-    pointer-events: none;
-}
 
 #article-modal[open] {
     border: none;
@@ -189,12 +180,12 @@ section#news {
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
+    padding: 0 5px 2px 5.5px;
     position: fixed;
     right: 16px;
     top: 16px;
 }
 
-/*-- news article styles --------------------------------------------------------------------------------*/
 #modal-content {
     color: var(--barons-black);
     font-size: 1.1rem;
@@ -228,4 +219,4 @@ section#news {
     margin-top: 8px;
 }
 
-/* END NEWS SECTION - BACK END & ARTICLE STYLES */
+/* END NEWS ARTICLES */
