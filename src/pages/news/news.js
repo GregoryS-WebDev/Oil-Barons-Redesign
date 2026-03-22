@@ -4,75 +4,72 @@
 
 /*
 
-    ** FILE STRUCTURE **
+  ** FILE STRUCTURE **
 
-    This javascript file is separated into logical sections, with subsection headers integrated within. The start
-    of these sections are denoted by comments such as:
+  This javascript file is separated into logical sections, with subsection headers integrated within. The start
+  of these sections are denoted by comments such as:
 
-    /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/*=============================================================*/
+/* SECTION NAME */
+/*=============================================================*\
 
-    The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
-    Subsections have a single header comment such as:
+  The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
+  Subsections have a single header comment such as:
 
-    /*-- subsection name ------------------------------------------*\
+  /*-- subsection name ------------------------------------------*\
 
 */
 
 /* END META INFORMATION */
 
+/*====================================================================================================*/
+/* RENDER NEWS FROM ARTICLE AND JSON FILES */
+/*====================================================================================================*/
+
 (function () {
-    const container = document.getElementById('news-articles');
-    const filterSelect = document.getElementById('news-filter-select');
+  const container = document.getElementById("news-articles");
+  const filterSelect = document.getElementById("news-filter-select");
 
-    const modal = document.getElementById('article-modal');
-    const modalContent = document.getElementById('modal-content');
-    const closeBtn = document.getElementById('close-modal');
+  const modal = document.getElementById("article-modal");
+  const modalContent = document.getElementById("modal-content");
+  const closeBtn = document.getElementById("close-modal");
 
-    if (!container) return;
+  if (!container) return;
 
-    let articlesData = [];
+  let articlesData = [];
 
-    // =========================
-    // INIT
-    // =========================
-    async function init() {
-        try {
-            const res = await fetch('./articles.json');
-            const data = await res.json();
+  async function init() {
+    try {
+      const res = await fetch("../../data/news-articles.json");
+      const data = await res.json();
 
-            articlesData = data.articles || [];
+      articlesData = data.articles || [];
 
-            // sort newest → oldest
-            articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
+      // sort newest → oldest
+      articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            renderArticles(articlesData);
+      renderArticles(articlesData);
+    } catch (err) {
+      console.error("Failed to load articles:", err);
+      container.innerHTML = "<p>Unable to load news.</p>";
+    }
+  }
 
-        } catch (err) {
-            console.error('Failed to load articles:', err);
-            container.innerHTML = '<p>Unable to load news.</p>';
-        }
+  function renderArticles(articles) {
+    if (!articles.length) {
+      container.innerHTML = "<p>No articles found.</p>";
+      return;
     }
 
-    // =========================
-    // RENDER
-    // =========================
-    function renderArticles(articles) {
-        if (!articles.length) {
-            container.innerHTML = '<p>No articles found.</p>';
-            return;
-        }
+    container.innerHTML = "";
 
-        container.innerHTML = '';
+    articles.forEach((article) => {
+      const el = document.createElement("article");
+      el.className = "news-article";
+      el.dataset.article = article.id;
+      el.tabIndex = "0";
 
-        articles.forEach(article => {
-            const el = document.createElement('article');
-            el.className = 'news-article';
-            el.dataset.article = article.id;
-            el.tabIndex = "0";
-
-            el.innerHTML = `
+      el.innerHTML = `
                 <img class="news-img" src="${article.image}" alt="" />
                 <h3 class="news-heading">
                     <p class="article-date">${formatDate(article.date)}</p>
@@ -80,93 +77,81 @@
                 </h3>
             `;
 
-            el.addEventListener('click', () => openArticle(article));
-            el.addEventListener("keydown", (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  openArticle(article);
-                }
-            });
+      el.addEventListener("click", () => openArticle(article));
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openArticle(article);
+        }
+      });
 
-            container.appendChild(el);
-        });
+      container.appendChild(el);
+    });
+  }
+
+  filterSelect?.addEventListener("change", () => {
+    const value = filterSelect.value;
+
+    if (value === "all") {
+      renderArticles(articlesData);
+      return;
     }
 
-    // =========================
-    // FILTER
-    // =========================
-    filterSelect?.addEventListener('change', () => {
-        const value = filterSelect.value;
+    const filtered = articlesData.filter((a) => a.type === value);
+    renderArticles(filtered);
+  });
 
-        if (value === 'all') {
-            renderArticles(articlesData);
-            return;
-        }
+  async function openArticle(article) {
+    try {
+      const res = await fetch(article.file);
+      const html = await res.text();
 
-        const filtered = articlesData.filter(a => a.type === value);
-        renderArticles(filtered);
-    });
-
-    // =========================
-    // MODAL
-    // =========================
-    async function openArticle(article) {
-        try {
-            const res = await fetch(article.file);
-            const html = await res.text();
-
-            modalContent.innerHTML = `
+      modalContent.innerHTML = `
                 <h2 class="news-article-title">${article.title}</h2>
-                <p class="news-article-summary">${article.summary || ''}</p>
+                <p class="news-article-summary">${article.summary || ""}</p>
                 ${html}
             `;
 
-            openModal();
+      openModal();
+    } catch (err) {
+      console.error("Failed to load article:", err);
+    }
+  }
 
-        } catch (err) {
-            console.error('Failed to load article:', err);
-        }
+  function openModal() {
+    if (typeof modal.showModal === "function") {
+      modal.showModal();
+    } else {
+      modal.setAttribute("open", "");
     }
 
-    function openModal() {
-        if (typeof modal.showModal === 'function') {
-            modal.showModal();
-        } else {
-            modal.setAttribute('open', '');
-        }
+    requestAnimationFrame(() => {
+      modal.scrollTop = 0;
+      modalContent.scrollTop = 0;
+    });
+  }
 
-        requestAnimationFrame(() => {
-            modal.scrollTop = 0;
-            modalContent.scrollTop = 0;
-        });
+  function closeModal() {
+    if (typeof modal.close === "function") {
+      modal.close();
+    } else {
+      modal.removeAttribute("open");
     }
+  }
 
-    function closeModal() {
-        if (typeof modal.close === 'function') {
-            modal.close();
-        } else {
-            modal.removeAttribute('open');
-        }
-    }
+  closeBtn?.addEventListener("click", closeModal);
 
-    closeBtn?.addEventListener('click', closeModal);
+  function formatDate(dateStr) {
+    const date = new Date(dateStr);
 
-    // =========================
-    // HELPERS
-    // =========================
-    function formatDate(dateStr) {
-        const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
+  }
 
-        return date.toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-        });
-    }
-
-    // =========================
-    // START
-    // =========================
-    init();
-
+  init();
 })();
+
+/* END RENDER NEWS FROM ARTICLE AND JSON FILES */

@@ -11,7 +11,7 @@ hero text and content.
 
 - index.html - build player spotlight section AFTER the roster page so the design is coherent
 
-- create global scope array for team roster using objects (done - implement use for desktop sponsors)
+- update desktop header sponsors to use sponsors.json
 
 
 
@@ -22,4 +22,4 @@ hero text and content.
 
 - use javascript to build header/nav from array
 
-- use json + js to store team schedule and build next game, upcoming schedule sections in index.html to auto-update.
+- use json + js to store team schedule and build next game, next game countdown, and upcoming schedule sections in index.html to auto-update.

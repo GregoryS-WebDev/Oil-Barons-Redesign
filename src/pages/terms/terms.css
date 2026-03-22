@@ -9,9 +9,9 @@
     This css file is separated into logical sections, with subsection headers integrated within. The start
     of these sections are denoted by comments such as:
 
-    /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/*=============================================================*/
+/* SECTION NAME */
+/*=============================================================*\
 
     The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
     Subsections have a single header comment such as:
@@ -31,32 +31,149 @@
 
 /* END META INFORMATION */
 
-
 /*====================================================================================================*/
 /* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
+  /*----- colors -----*/
+  --barons-black: #1b1818;
+  --barons-brown-light: #c99f67;
+  --barons-brown-dark: #745634;
+  --barons-gold: #cdb14d;
+  --barons-grey-dark: #221f1f;
+  --barons-grey: #403c3c;
+  --barons-grey-light: #837978;
+  --barons-red: #932f33;
+  --barons-white: #f3e8c2;
 
-    /*----- colors -----*/
-    --barons-black: #1b1818;
-    --barons-brown-light: #c99f67;
-    --barons-brown-dark: #745634;
-    --barons-gold: #cdb14d;
-    --barons-grey-dark: #221f1f;
-    --barons-grey: #403c3c;
-    --barons-grey-light: #837978;
-    --barons-red: #932f33;
-    --barons-white: #f3e8c2;
+  --black: #000;
+  --gold: #ffd700;
+  --white: #fff;
 
-    --black: #000;
-    --gold: #ffd700;
-    --white: #fff;
+  /*----- fonts -----*/
+  --sans-font-1: "Oswald";
+  --sans-font-2: "Oxanium";
+}
 
-    /*----- fonts -----*/
-    --sans-font-1: "Oswald";
-    --sans-font-2: "Oxanium";
-    
+.hidden {
+    display: none !important;
 }
 
 /* END ROOT STYLES */
+
+
+/*====================================================================================================*/
+/* TERMS GLOBAL AND HEADING STYLES */
+/*====================================================================================================*/
+
+section#terms-heading, section.clause {
+    color: var(--barons-black);
+    margin: 0 auto;
+    max-width: 450px;
+}
+
+section#terms-heading {
+    padding: 32px 12px 12px;
+}
+
+section#terms-heading h1 {
+    font-size: 1.95rem;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+}
+
+section#terms-heading h1 .first-letter {
+    font-size: 2.2rem;
+}
+
+section#terms-heading p {
+    opacity: 0.7;
+}
+
+/* END TERMS GLOBAL AND HEADING STYLES */
+
+
+/*====================================================================================================*/
+/* TERMS STYLES */
+/*====================================================================================================*/
+
+section.clause {
+    padding: 40px 12px 0;
+}
+
+.clause-heading {
+    font-size: 1.8rem;
+    font-variant: small-caps;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+
+.article-heading {
+    font-size: 1.3rem;
+    padding-top: 24px;
+}
+
+.clause div {
+    padding-top: 2px;
+    font-weight: 300;
+}
+
+.clause div div {
+    margin-left: 4px;
+}
+
+.clause p {
+    padding-top: 14px;
+}
+
+.clause ul {
+    padding-top: 8px;
+}
+
+.clause ul li {
+    list-style-type: circle;
+    margin-left: 20px;
+    margin-top: 4px;
+}
+
+.terms-meta-link {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.strong {
+    font-weight: 400;
+}
+
+/* END TERMS STYLES */
+
+
+/*====================================================================================================*/
+/* CONTACT STYLES */
+/*====================================================================================================*/
+
+div#contact-box {
+    border-radius: 6px;
+    padding: 12px;
+    margin: 18px 0 48px;
+    box-shadow: 0 1.5px 3.5px 0px var(--barons-black);
+}
+
+div#contact-box h4 {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding-bottom: 4px;
+}
+
+div#contact-box p, div#contact-box a {
+    display: block;
+    padding-top: 4px;
+}
+
+div#contact-box a {
+    text-decoration: underline;
+}
+
+/* END CONTACT STYLES */

@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* MOBILE SPONSORS SCRIPT */
 /*====================================================================================================*/
 
-fetch('../../sponsors.json')
+fetch('../../data/sponsors.json')
     .then(response => {
         if (!response.ok) {
             throw new Error('Failed to load sponsors.json');

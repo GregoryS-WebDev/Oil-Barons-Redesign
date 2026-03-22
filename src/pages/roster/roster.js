@@ -9,9 +9,9 @@
   This javascript file is separated into logical sections, with subsection headers integrated within. The start
   of these sections are denoted by comments such as:
 
-  /*=============================================================*/
-  /* SECTION NAME */
-  /*=============================================================*\
+/*=============================================================*/
+/* SECTION NAME */
+/*=============================================================*\
 
   The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
   Subsections have a single header comment such as:
@@ -96,15 +96,14 @@ function getSocialIcon(platform) {
 
 /* END ROSTER HELPER FUNCTIONS */
 
-
 /*====================================================================================================*/
 /* FETCH DATA AND CALL RENDER */
 /*====================================================================================================*/
 
 async function initRoster() {
   const [rosterRes, coachesRes] = await Promise.all([
-    fetch("roster.json"),
-    fetch("coaches.json"),
+    fetch("../../data/roster.json"),
+    fetch("../../data/coaches.json"),
   ]);
 
   if (!rosterRes.ok || !coachesRes.ok) {
@@ -118,7 +117,6 @@ async function initRoster() {
 }
 
 /* END FETCH DATA AND CALL RENDER */
-
 
 /*====================================================================================================*/
 /* ROSTER RENDERING */
@@ -228,7 +226,6 @@ function render(roster, coaches, filter = "All") {
 
 /* END ROSTER RENDERING */
 
-
 /*====================================================================================================*/
 /* FILTER HANDLING */
 /*====================================================================================================*/
@@ -241,7 +238,6 @@ filterEl.addEventListener("change", (e) => {
 });
 
 /* END FILTER HANDLING */
-
 
 /*====================================================================================================*/
 /* MODAL */
@@ -310,7 +306,6 @@ modal.addEventListener("click", (e) => {
 });
 
 /* END MODAL */
-
 
 /*====================================================================================================*/
 /* INIT */

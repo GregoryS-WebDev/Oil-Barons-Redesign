@@ -285,8 +285,8 @@ section#news {
     border-bottom: 1px solid #00000030;
     display: flex;
     gap: 10px;
-    margin-top: 16px;
     padding-bottom: 16px;
+    padding-top: 16px;
 }
 
 .news-img {
@@ -371,6 +371,11 @@ section#news {
 /*-- news section back end styles --------------------------------------------------------------------*/
 .news-article {
     cursor: pointer;
+}
+
+.news-article:focus-visible {
+    outline: 3px solid var(--barons-black);
+    border-radius: 3px;
 }
 
 #article-modal[open] {
