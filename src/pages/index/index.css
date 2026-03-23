@@ -355,6 +355,7 @@ section#news {
     display: block;
     font-weight: 500;
     margin: 16px auto 0;
+    max-width: 450px;
     padding: 8px 16px;
     text-align: center;
     text-transform: uppercase;

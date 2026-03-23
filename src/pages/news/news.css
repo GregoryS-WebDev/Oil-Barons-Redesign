@@ -69,7 +69,7 @@
 section#news {
     padding: 32px 12px 40px;
     color: var(--barons-black);
-    margin: 0 auto;
+    margin: 0 auto 70px;
     max-width: 400px;
 }
 
