@@ -1,0 +1,90 @@
+[
+    {
+        "name": "Oil Barons",
+        "city": "Beaumont",
+        "id": "oil-barons",
+        "website": "",
+        "logo": "",
+        "stadium": "Vincent-Beck Stadium",
+        "address": "",
+        "state": "TX",
+        "zip": ""
+    },
+    {
+        "name": "Yard Dogs",
+        "city": "Bryan",
+        "id": "yard-dogs",
+        "website": "",
+        "logo": "",
+        "stadium": "",
+        "address": "",
+        "state": "",
+        "zip": ""
+    },
+    {
+        "name": "",
+        "city": "",
+        "id": "",
+        "website": "",
+        "logo": "",
+        "stadium": "",
+        "address": "",
+        "state": "",
+        "zip": ""
+    },
+    {
+        "name": "Outlaws",
+        "city": "Joplin",
+        "id": "outlaws",
+        "website": "",
+        "logo": "",
+        "stadium": "Joe Becker Memorial Stadium",
+        "address": "",
+        "state": "",
+        "zip": ""
+    },
+    {
+        "name": "",
+        "city": "",
+        "id": "",
+        "website": "",
+        "logo": "",
+        "stadium": "",
+        "address": "",
+        "state": "",
+        "zip": ""
+    },
+    {
+        "name": "Niners",
+        "city": "Nacogdoches",
+        "id": "niners",
+        "website": "",
+        "logo": "",
+        "stadium": "",
+        "address": "",
+        "state": "",
+        "zip": ""
+    },
+    {
+        "name": "Timberhogs",
+        "city": "Piney Woods",
+        "id": "timberhogs",
+        "website": "",
+        "logo": "",
+        "stadium": "Roughnecks Stadium",
+        "address": "",
+        "state": "",
+        "zip": ""
+    },
+    {
+        "name": "Rhinos",
+        "city": "Texarcana",
+        "id": "rhinos",
+        "website": "",
+        "logo": "",
+        "stadium": "George Dobson Field",
+        "address": "",
+        "state": "",
+        "zip": ""
+    }
+]
