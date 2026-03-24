@@ -74,9 +74,9 @@ section#hero {
 
 #hero-bg-logo {
     position: absolute;
-    top: calc(-50vw + 100px);
+    top: calc(-50% + 100px);
     left: -210px;
-    width: calc(100vw + 300px);
+    width: calc(100% + 300px);
     opacity: 8%;
     z-index: 0;
 }
@@ -224,7 +224,7 @@ section#upcoming-dates {
 .upcoming-opponent {
     align-items: center;
     display: flex;
-    gap: 2.25vw;
+    gap: 2.25%;
     justify-content: center;
 }
 
@@ -308,11 +308,11 @@ section#news {
 
 #featured .news-img {
     border-radius: 5px;
-    height: calc(66vw - 12px);
+    height: calc(66% - 12px);
     max-height: 300px;
     max-width: 450px;
     object-position: 50% 33%;
-    width: calc(100vw - 24px);
+    width: 100%;
 }
 
 #featured .news-heading {
@@ -389,7 +389,7 @@ section#news {
     max-width: none;
     padding: 0;
     position: fixed;
-    width: 100vw;
+    width: 100%;
 }
       
 #article-modal::backdrop {

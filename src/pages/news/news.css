@@ -166,7 +166,7 @@ section#news {
     padding: 0;
     position: fixed;
     transform: none;
-    width: 100vw;
+    width: 100%;
 }
       
 #article-modal::backdrop {
