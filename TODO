@@ -11,15 +11,18 @@ hero text and content.
 
 - index.html - build player spotlight section AFTER the roster page so the design is coherent
 
-- update desktop header sponsors to use sponsors.json
-
 
 
 # REVISIONS
-- Edit section.header-sponsors-wrapper and section#mobile-sponsors to use a javascript array instead of hardcoded HTML.
+- Edit section.header-sponsors-wrapper and section#mobile-sponsors (done) to use a js to auto-populate using json.
 
 - style select element in roster.html
 
-- use javascript to build header/nav from array
+- use javascript to auto-populate nav lists from json
 
 - use json + js to store team schedule and build next game, next game countdown, and upcoming schedule sections in index.html to auto-update.
+
+# NEXT
+1. clean up code
+2. design partners.html wireframe
+3. build partners.html
