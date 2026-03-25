@@ -10,8 +10,8 @@
     of these sections are denoted by comments such as:
 
     /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/* SECTION NAME */
+/*=============================================================*\
 
     The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
     Subsections have a single header comment such as:
@@ -31,13 +31,11 @@
 
 /* END META INFORMATION */
 
-
 /*====================================================================================================*/
 /* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
-
     /*----- colors -----*/
     --barons-black: #1b1818;
     --barons-brown-light: #c99f67;
@@ -56,7 +54,6 @@
     /*----- fonts -----*/
     --sans-font-1: "Oswald";
     --sans-font-2: "Oxanium";
-    
 }
 
 .hidden {
@@ -65,12 +62,12 @@
 
 /* END ROOT STYLES */
 
-
 /*====================================================================================================*/
 /* PRIVACY POLICY GLOBAL AND HEADING STYLES */
 /*====================================================================================================*/
 
-section#privacy-heading, section.clause {
+section#privacy-heading,
+section.clause {
     color: var(--barons-black);
     margin: 0 auto;
     max-width: 450px;
@@ -95,7 +92,6 @@ section#privacy-heading p {
 }
 
 /* END PRIVACY POLICY GLOBAL AND HEADING STYLES */
-
 
 /*====================================================================================================*/
 /* PRIVACY POLICY STYLES */
@@ -150,7 +146,6 @@ section.clause {
 
 /* END PRIVACY POLICY STYLES */
 
-
 /*====================================================================================================*/
 /* CONTACT STYLES */
 /*====================================================================================================*/
@@ -169,7 +164,8 @@ div#contact-box h4 {
     padding-bottom: 4px;
 }
 
-div#contact-box p, div#contact-box a {
+div#contact-box p,
+div#contact-box a {
     display: block;
     padding-top: 4px;
 }

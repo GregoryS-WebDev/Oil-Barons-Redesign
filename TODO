@@ -1,28 +1,27 @@
-
-
 # ADDITIONS
-- Update footer design for desktop viewport
 
-- index.html - Add a background image/video for the hero/landing of index.html
-and decrease brightness or add filter for extra legibility of
-hero text and content.
+-   Update footer design for desktop viewport
 
-- Integrate platinum tier sponsors into header sponsors section.
+-   index.html - Add a background image/video for the hero/landing of index.html
+    and decrease brightness or add filter for extra legibility of
+    hero text and content.
 
-- index.html - build player spotlight section AFTER the roster page so the design is coherent
+-   Integrate platinum tier sponsors into header sponsors section.
 
-
+-   index.html - build player spotlight section AFTER the roster page so the design is coherent
 
 # REVISIONS
-- Edit section.header-sponsors-wrapper and section#mobile-sponsors (done) to use a js to auto-populate using json.
 
-- style select element in roster.html
+-   Edit section.header-sponsors-wrapper and section#mobile-sponsors (done) to use a js to auto-populate using json.
 
-- use javascript to auto-populate nav lists from json
+-   style select element in roster.html
 
-- use json + js to store team schedule and build next game, next game countdown, and upcoming schedule sections in index.html to auto-update.
+-   use javascript to auto-populate nav lists from json
+
+-   use json + js to store team schedule and build next game, next game countdown, and upcoming schedule sections in index.html to auto-update.
 
 # NEXT
+
 1. clean up code
 2. design partners.html wireframe
 3. build partners.html

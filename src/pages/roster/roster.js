@@ -27,71 +27,71 @@
 /*====================================================================================================*/
 
 const categories = [
-  "PITCHERS",
-  "CATCHERS",
-  "INFIELDERS",
-  "OUTFIELDERS",
-  "COACHES",
+    "PITCHERS",
+    "CATCHERS",
+    "INFIELDERS",
+    "OUTFIELDERS",
+    "COACHES",
 ];
 
 function calcAge(day, month, year) {
-  if (!day || !month || !year) return "";
-  const dob = new Date(`${year}-${month}-${day}`);
-  const diff = Date.now() - dob.getTime();
-  const ageDate = new Date(diff);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
+    if (!day || !month || !year) return "";
+    const dob = new Date(`${year}-${month}-${day}`);
+    const diff = Date.now() - dob.getTime();
+    const ageDate = new Date(diff);
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
 function formatBirthday(day, month, year) {
-  if (!day || !month || !year) return "";
-  const d = new Date(`${year}-${month}-${day}`);
-  const age = calcAge(day, month, year);
-  return `${d.toLocaleDateString()} (${age})`;
+    if (!day || !month || !year) return "";
+    const d = new Date(`${year}-${month}-${day}`);
+    const age = calcAge(day, month, year);
+    return `${d.toLocaleDateString()} (${age})`;
 }
 
 function extendHandedness(handedness) {
-  if (!handedness) return "NA";
-  const h = handedness.toUpperCase();
-  if (h === "L") return "Left";
-  if (h === "R") return "Right";
-  return "NA";
+    if (!handedness) return "NA";
+    const h = handedness.toUpperCase();
+    if (h === "L") return "Left";
+    if (h === "R") return "Right";
+    return "NA";
 }
 
 function el(tag, classAttribute, content) {
-  const e = document.createElement(tag);
-  if (classAttribute) e.className = classAttribute;
-  if (content) e.innerHTML = content;
-  return e;
+    const e = document.createElement(tag);
+    if (classAttribute) e.className = classAttribute;
+    if (content) e.innerHTML = content;
+    return e;
 }
 
 function buildSocials(obj) {
-  const wrap = el("div", "socials");
+    const wrap = el("div", "socials");
 
-  if (obj.twitter) wrap.appendChild(link("twitter", obj.twitter));
-  if (obj.instagram) wrap.appendChild(link("instagram", obj.instagram));
-  if (obj.facebook) wrap.appendChild(link("facebook", obj.facebook));
+    if (obj.twitter) wrap.appendChild(link("twitter", obj.twitter));
+    if (obj.instagram) wrap.appendChild(link("instagram", obj.instagram));
+    if (obj.facebook) wrap.appendChild(link("facebook", obj.facebook));
 
-  return wrap.childElementCount ? wrap : null;
+    return wrap.childElementCount ? wrap : null;
 }
 
 function link(platform, href) {
-  const a = document.createElement("a");
-  a.href = href;
-  a.target = "_blank";
-  a.rel = "noopener noreferrer";
-  a.className = `social ${platform}`;
-  a.setAttribute("aria-label", platform);
-  a.innerHTML = getSocialIcon(platform);
-  return a;
+    const a = document.createElement("a");
+    a.href = href;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.className = `social ${platform}`;
+    a.setAttribute("aria-label", platform);
+    a.innerHTML = getSocialIcon(platform);
+    return a;
 }
 
 function getSocialIcon(platform) {
-  const icons = {
-    twitter: `<img src="../../assets/images/icons/x-icon.png" alt="twitter" />`,
-    instagram: `<img src="../../assets/images/icons/instagram-icon.png" alt="instagram" />`,
-    facebook: `<img src="../../assets/images/icons/facebook-icon.png" alt="facebook" />`,
-  };
-  return icons[platform] || "";
+    const icons = {
+        twitter: `<img src="../../assets/images/icons/x-icon.png" alt="twitter" />`,
+        instagram: `<img src="../../assets/images/icons/instagram-icon.png" alt="instagram" />`,
+        facebook: `<img src="../../assets/images/icons/facebook-icon.png" alt="facebook" />`,
+    };
+    return icons[platform] || "";
 }
 
 /* END ROSTER HELPER FUNCTIONS */
@@ -101,19 +101,19 @@ function getSocialIcon(platform) {
 /*====================================================================================================*/
 
 async function initRoster() {
-  const [rosterRes, coachesRes] = await Promise.all([
-    fetch("../../data/roster.json"),
-    fetch("../../data/coaches.json"),
-  ]);
+    const [rosterRes, coachesRes] = await Promise.all([
+        fetch("../../data/roster.json"),
+        fetch("../../data/coaches.json"),
+    ]);
 
-  if (!rosterRes.ok || !coachesRes.ok) {
-    throw new Error("Failed to load JSON data");
-  }
+    if (!rosterRes.ok || !coachesRes.ok) {
+        throw new Error("Failed to load JSON data");
+    }
 
-  const roster = await rosterRes.json();
-  const coaches = await coachesRes.json();
+    const roster = await rosterRes.json();
+    const coaches = await coachesRes.json();
 
-  render(roster, coaches);
+    render(roster, coaches);
 }
 
 /* END FETCH DATA AND CALL RENDER */
@@ -126,102 +126,102 @@ const rosterEl = document.getElementById("roster");
 const filterEl = document.getElementById("category-filter");
 
 function buildPlayerCard(player) {
-  const card = el("article", "card");
+    const card = el("article", "card");
 
-  const img = document.createElement("img");
-  img.src = player.image;
-  img.alt = player.name;
+    const img = document.createElement("img");
+    img.src = player.image;
+    img.alt = player.name;
 
-  const position = el("p", "position", player.position);
+    const position = el("p", "position", player.position);
 
-  const infoBox = el("div", "info-box");
-  const nameJersey = el("div", "name-jersey");
-  infoBox.appendChild(nameJersey);
+    const infoBox = el("div", "info-box");
+    const nameJersey = el("div", "name-jersey");
+    infoBox.appendChild(nameJersey);
 
-  const name = el("h3", "name", `${player.name}&nbsp;`);
-  const jersey = el("p", "jersey", player.jersey);
-  nameJersey.append(name, jersey);
+    const name = el("h3", "name", `${player.name}&nbsp;`);
+    const jersey = el("p", "jersey", player.jersey);
+    nameJersey.append(name, jersey);
 
-  const playerInfo = el(
-    "p",
-    "info",
-    `B/T: ${player.bats}/${player.throws} &nbsp; Ht: ${
-      player.height
-    } &nbsp; Wt: ${player.weight} <br />
+    const playerInfo = el(
+        "p",
+        "info",
+        `B/T: ${player.bats}/${player.throws} &nbsp; Ht: ${
+            player.height
+        } &nbsp; Wt: ${player.weight} <br />
         DOB: ${formatBirthday(
-          player.birthday,
-          player.birthmonth,
-          player.birthyear
+            player.birthday,
+            player.birthmonth,
+            player.birthyear
         )} <br />
         FROM: ${player.hometown}`
-  );
+    );
 
-  infoBox.appendChild(playerInfo);
-  card.append(img, position, infoBox);
+    infoBox.appendChild(playerInfo);
+    card.append(img, position, infoBox);
 
-  card.addEventListener("click", () => openModal(player, false));
+    card.addEventListener("click", () => openModal(player, false));
 
-  return card;
+    return card;
 }
 
 function buildCoachCard(coach) {
-  const card = el("article", "card");
+    const card = el("article", "card");
 
-  const img = document.createElement("img");
-  img.src = coach.image;
-  img.alt = coach.name;
+    const img = document.createElement("img");
+    img.src = coach.image;
+    img.alt = coach.name;
 
-  const infoBox = el("div", "info-box");
-  const nameJersey = el("div", "name-jersey");
-  infoBox.appendChild(nameJersey);
+    const infoBox = el("div", "info-box");
+    const nameJersey = el("div", "name-jersey");
+    infoBox.appendChild(nameJersey);
 
-  const name = el("h3", "name", `${coach.name}&nbsp;`);
-  const jersey = el("p", "jersey", coach.jersey);
-  nameJersey.append(name, jersey);
+    const name = el("h3", "name", `${coach.name}&nbsp;`);
+    const jersey = el("p", "jersey", coach.jersey);
+    nameJersey.append(name, jersey);
 
-  const coachInfo = el(
-    "p",
-    "info",
-    `${coach.position} <br />
+    const coachInfo = el(
+        "p",
+        "info",
+        `${coach.position} <br />
         DOB: ${formatBirthday(
-          coach.birthday,
-          coach.birthmonth,
-          coach.birthyear
+            coach.birthday,
+            coach.birthmonth,
+            coach.birthyear
         )} <br />
         FROM: ${coach.hometown}`
-  );
+    );
 
-  infoBox.appendChild(coachInfo);
-  card.append(img, infoBox);
+    infoBox.appendChild(coachInfo);
+    card.append(img, infoBox);
 
-  card.addEventListener("click", () => openModal(coach, true));
+    card.addEventListener("click", () => openModal(coach, true));
 
-  return card;
+    return card;
 }
 
 function render(roster, coaches, filter = "All") {
-  rosterEl.classList.remove("unloaded");
-  rosterEl.innerHTML = "";
+    rosterEl.classList.remove("unloaded");
+    rosterEl.innerHTML = "";
 
-  categories.forEach((category) => {
-    if (filter !== "All" && filter.toUpperCase() !== category) return;
+    categories.forEach((category) => {
+        if (filter !== "All" && filter.toUpperCase() !== category) return;
 
-    const group = el("div", "roster-category");
-    group.appendChild(el("h2", "category-header", category));
+        const group = el("div", "roster-category");
+        group.appendChild(el("h2", "category-header", category));
 
-    if (category === "COACHES") {
-      coaches.forEach((c) => group.appendChild(buildCoachCard(c)));
-    } else {
-      roster
-        .filter((p) => (p.category || "").toUpperCase() === category)
-        .forEach((p) => group.appendChild(buildPlayerCard(p)));
-    }
+        if (category === "COACHES") {
+            coaches.forEach((c) => group.appendChild(buildCoachCard(c)));
+        } else {
+            roster
+                .filter((p) => (p.category || "").toUpperCase() === category)
+                .forEach((p) => group.appendChild(buildPlayerCard(p)));
+        }
 
-    rosterEl.appendChild(group);
-  });
+        rosterEl.appendChild(group);
+    });
 
-  currentRoster = roster;
-  currentCoaches = coaches;
+    currentRoster = roster;
+    currentCoaches = coaches;
 }
 
 /* END ROSTER RENDERING */
@@ -234,7 +234,7 @@ let currentRoster = [];
 let currentCoaches = [];
 
 filterEl.addEventListener("change", (e) => {
-  render(currentRoster, currentCoaches, e.target.value);
+    render(currentRoster, currentCoaches, e.target.value);
 });
 
 /* END FILTER HANDLING */
@@ -254,55 +254,55 @@ const closeBtn = document.getElementById("close-modal");
 const body = document.getElementById("body");
 
 function openModal(obj, isCoach) {
-  modalName.textContent = obj.name;
+    modalName.textContent = obj.name;
 
-  modalImg.src = obj.image;
-  modalImg.alt = obj.name;
+    modalImg.src = obj.image;
+    modalImg.alt = obj.name;
 
-  modalBio.textContent = obj.bio || "";
+    modalBio.textContent = obj.bio || "";
 
-  if (isCoach) {
-    modalJerseyPos.innerHTML = "";
-    modalMeta.innerHTML = `
+    if (isCoach) {
+        modalJerseyPos.innerHTML = "";
+        modalMeta.innerHTML = `
       Position: ${obj.position}<br>
       DOB: ${formatBirthday(obj.birthday, obj.birthmonth, obj.birthyear)}
     `;
-  } else {
-    modalJerseyPos.innerHTML = `
+    } else {
+        modalJerseyPos.innerHTML = `
       #${obj.jersey} | ${obj.position}
     `;
-    modalMeta.innerHTML = `
+        modalMeta.innerHTML = `
       Ht: ${obj.height}&nbsp;&nbsp; Wt: ${obj.weight}<br>
       BAT/THR: ${extendHandedness(obj.bats)}/${extendHandedness(obj.throws)}<br>
       DOB: ${formatBirthday(obj.birthday, obj.birthmonth, obj.birthyear)}<br>
     `;
-  }
+    }
 
-  modalSocials.innerHTML = "";
+    modalSocials.innerHTML = "";
 
-  const socials = buildSocials(obj);
-  if (socials) modalSocials.appendChild(socials);
+    const socials = buildSocials(obj);
+    if (socials) modalSocials.appendChild(socials);
 
-  modal.showModal();
-  body.classList.add("modal-open");
+    modal.showModal();
+    body.classList.add("modal-open");
 }
 
 function closeModal() {
-  modal.close();
-  body.classList.remove("modal-open");
+    modal.close();
+    body.classList.remove("modal-open");
 }
 
 closeBtn.addEventListener("click", closeModal);
 
 modal.addEventListener("click", (e) => {
-  const rect = modal.getBoundingClientRect();
-  const inside =
-    e.clientX >= rect.left &&
-    e.clientX <= rect.right &&
-    e.clientY >= rect.top &&
-    e.clientY <= rect.bottom;
+    const rect = modal.getBoundingClientRect();
+    const inside =
+        e.clientX >= rect.left &&
+        e.clientX <= rect.right &&
+        e.clientY >= rect.top &&
+        e.clientY <= rect.bottom;
 
-  if (!inside) modal.close();
+    if (!inside) modal.close();
 });
 
 /* END MODAL */
@@ -312,7 +312,7 @@ modal.addEventListener("click", (e) => {
 /*====================================================================================================*/
 
 document.addEventListener("DOMContentLoaded", () => {
-  initRoster().catch((err) => console.error(err));
+    initRoster().catch((err) => console.error(err));
 });
 
 /* END INIT */

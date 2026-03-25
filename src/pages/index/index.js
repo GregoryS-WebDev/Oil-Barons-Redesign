@@ -40,31 +40,31 @@ const targetHour = "19"; // 00-23  HOUR
 const targetMinute = "00"; // 00-59  MINUTE
 
 const targetDate = new Date(
-  `${targetYear}-${targetMonth}-${targetDay}T${targetHour}:${targetMinute}:00`
+    `${targetYear}-${targetMonth}-${targetDay}T${targetHour}:${targetMinute}:00`
 );
 
 function updateCountdown() {
-  const now = new Date();
-  const diff = targetDate - now;
+    const now = new Date();
+    const diff = targetDate - now;
 
-  if (diff <= 0) {
-    daysEl.textContent = "0";
-    hoursEl.textContent = "00";
-    minutesEl.textContent = "00";
-    secondsEl.textContent = "00";
-    clearInterval(timer);
-    return;
-  }
+    if (diff <= 0) {
+        daysEl.textContent = "0";
+        hoursEl.textContent = "00";
+        minutesEl.textContent = "00";
+        secondsEl.textContent = "00";
+        clearInterval(timer);
+        return;
+    }
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
 
-  daysEl.textContent = days;
-  hoursEl.textContent = hours.toString().padStart(2, "0");
-  minutesEl.textContent = minutes.toString().padStart(2, "0");
-  secondsEl.textContent = seconds.toString().padStart(2, "0");
+    daysEl.textContent = days;
+    hoursEl.textContent = hours.toString().padStart(2, "0");
+    minutesEl.textContent = minutes.toString().padStart(2, "0");
+    secondsEl.textContent = seconds.toString().padStart(2, "0");
 }
 
 const daysEl = document.getElementById("days");
@@ -90,167 +90,147 @@ const timer = setInterval(updateCountdown, 1000);
 /*====================================================================================================*/
 
 (function () {
-  const container = document.getElementById("news-articles");
-  const modal = document.getElementById("article-modal");
-  const modalContent = document.getElementById("modal-content");
-  const closeBtn = document.getElementById("close-modal");
+    const container = document.getElementById("news-articles");
+    const modal = document.getElementById("article-modal");
+    const modalContent = document.getElementById("modal-content");
+    const closeBtn = document.getElementById("close-modal");
 
-  if (!container) return;
+    if (!container) return;
 
-  let articlesData = [];
+    let articlesData = [];
 
-  // =========================
-  // FETCH + INIT
-  // =========================
-  async function init() {
-    try {
-      const res = await fetch("../../data/news-articles.json");
-      const data = await res.json();
+    async function init() {
+        try {
+            const res = await fetch("../../data/news-articles.json");
+            const data = await res.json();
 
-      articlesData = data.articles || [];
+            articlesData = data.articles || [];
+            articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      // sort newest → oldest
-      articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      renderArticles(articlesData.slice(0, 4));
-    } catch (err) {
-      console.error("Failed to load articles:", err);
-      container.innerHTML = "<p>Unable to load latest news.</p>";
-    }
-  }
-
-  // =========================
-  // RENDER
-  // =========================
-  function renderArticles(articles) {
-    if (!articles.length) {
-      container.innerHTML = "<p>No news available.</p>";
-      return;
+            renderArticles(articlesData.slice(0, 4));
+        } catch (err) {
+            console.error("Failed to load articles:", err);
+            container.innerHTML = "<p>Unable to load latest news.</p>";
+        }
     }
 
-    container.innerHTML = "";
+    function renderArticles(articles) {
+        if (!articles.length) {
+            container.innerHTML = "<p>No news available.</p>";
+            return;
+        }
 
-    // --- TOP ARTICLE ---
-    const top = articles[0];
+        container.innerHTML = "";
 
-    const featuredArticle = document.createElement("article");
-    featuredArticle.id = "featured";
-    featuredArticle.className = "news-article";
-    featuredArticle.dataset.article = top.id;
-    featuredArticle.tabIndex = "0";
+        const top = articles[0];
 
-    featuredArticle.innerHTML = `
-            <img class="news-img" src="${top.image}" alt="" />
-            <h3 class="news-heading">
-                ${top.title}
-                <p id="latest-article-summary">${top.summary || ""}</p>
-            </h3>
+        const featuredArticle = document.createElement("article");
+        featuredArticle.id = "featured";
+        featuredArticle.className = "news-article";
+        featuredArticle.dataset.article = top.id;
+        featuredArticle.tabIndex = "0";
+
+        featuredArticle.innerHTML = `
+        <img class="news-img" src="${top.image}" alt="" />
+        <h3 class="news-heading">
+            ${top.title}
+            <p id="latest-article-summary">${top.summary || ""}</p>
+        </h3>
         `;
 
-    container.appendChild(featuredArticle);
+        container.appendChild(featuredArticle);
 
-    // --- OTHER ARTICLES ---
-    if (articles.length > 1) {
-      const otherWrapper = document.createElement("div");
-      otherWrapper.id = "other-articles";
+        if (articles.length > 1) {
+            const otherWrapper = document.createElement("div");
+            otherWrapper.id = "other-articles";
 
-      articles.slice(1).forEach((article) => {
-        const el = document.createElement("article");
-        el.className = "news-article";
-        el.dataset.article = article.id;
-        el.tabIndex = "0";
+            articles.slice(1).forEach((article) => {
+                const el = document.createElement("article");
+                el.className = "news-article";
+                el.dataset.article = article.id;
+                el.tabIndex = "0";
 
-        el.innerHTML = `
-                    <img class="news-img" src="${article.image}" alt="" />
-                    <h3 class="news-heading">
-                        <p class="article-date">${formatDate(article.date)}</p>
-                        ${article.title}
-                    </h3>
-                `;
+                el.innerHTML = `
+            <img class="news-img" src="${article.image}" alt="" />
+            <h3 class="news-heading">
+                <p class="article-date">${formatDate(article.date)}</p>
+                ${article.title}
+            </h3>
+            `;
 
-        otherWrapper.appendChild(el);
-      });
+                otherWrapper.appendChild(el);
+            });
 
-      container.appendChild(otherWrapper);
+            container.appendChild(otherWrapper);
+        }
+
+        attachClickHandlers();
     }
 
-    attachClickHandlers();
-  }
+    function attachClickHandlers() {
+        document
+            .querySelectorAll("#news-articles .news-article")
+            .forEach((card) => {
+                card.addEventListener("click", async () => {
+                    const id = card.dataset.article;
+                    const article = articlesData.find((a) => a.id === id);
 
-  // =========================
-  // MODAL LOGIC
-  // =========================
-  function attachClickHandlers() {
-    document
-      .querySelectorAll("#news-articles .news-article")
-      .forEach((card) => {
-        card.addEventListener("click", async () => {
-          const id = card.dataset.article;
-          const article = articlesData.find((a) => a.id === id);
+                    if (!article) return;
 
-          if (!article) return;
+                    try {
+                        const res = await fetch(`../news/${article.file}`);
+                        const html = await res.text();
 
-          try {
-            const res = await fetch(`../news/${article.file}`);
-            const html = await res.text();
+                        modalContent.innerHTML = `
+                            <h2 class="news-article-title">${article.title}</h2>
+                            <p class="news-article-summary">${
+                                article.summary || ""
+                            }</p>
+                            ${html}
+                        `;
 
-            modalContent.innerHTML = `
-                        <h2 class="news-article-title">${article.title}</h2>
-                        <p class="news-article-summary">${
-                          article.summary || ""
-                        }</p>
-                        ${html}
-                    `;
+                        openModal();
+                    } catch (err) {
+                        console.error("Failed to load article:", err);
+                    }
+                });
+            });
+    }
 
-            openModal();
-          } catch (err) {
-            console.error("Failed to load article:", err);
-          }
+    function openModal() {
+        if (typeof modal.showModal === "function") {
+            modal.showModal();
+        } else {
+            modal.setAttribute("open", "");
+        }
+
+        requestAnimationFrame(() => {
+            modal.scrollTop = 0;
+            modalContent.scrollTop = 0;
         });
-      });
-  }
-
-  function openModal() {
-    if (typeof modal.showModal === "function") {
-      modal.showModal();
-    } else {
-      modal.setAttribute("open", "");
     }
 
-    // reset scroll AFTER it's rendered
-    requestAnimationFrame(() => {
-      modal.scrollTop = 0;
-      modalContent.scrollTop = 0;
-    });
-  }
-
-  function closeModal() {
-    if (typeof modal.close === "function") {
-      modal.close();
-    } else {
-      modal.removeAttribute("open");
+    function closeModal() {
+        if (typeof modal.close === "function") {
+            modal.close();
+        } else {
+            modal.removeAttribute("open");
+        }
     }
-  }
 
-  closeBtn?.addEventListener("click", closeModal);
+    closeBtn?.addEventListener("click", closeModal);
 
-  // =========================
-  // HELPERS
-  // =========================
-  function formatDate(dateStr) {
-    const date = new Date(dateStr);
+    function formatDate(dateStr) {
+        const date = new Date(dateStr);
 
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  }
+        return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+        });
+    }
 
-  // =========================
-  // INIT
-  // =========================
-  init();
+    init();
 })();
 
 /* NEWS ARTICLE SHOW/HIDE TOGGLE */

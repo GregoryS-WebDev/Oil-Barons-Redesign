@@ -10,8 +10,8 @@
     of these sections are denoted by comments such as:
 
     /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/* SECTION NAME */
+/*=============================================================*\
 
     The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
     Subsections have a single header comment such as:
@@ -31,13 +31,11 @@
 
 /* END META INFORMATION */
 
-
 /*====================================================================================================*/
 /* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
-
     /*----- colors -----*/
     --barons-black: #1b1818;
     --barons-brown-light: #c99f67;
@@ -57,11 +55,9 @@
     /*----- fonts -----*/
     --sans-font-1: "Oswald";
     --sans-font-2: "Oxanium";
-    
 }
 
 /* END ROOT STYLES */
-
 
 /*====================================================================================================*/
 /* ROSTER HEADING */
@@ -95,7 +91,6 @@ select#category-filter {
 }
 
 /* END ROSTER HEADING */
-
 
 /*====================================================================================================*/
 /* ROSTER LIST STYLES */
@@ -163,7 +158,8 @@ section#roster {
     padding: 3px 0 5px;
 }
 
-.name, .jersey {
+.name,
+.jersey {
     display: inline-block;
 }
 
@@ -185,7 +181,6 @@ section#roster {
 
 /* END ROSTER LIST STYLES */
 
-
 /*====================================================================================================*/
 /* PLAYER PROFILE MODAL STYLES */
 /*====================================================================================================*/
@@ -202,7 +197,7 @@ section#roster {
 
 #player-modal::backdrop {
     backdrop-filter: blur(3px);
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 #close-modal {
@@ -272,7 +267,7 @@ section#roster {
 }
 
 #modal-meta {
-    font-size: .95rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     margin-top: 3px;
 }
@@ -284,7 +279,7 @@ section#roster {
     text-align: center;
 }
 
-#modal-socials img{
+#modal-socials img {
     height: 20px;
 }
 
@@ -308,13 +303,11 @@ section#roster {
 
 /* END PLAYER PROFILE MODAL STYLES */
 
-
 /*====================================================================================================*/
 /* RESPONSIVE ROSTER STYLES - LARGE MOBILE */
 /*====================================================================================================*/
 
 @media screen and (min-width: 480px) {
-
     #roster-box h1 {
         font-size: 1.55rem;
     }
@@ -338,51 +331,42 @@ section#roster {
     .info {
         font-size: 1.05rem;
     }
-
 }
 
 /* END RESPONSIVE ROSTER STYLES - LARGE MOBILE */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE ROSTER STYLES - TABLET */
 /*====================================================================================================*/
 
 @media screen and (min-width: 768px) {
-
 }
 
 /* RESPONSIVE ROSTER STYLES - TABLET */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE ROSTER STYLES - LAPTOP */
 /*====================================================================================================*/
 
 @media screen and (min-width: 1024px) {
-
 }
 
 /* RESPONSIVE ROSTER STYLES - LAPTOP */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE ROSTER STYLES - DESKTOP */
 /*====================================================================================================*/
 
 @media screen and (min-width: 1440px) {
-
 }
 
 /* RESPONSIVE ROSTER STYLES - DESKTOP */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE ROSTER STYLES - 4K */
 /*====================================================================================================*/
 
 @media screen and (min-width: 2560px) {
-
 }
 
 /* RESPONSIVE ROSTER STYLES - 4K */

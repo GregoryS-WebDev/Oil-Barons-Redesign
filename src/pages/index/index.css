@@ -9,9 +9,9 @@
     This css file is separated into logical sections, with subsection headers integrated within. The start
     of these sections are denoted by comments such as:
 
-    /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/*=============================================================*/
+/* SECTION NAME */
+/*=============================================================*\
 
     The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
     Subsections have a single header comment such as:
@@ -31,13 +31,11 @@
 
 /* END META INFORMATION */
 
-
 /*====================================================================================================*/
 /* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
-
     /*----- colors -----*/
     --barons-black: #1b1818;
     --barons-brown-light: #c99f67;
@@ -56,11 +54,9 @@
     /*----- fonts -----*/
     --sans-font-1: "Oswald";
     --sans-font-2: "Oxanium";
-    
 }
 
 /* END ROOT STYLES */
-
 
 /*====================================================================================================*/
 /* HERO STYLES - NEXT GAME */
@@ -185,7 +181,6 @@ body.nav-open .time label {
 
 /* END HERO STYLES - NEXT GAME */
 
-
 /*====================================================================================================*/
 /* UPCOMING SCHEDULE SECTION */
 /*====================================================================================================*/
@@ -228,7 +223,8 @@ section#upcoming-dates {
     justify-content: center;
 }
 
-.at-vs, .upcoming-info {
+.at-vs,
+.upcoming-info {
     font-size: 0.8rem;
     text-align: center;
 }
@@ -261,7 +257,6 @@ section#upcoming-dates {
 }
 
 /* END UPCOMING SCHEDULE SECTION */
-
 
 /*====================================================================================================*/
 /* NEWS SECTION - FRONT END STYLES */
@@ -364,7 +359,6 @@ section#news {
 
 /* END NEWS SECTION - FRONT END STYLES */
 
-
 /*====================================================================================================*/
 /* NEWS SECTION - BACK END & ARTICLE STYLES */
 /*====================================================================================================*/
@@ -391,12 +385,12 @@ section#news {
     position: fixed;
     width: 100%;
 }
-      
+
 #article-modal::backdrop {
     backdrop-filter: blur(3px);
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, 0.6);
 }
-  
+
 #close-modal {
     background: none;
     border: none;
@@ -432,7 +426,8 @@ section#news {
     padding-bottom: 42px;
 }
 
-.news-article-text p, .news-article-text ul {
+.news-article-text p,
+.news-article-text ul {
     letter-spacing: 0.1px;
     padding-bottom: 20px;
 }
@@ -445,82 +440,62 @@ section#news {
 
 /* END NEWS SECTION - BACK END & ARTICLE STYLES */
 
-
 /*====================================================================================================*/
 /* PLAYER SPOTLIGHT SECTION */
 /*====================================================================================================*/
 
-
-
 /* END PLAYER SPOTLIGHT SECTION */
-
 
 /*====================================================================================================*/
 /* TEAM SHOP SECTION */
 /*====================================================================================================*/
 
-
-
 /* END TEAM SHOP SECTION */
-
 
 /*====================================================================================================*/
 /* ABOUT THE TEAM SECTION */
 /*====================================================================================================*/
 
-
-
 /* END ABOUT THE TEAM SECTION */
-
 
 /*====================================================================================================*/
 /* SPONSORSHIPS SECTION */
 /*====================================================================================================*/
 
-
-
 /* END SPONSORSHIPS SECTION */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE INDEX STYLES - TABLET */
 /*====================================================================================================*/
 
 @media screen and (min-width: 768px) {
-
 }
 
 /* RESPONSIVE INDEX STYLES - TABLET */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE INDEX STYLES - LAPTOP */
 /*====================================================================================================*/
 
 @media screen and (min-width: 1024px) {
-
 }
 
 /* RESPONSIVE INDEX STYLES - LAPTOP */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE INDEX STYLES - DESKTOP */
 /*====================================================================================================*/
 
 @media screen and (min-width: 1440px) {
-
 }
 
 /* RESPONSIVE INDEX STYLES - DESKTOP */
-
 
 /*====================================================================================================*/
 /* RESPONSIVE INDEX STYLES - 4K */
 /*====================================================================================================*/
 
 @media screen and (min-width: 2560px) {
-
 }
 
 /* RESPONSIVE INDEX STYLES - 4K */

@@ -9,9 +9,9 @@
     This css file is separated into logical sections, with subsection headers integrated within. The start
     of these sections are denoted by comments such as:
 
-    /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/*=============================================================*/
+/* SECTION NAME */
+/*=============================================================*\
 
     The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
     Subsections have a single header comment such as:
@@ -31,13 +31,11 @@
 
 /* END META INFORMATION */
 
-
 /*====================================================================================================*/
 /* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
-
     /*----- colors -----*/
     --barons-black: #1b1818;
     --barons-brown-light: #c99f67;
@@ -56,7 +54,6 @@
     /*----- fonts -----*/
     --sans-font-1: "Oswald";
     --sans-font-2: "Oxanium";
-    
 }
 
 /* END ROOT STYLES */

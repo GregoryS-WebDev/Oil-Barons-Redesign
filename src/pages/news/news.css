@@ -10,8 +10,8 @@
     of these sections are denoted by comments such as:
 
     /*=============================================================*/
-    /* SECTION NAME */
-    /*=============================================================*\
+/* SECTION NAME */
+/*=============================================================*\
 
     The end of each primary section is marked with a comment such as: /* END ROOT STYLES *\
     Subsections have a single header comment such as:
@@ -31,13 +31,11 @@
 
 /* END META INFORMATION */
 
-
 /*====================================================================================================*/
 /* ROOT STYLES */
 /*====================================================================================================*/
 
 :root {
-
     /*----- colors -----*/
     --barons-black: #1b1818;
     --barons-brown-light: #c99f67;
@@ -56,11 +54,9 @@
     /*----- fonts -----*/
     --sans-font-1: "Oswald";
     --sans-font-2: "Oxanium";
-    
 }
 
 /* END ROOT STYLES */
-
 
 /*====================================================================================================*/
 /* NEWS HEADING AND SELECT */
@@ -96,7 +92,6 @@ section#news {
 }
 
 /* END NEWS HEADING AND SELECT */
-
 
 /*====================================================================================================*/
 /* NEWS LIST */
@@ -150,7 +145,6 @@ section#news {
 
 /* END NEWS LIST */
 
-
 /*====================================================================================================*/
 /* NEWS ARTICLES */
 /*====================================================================================================*/
@@ -168,12 +162,12 @@ section#news {
     transform: none;
     width: 100%;
 }
-      
+
 #article-modal::backdrop {
     backdrop-filter: blur(3px);
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, 0.6);
 }
-  
+
 #close-modal {
     background: none;
     border: none;
@@ -208,7 +202,8 @@ section#news {
     padding-bottom: 42px;
 }
 
-.news-article-text p, .news-article-text ul {
+.news-article-text p,
+.news-article-text ul {
     letter-spacing: 0.1px;
     padding-bottom: 20px;
 }
