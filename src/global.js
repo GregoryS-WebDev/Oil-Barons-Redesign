@@ -45,6 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            if (menu.classList.contains("is-open")) {
+                menuToggle.click();
+                menuToggle.focus();
+            }
+        }
+    });
+
     function activateTab(index) {
         navTabs.forEach((t) => t.classList.remove("active"));
         subLists.forEach((l) => l.classList.remove("active"));
@@ -68,11 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getTabSequence() {
-        const seq = [];
+        const seq = [menuToggle];
 
         navTabs.forEach((tab, i) => {
             seq.push(tab);
-
             if (i === activeTabIndex) {
                 const links = getActiveLinks();
                 seq.push(...links);
@@ -89,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let index = seq.indexOf(current);
 
         if (index === -1) {
-            navTabs[0].focus();
+            menuToggle.focus();
             focusedTabIndex = 0;
             return;
         }
@@ -133,19 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 focusedTabIndex = (focusedTabIndex + 1) % navTabs.length;
                 navTabs[focusedTabIndex].focus();
             }
-
             if (e.key === "ArrowUp") {
                 e.preventDefault();
                 focusedTabIndex =
                     (focusedTabIndex - 1 + navTabs.length) % navTabs.length;
                 navTabs[focusedTabIndex].focus();
             }
-
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
                 activateTab(focusedTabIndex);
             }
-
             if (e.key === "ArrowRight") {
                 const links = getActiveLinks();
                 if (links.length) {
@@ -156,6 +161,19 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (isOnRight) {
+            const links = getActiveLinks();
+            const index = links.indexOf(focused);
+
+            if (e.key === "ArrowUp") {
+                e.preventDefault();
+                const prevIndex = index - 1 >= 0 ? index - 1 : links.length - 1;
+                links[prevIndex].focus();
+            }
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                const nextIndex = (index + 1) % links.length;
+                links[nextIndex].focus();
+            }
             if (e.key === "ArrowLeft") {
                 e.preventDefault();
                 navTabs[activeTabIndex].focus();
@@ -164,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     activateTab(0);
-    navTabs[0].focus();
+    menuToggle.focus();
 });
 
 /* END MOBILE NAVIGATION MENU SCRIPT */

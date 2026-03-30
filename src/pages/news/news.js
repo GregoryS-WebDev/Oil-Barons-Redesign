@@ -127,10 +127,11 @@
         requestAnimationFrame(() => {
             modal.scrollTop = 0;
             modalContent.scrollTop = 0;
-            modalContent.tabIndex = -1;
-            modalContent.focus({ preventScroll: true });
+            modal.focus({ preventScroll: true });
         });
     }
+
+    modal.tabIndex = -1;
 
     function closeModal() {
         if (typeof modal.close === "function") {

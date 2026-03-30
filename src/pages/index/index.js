@@ -220,6 +220,8 @@ const timer = setInterval(updateCountdown, 1000);
         });
     }
 
+    modal.tabIndex = -1;
+
     function closeModal() {
         if (typeof modal.close === "function") {
             modal.close();
