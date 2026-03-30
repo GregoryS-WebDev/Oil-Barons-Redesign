@@ -38,9 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let focusedTabIndex = 0;
     let activeTabIndex = 0;
 
-    // -------------------------
-    // MENU TOGGLE (unchanged)
-    // -------------------------
     menuToggle.addEventListener("click", () => {
         const isOpen = menuToggle.classList.toggle("is-active");
         menu.classList.toggle("is-open");
@@ -48,12 +45,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
-    // -------------------------
-    // ACTIVATE TAB
-    // -------------------------
     function activateTab(index) {
-        navTabs.forEach(t => t.classList.remove("active"));
-        subLists.forEach(l => l.classList.remove("active"));
+        navTabs.forEach((t) => t.classList.remove("active"));
+        subLists.forEach((l) => l.classList.remove("active"));
 
         const tab = navTabs[index];
         tab.classList.add("active");
@@ -73,22 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
         return list ? Array.from(list.querySelectorAll("a")) : [];
     }
 
-    // -------------------------
-    // BUILD VIRTUAL TAB ORDER
-    // -------------------------
     function getTabSequence() {
         const seq = [];
-    
+
         navTabs.forEach((tab, i) => {
             seq.push(tab);
-    
+
             if (i === activeTabIndex) {
                 const links = getActiveLinks();
                 seq.push(...links);
-                // DO NOT push tab again
             }
         });
-    
+
         return seq;
     }
 
@@ -98,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let index = seq.indexOf(current);
 
-        // if somehow not found, reset to first tab
         if (index === -1) {
             navTabs[0].focus();
             focusedTabIndex = 0;
@@ -113,16 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const nextEl = seq[nextIndex];
         nextEl.focus();
 
-        // track left column focus
         const tabIndex = navTabs.indexOf(nextEl);
         if (tabIndex !== -1) {
             focusedTabIndex = tabIndex;
         }
     }
 
-    // -------------------------
-    // MOUSE (unchanged)
-    // -------------------------
     navTabs.forEach((tab, index) => {
         tab.addEventListener("mouseenter", (e) => {
             e.preventDefault();
@@ -131,49 +116,36 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // -------------------------
-    // KEYBOARD
-    // -------------------------
     menu.addEventListener("keydown", (e) => {
         const focused = document.activeElement;
         const isOnLeft = !!focused.closest(".nav-tab");
         const isOnRight = !!focused.closest(".sub-list a");
 
-        // -------------------------
-        // TAB HANDLING (CORE)
-        // -------------------------
         if (e.key === "Tab") {
             e.preventDefault();
             moveFocus(!e.shiftKey);
             return;
         }
 
-        // -------------------------
-        // LEFT COLUMN
-        // -------------------------
         if (isOnLeft) {
             if (e.key === "ArrowDown") {
                 e.preventDefault();
-                focusedTabIndex =
-                    (focusedTabIndex + 1) % navTabs.length;
+                focusedTabIndex = (focusedTabIndex + 1) % navTabs.length;
                 navTabs[focusedTabIndex].focus();
             }
 
             if (e.key === "ArrowUp") {
                 e.preventDefault();
                 focusedTabIndex =
-                    (focusedTabIndex - 1 + navTabs.length) %
-                    navTabs.length;
+                    (focusedTabIndex - 1 + navTabs.length) % navTabs.length;
                 navTabs[focusedTabIndex].focus();
             }
 
-            // ACTIVATE ONLY
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
                 activateTab(focusedTabIndex);
             }
 
-            // RIGHT → jump into active links
             if (e.key === "ArrowRight") {
                 const links = getActiveLinks();
                 if (links.length) {
@@ -183,9 +155,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // -------------------------
-        // RIGHT COLUMN
-        // -------------------------
         if (isOnRight) {
             if (e.key === "ArrowLeft") {
                 e.preventDefault();
@@ -194,9 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // -------------------------
-    // INIT
-    // -------------------------
     activateTab(0);
     navTabs[0].focus();
 });

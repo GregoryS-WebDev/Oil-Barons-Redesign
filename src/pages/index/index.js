@@ -216,6 +216,7 @@ const timer = setInterval(updateCountdown, 1000);
         requestAnimationFrame(() => {
             modal.scrollTop = 0;
             modalContent.scrollTop = 0;
+            modalContent.focus({ preventScroll: true });
         });
     }
 
@@ -228,6 +229,14 @@ const timer = setInterval(updateCountdown, 1000);
     }
 
     closeBtn?.addEventListener("click", closeModal);
+
+    modalContent.tabIndex = -1;
+
+    modal?.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeModal();
+        }
+    });
 
     function formatDate(dateStr) {
         const date = new Date(dateStr);

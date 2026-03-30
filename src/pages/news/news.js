@@ -45,7 +45,6 @@
 
             articlesData = data.articles || [];
 
-            // sort newest → oldest
             articlesData.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             renderArticles(articlesData);
@@ -128,6 +127,8 @@
         requestAnimationFrame(() => {
             modal.scrollTop = 0;
             modalContent.scrollTop = 0;
+            modalContent.tabIndex = -1;
+            modalContent.focus({ preventScroll: true });
         });
     }
 
@@ -140,6 +141,12 @@
     }
 
     closeBtn?.addEventListener("click", closeModal);
+
+    modal?.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeModal();
+        }
+    });
 
     function formatDate(dateStr) {
         const date = new Date(dateStr);
