@@ -182,7 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     activateTab(0);
-    menuToggle.focus();
 });
 
 /* END MOBILE NAVIGATION MENU SCRIPT */

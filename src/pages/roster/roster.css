@@ -99,6 +99,7 @@ select#category-filter {
 section#roster {
     margin-bottom: 70px;
     max-width: 450px;
+    min-height: 100vh;
     min-width: 256px;
     width: 80vw;
 }
@@ -129,6 +130,11 @@ section#roster {
     gap: 10px;
     margin-top: 15px;
     position: relative;
+}
+
+.card:focus-visible {
+    outline: 3px solid var(--barons-black);
+    border-radius: 4px;
 }
 
 .card:hover {

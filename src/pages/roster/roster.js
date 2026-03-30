@@ -125,6 +125,30 @@ async function initRoster() {
 const rosterEl = document.getElementById("roster");
 const filterEl = document.getElementById("category-filter");
 
+// Utility to create an element with class and optional innerHTML
+function el(tag, className, html) {
+    const element = document.createElement(tag);
+    if (className) element.className = className;
+    if (html !== undefined) element.innerHTML = html;
+    return element;
+}
+
+// Utility to format birthdays
+function formatBirthday(day, month, year) {
+    return `${month}/${day}/${year}`;
+}
+
+// Helper: Adds keyboard accessibility to a card
+function addKeyboardActivation(card, callback) {
+    card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault(); // prevent page scroll on Space
+            callback();
+        }
+    });
+}
+
+// Player card builder
 function buildPlayerCard(player) {
     const card = el("article", "card");
 
@@ -159,11 +183,15 @@ function buildPlayerCard(player) {
     infoBox.appendChild(playerInfo);
     card.append(img, position, infoBox);
 
-    card.addEventListener("click", () => openModal(player, false));
+    card.tabIndex = "0";
+    const open = () => openModal(player, false);
+    card.addEventListener("click", open);
+    addKeyboardActivation(card, open);
 
     return card;
 }
 
+// Coach card builder
 function buildCoachCard(coach) {
     const card = el("article", "card");
 
@@ -194,7 +222,10 @@ function buildCoachCard(coach) {
     infoBox.appendChild(coachInfo);
     card.append(img, infoBox);
 
-    card.addEventListener("click", () => openModal(coach, true));
+    card.tabIndex = "0";
+    const open = () => openModal(coach, true);
+    card.addEventListener("click", open);
+    addKeyboardActivation(card, open);
 
     return card;
 }

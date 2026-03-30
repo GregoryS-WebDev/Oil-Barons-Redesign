@@ -71,7 +71,7 @@
     -webkit-tap-highlight-color: transparent !important;
 }
 
-*:focus:not(:focus-visible), #close-modal:focus:not(:focus-visible) {
+*:focus:not(:focus-visible), #close-modal:focus:not(:focus-visible), .menu-toggle:focus:not(:focus-visible) {
     outline: none !important;
 }
 
