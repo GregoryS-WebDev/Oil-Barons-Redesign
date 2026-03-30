@@ -303,7 +303,7 @@ section#news {
 
 #featured .news-img {
     border-radius: 5px;
-    height: calc(66% - 12px);
+    height: calc(66vw - 12px);
     max-height: 300px;
     max-width: 450px;
     object-position: 50% 33%;

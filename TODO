@@ -16,7 +16,7 @@
 
 -   style select element in roster.html
 
--   use javascript to auto-populate nav lists from json
+-   use javascript to auto-populate nav lists from json, using BUTTON elements for the left-column categories instead of anchor elements.
 
 -   use json + js to store team schedule and build next game, next game countdown, and upcoming schedule sections in index.html to auto-update.
 

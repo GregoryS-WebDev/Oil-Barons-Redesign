@@ -32,34 +32,173 @@
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector("#mobile-nav");
-    const navTabs = document.querySelectorAll(".nav-tab");
-    const primaryItems = document.querySelectorAll(".primary-li");
-    const subLists = document.querySelectorAll(".sub-list");
+    const navTabs = Array.from(document.querySelectorAll(".nav-tab"));
+    const subLists = Array.from(document.querySelectorAll(".sub-list"));
 
+    let focusedTabIndex = 0;
+    let activeTabIndex = 0;
+
+    // -------------------------
+    // MENU TOGGLE (unchanged)
+    // -------------------------
     menuToggle.addEventListener("click", () => {
         const isOpen = menuToggle.classList.toggle("is-active");
         menu.classList.toggle("is-open");
         document.body.classList.toggle("nav-open");
-
         document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
-    navTabs.forEach((tab) => {
-        tab.addEventListener("mouseenter", (e) => {
-            e.preventDefault();
+    // -------------------------
+    // ACTIVATE TAB
+    // -------------------------
+    function activateTab(index) {
+        navTabs.forEach(t => t.classList.remove("active"));
+        subLists.forEach(l => l.classList.remove("active"));
 
-            navTabs.forEach((t) => t.classList.remove("active"));
-            tab.classList.add("active");
+        const tab = navTabs[index];
+        tab.classList.add("active");
 
-            subLists.forEach((list) => list.classList.remove("active"));
-            const targetId = tab.getAttribute("data-target");
-            const targetList = document.getElementById(targetId);
+        const targetId = tab.getAttribute("data-target");
+        const list = document.getElementById(targetId);
+        if (list) list.classList.add("active");
 
-            if (targetList) {
-                targetList.classList.add("active");
+        activeTabIndex = index;
+    }
+
+    function getActiveLinks() {
+        const activeTab = navTabs[activeTabIndex];
+        const list = document.getElementById(
+            activeTab.getAttribute("data-target")
+        );
+        return list ? Array.from(list.querySelectorAll("a")) : [];
+    }
+
+    // -------------------------
+    // BUILD VIRTUAL TAB ORDER
+    // -------------------------
+    function getTabSequence() {
+        const seq = [];
+    
+        navTabs.forEach((tab, i) => {
+            seq.push(tab);
+    
+            if (i === activeTabIndex) {
+                const links = getActiveLinks();
+                seq.push(...links);
+                // DO NOT push tab again
             }
         });
+    
+        return seq;
+    }
+
+    function moveFocus(forward = true) {
+        const seq = getTabSequence();
+        const current = document.activeElement;
+
+        let index = seq.indexOf(current);
+
+        // if somehow not found, reset to first tab
+        if (index === -1) {
+            navTabs[0].focus();
+            focusedTabIndex = 0;
+            return;
+        }
+
+        let nextIndex = forward ? index + 1 : index - 1;
+
+        if (nextIndex >= seq.length) nextIndex = 0;
+        if (nextIndex < 0) nextIndex = seq.length - 1;
+
+        const nextEl = seq[nextIndex];
+        nextEl.focus();
+
+        // track left column focus
+        const tabIndex = navTabs.indexOf(nextEl);
+        if (tabIndex !== -1) {
+            focusedTabIndex = tabIndex;
+        }
+    }
+
+    // -------------------------
+    // MOUSE (unchanged)
+    // -------------------------
+    navTabs.forEach((tab, index) => {
+        tab.addEventListener("mouseenter", (e) => {
+            e.preventDefault();
+            focusedTabIndex = index;
+            activateTab(index);
+        });
     });
+
+    // -------------------------
+    // KEYBOARD
+    // -------------------------
+    menu.addEventListener("keydown", (e) => {
+        const focused = document.activeElement;
+        const isOnLeft = !!focused.closest(".nav-tab");
+        const isOnRight = !!focused.closest(".sub-list a");
+
+        // -------------------------
+        // TAB HANDLING (CORE)
+        // -------------------------
+        if (e.key === "Tab") {
+            e.preventDefault();
+            moveFocus(!e.shiftKey);
+            return;
+        }
+
+        // -------------------------
+        // LEFT COLUMN
+        // -------------------------
+        if (isOnLeft) {
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                focusedTabIndex =
+                    (focusedTabIndex + 1) % navTabs.length;
+                navTabs[focusedTabIndex].focus();
+            }
+
+            if (e.key === "ArrowUp") {
+                e.preventDefault();
+                focusedTabIndex =
+                    (focusedTabIndex - 1 + navTabs.length) %
+                    navTabs.length;
+                navTabs[focusedTabIndex].focus();
+            }
+
+            // ACTIVATE ONLY
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                activateTab(focusedTabIndex);
+            }
+
+            // RIGHT → jump into active links
+            if (e.key === "ArrowRight") {
+                const links = getActiveLinks();
+                if (links.length) {
+                    e.preventDefault();
+                    links[0].focus();
+                }
+            }
+        }
+
+        // -------------------------
+        // RIGHT COLUMN
+        // -------------------------
+        if (isOnRight) {
+            if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                navTabs[activeTabIndex].focus();
+            }
+        }
+    });
+
+    // -------------------------
+    // INIT
+    // -------------------------
+    activateTab(0);
+    navTabs[0].focus();
 });
 
 /* END MOBILE NAVIGATION MENU SCRIPT */

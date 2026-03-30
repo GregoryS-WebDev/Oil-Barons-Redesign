@@ -9,7 +9,7 @@
     This css file is separated into logical sections, with subsection headers integrated within. The start
     of these sections are denoted by comments such as:
 
-    /*=============================================================*/
+/*=============================================================*/
 /* SECTION NAME */
 /*=============================================================*\
 
@@ -69,6 +69,10 @@
 *,
 *:active {
     -webkit-tap-highlight-color: transparent !important;
+}
+
+*:focus:not(:focus-visible), #close-modal:focus:not(:focus-visible) {
+    outline: none !important;
 }
 
 html {

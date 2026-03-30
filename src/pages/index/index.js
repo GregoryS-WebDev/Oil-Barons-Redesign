@@ -171,7 +171,7 @@ const timer = setInterval(updateCountdown, 1000);
         document
             .querySelectorAll("#news-articles .news-article")
             .forEach((card) => {
-                card.addEventListener("click", async () => {
+                const openArticle = async () => {
                     const id = card.dataset.article;
                     const article = articlesData.find((a) => a.id === id);
 
@@ -192,6 +192,15 @@ const timer = setInterval(updateCountdown, 1000);
                         openModal();
                     } catch (err) {
                         console.error("Failed to load article:", err);
+                    }
+                };
+
+                card.addEventListener("click", openArticle);
+
+                card.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        openArticle();
                     }
                 });
             });
