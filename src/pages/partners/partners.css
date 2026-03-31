@@ -93,12 +93,14 @@ section.sponsor-tier {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    max-width: 450px;
+    margin: 12px auto 0;
+    gap: 12px;
     padding: 5px 10px;
 }
 
 section.sponsor-tier#platinum {
-    margin-top: 24px;
+    margin-top: 20px;
 }
 
 .sponsor {
@@ -108,7 +110,6 @@ section.sponsor-tier#platinum {
 .platinum.sponsor,
 .platinum-link {
     width: 100%;
-    max-width: 450px;
     border-radius: 6px;
 }
 
