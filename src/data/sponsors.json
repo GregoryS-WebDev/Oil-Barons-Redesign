@@ -4,6 +4,7 @@
         "id": "entergy",
         "address": "https://www.entergytexas.com/about",
         "image": "../../assets/sponsors/platinum/EntergyTexas_Logo.png",
+        "featured-image": "../../assets/sponsors/platinum/EntergyTexas_Logo-alt.png",
         "tier": "platinum"
     },
     {
@@ -11,6 +12,7 @@
         "id": "avenue-axe",
         "address": "https://www.avenueaxe.com/",
         "image": "../../assets/sponsors/gold/avenue-axe-sports-bar-logo.png",
+        "featured-image": "",
         "tier": "gold"    
     },
     {
@@ -18,6 +20,7 @@
         "id": "del-papa",
         "address": "https://delpapadistributing.com/",
         "image": "../../assets/sponsors/gold/DelPapa_logo_circle.png",
+        "featured-image": "",
         "tier": "gold"
     },
     {
@@ -25,6 +28,7 @@
         "id": "giglio",
         "address": "https://www.gigliodistributing.com/",
         "image": "../../assets/sponsors/gold/giglio-distributing-logo-compact.png",
+        "featured-image": "",
         "tier": "gold"
     },
     {
@@ -32,6 +36,7 @@
         "id": "curt-woodard",
         "address": "https://curtwoodardllc.com/",
         "image": "../../assets/sponsors/gold/curt-woodard-logo.png",
+        "featured-image": "",
         "tier": "gold"
     },
     {
@@ -39,6 +44,7 @@
         "id": "kidmed",
         "address": "https://kidmedpediatrics.com/",
         "image": "../../assets/sponsors/gold/kidmed-logo.png",
+        "featured-image": "",
         "tier": "gold"
     },
     {
@@ -46,6 +52,7 @@
         "id": "gt-insurance",
         "address": "https://www.gandtinsuranceagency.com/",
         "image": "../../assets/sponsors/gold/g-t-insurance-agency-logo.png",
+        "featured-image": "",
         "tier": "gold"
     },
     {
@@ -53,6 +60,7 @@
         "id": "rtfc",
         "address": "https://rtfc.org/",
         "image": "../../assets/sponsors/silver/rtfc-logo.png",
+        "featured-image": "",
         "tier": "silver"
     },
     {
@@ -60,6 +68,7 @@
         "id": "jasons-deli",
         "address": "https://www.jasonsdeli.com/",
         "image": "../../assets/sponsors/silver/jasons-deli-logo.png",
+        "featured-image": "",
         "tier": "silver"
     },
     {
@@ -67,6 +76,7 @@
         "id": "tekton",
         "address": "https://tektonresearch.com/",
         "image": "../../assets/sponsors/silver/Tekton-logo.png",
+        "featured-image": "",
         "tier": "silver"
     }
 ]
