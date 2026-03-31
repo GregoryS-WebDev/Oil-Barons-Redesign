@@ -4,7 +4,7 @@
 
     "_README": {
         "meta": "This file stores meta information about news articles",
-        "additions": "all new articles should be added at the TOP",
+        "additions": "all new articles should be added at the TOP of the articles array",
         "date-format": "Dates must be YYYY-MM-DD or optionally YYYY-MM-DDTHH:MM:SS",
         "image-path": "all image paths must be relative, which will mean every path will be ../../assets/images/name-of-image.extension",
         "types": "the type property will be used to filter articles on the news.html page (press-release, game-summary)"
