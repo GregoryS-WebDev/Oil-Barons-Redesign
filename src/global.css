@@ -307,9 +307,20 @@ body.nav-open .header-link {
     width: 100%;
 }
 
-#mobile-nav.is-open ~ footer *,
-#mobile-nav.is-open ~ main * {
-    opacity: 0% !important;
+main,
+footer,
+main *,
+footer * {
+    opacity: 1;
+    transition: all 0.3s ease !important;
+    visibility: visible;
+}
+
+#mobile-nav.is-open ~ main,
+#mobile-nav.is-open ~ footer,
+#mobile-nav.is-open ~ main *,
+#mobile-nav.is-open ~ footer * {
+    opacity: 0 !important;
     transition: all 0.3s ease !important;
     visibility: hidden !important;
 }
