@@ -312,7 +312,7 @@ footer,
 main *,
 footer * {
     opacity: 1;
-    transition: all 0.3s ease !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
     visibility: visible;
 }
 
@@ -321,7 +321,7 @@ footer * {
 #mobile-nav.is-open ~ main *,
 #mobile-nav.is-open ~ footer * {
     opacity: 0 !important;
-    transition: all 0.3s ease !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
     visibility: hidden !important;
 }
 

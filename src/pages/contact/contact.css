@@ -56,4 +56,159 @@
     --sans-font-2: "Oxanium";
 }
 
+* {
+    color: var(--barons-black);
+}
+
+footer {
+    margin-top: 60px;
+}
+
 /* END ROOT STYLES */
+
+/*====================================================================================================*/
+/* HERO STYLES */
+/*====================================================================================================*/
+
+section#hero {
+    padding: 32px 12px 40px;
+}
+
+.heading-subtext {
+    text-align: center;
+    opacity: 0.7;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+#hero-txt {
+    margin-top: 16px;
+}
+
+#hero-txt p {
+    padding-top: 16px;
+    letter-spacing: 0.1px;
+}
+
+/* END HERO STYLES */
+
+/*====================================================================================================*/
+/* QUICK LINKS STYLES */
+/*====================================================================================================*/
+
+section#quick-links-box {
+    background-color: var(--barons-black);
+    padding: 28px 0 16px;
+}
+
+#quick-links-box .section-heading,
+#quick-links-box .heading-subtext {
+    color: var(--white);
+}
+
+#quick-links {
+    padding: 28px 12px 16px;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 16px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.quick-link {
+    text-align: center;
+    display: block;
+    width: 120px;
+    background-color: var(--barons-gold);
+    padding: 6px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+
+#primary-contact {
+    width: 100%;
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 400px;
+    border-radius: 4px;
+}
+
+#primary-contact * {
+    color: var(--white);
+}
+
+#pc-heading {
+    text-transform: uppercase;
+    font-size: 1.35rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+#pc-contact-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+#pc-phone-email,
+#pc-address {
+    padding: 0 12px;
+}
+
+#pc-contact-info h3 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.05rem;
+    color: var(--barons-gold);
+}
+
+#pc-contact-info a {
+    font-weight: 300;
+    font-size: 0.95rem;
+}
+
+#email {
+    padding-top: 8px;
+}
+
+#pc-socials {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pc-social-link,
+.pc-social-icon {
+    width: 24px;
+}
+
+/* END QUICK LINKS STYLES */
+
+/*====================================================================================================*/
+/* FAN SECTION STYLES */
+/*====================================================================================================*/
+
+/* END FAN SECTION STYLES */
+
+/*====================================================================================================*/
+/* BUSINESS INQUIRIES SECTION STYLES */
+/*====================================================================================================*/
+
+/* END BUSINESS INQUIRIES SECTION STYLES */
+
+/*====================================================================================================*/
+/* PLAYER SECTION STYLES */
+/*====================================================================================================*/
+
+/* END PLAYER SECTION STYLES */
+
+/*====================================================================================================*/
+/* MEDIA SECTION STYLES */
+/*====================================================================================================*/
+
+/* END MEDIA SECTION STYLES */
